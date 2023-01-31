@@ -1,33 +1,24 @@
 ---
 name: "✨ New Feature"
-about: Suggest an idea
+about: Suggest a feature
 title: "✨"
-labels: 'Type: Feature'
+labels: ''
 assignees: ''
 
 ---
-<!-- These comments automatically delete -->
-<!-- **Tip:** Delete parts that are not relevant -->
-<!-- Next to Cc:, @ mention users who should be in the loop -->
-Cc:
-<!-- add intended user next to **Hi** -->
-Hi 
-  
-### Pain
-<!-- Explain the pain you are experiencing -->
 
-### Suggested Solution
-<!-- Describe the solution you'd like -->
+#Overview
+What is the feature about? What will it change in the game?
 
-### Tasks
-<!--Add GitHub tasks-->
+#Expected Behavior
+How will it benefit the player or the devs? What is expected of it when it is ready?
+
+#Tasks
 - [ ] ...
 - [ ] ...
 
-### More Information
-<!-- Add any other context here. -->
+#Additional Information
+Add any other context about the feature here.
 
-### Screenshots
-<!-- If applicable, add screenshots to help explain your problem. -->
-
-Thanks!
+#Screenshots
+If applicable, select screenshots and images which may help to explain the feature.

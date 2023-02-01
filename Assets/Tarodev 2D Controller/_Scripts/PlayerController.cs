@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TarodevController {
     /// <summary>
@@ -47,11 +48,43 @@ namespace TarodevController {
 
         #region Gather Input
 
+        private bool _pressedJump;
+        private bool _releasedJump;
+        private float _playerMoveDirection;
+        public void PressJump(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _pressedJump = true;
+            }
+            else if (context.canceled)
+            {
+                _pressedJump = false;
+            }
+        }
+
+        public void ReleaseJump(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _releasedJump = true;
+            }
+            else if (context.canceled)
+            {
+                _releasedJump = false;
+            }
+        }
+
+        public void PlayerMovement(InputAction.CallbackContext context)
+        {
+            _playerMoveDirection = context.ReadValue<float>();
+        }
+
         private void GatherInput() {
             Input = new FrameInput {
-                JumpDown = UnityEngine.Input.GetButtonDown("Jump"),
-                JumpUp = UnityEngine.Input.GetButtonUp("Jump"),
-                X = UnityEngine.Input.GetAxisRaw("Horizontal")
+                JumpDown = _pressedJump,
+                JumpUp = _releasedJump,
+                X = _playerMoveDirection
             };
             if (Input.JumpDown) {
                 _lastJumpPressed = Time.time;

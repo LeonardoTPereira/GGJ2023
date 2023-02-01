@@ -14,9 +14,9 @@ public class EnemyMoveForward : MonoBehaviour
         enemyRb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    private void FixedUpdate()
     {
-        enemyRb.velocity = transform.forward * speed;
+        enemyRb.velocity = transform.right * speed;
     }
 
 }

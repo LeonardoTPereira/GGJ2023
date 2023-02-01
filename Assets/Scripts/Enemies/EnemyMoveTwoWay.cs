@@ -20,11 +20,12 @@ public class EnemyMoveTwoWay : MonoBehaviour
     private void Start()
     {
         currentPoint = pointA;
-        enemyRb.velocity = transform.forward * speed;
     }
 
     private void FixedUpdate()
     {
+        enemyRb.velocity = transform.right * speed + new Vector3(0, enemyRb.velocity.y, 0);
+        
         if (CheckFlip())
         {
             Flip();
@@ -44,10 +45,7 @@ public class EnemyMoveTwoWay : MonoBehaviour
     
     private void Flip()
     {
-        var currentScale = transform.localScale;
-
-        transform.localScale = new Vector3(-currentScale.x, currentScale.y, currentScale.z);
-
+        transform.Rotate(Vector3.up, 180);
     }
 
     private bool CheckPointReached()

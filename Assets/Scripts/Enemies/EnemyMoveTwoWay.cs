@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMoveTwoWay : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private Transform pointA;
-    [SerializeField] private Transform pointB;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private LayerMask mask;
+    [SerializeField] private float maxHorizontalDistance = 1f;
+    [SerializeField] private float maxVerticalDistance = 1f;
 
     private Transform currentPoint;
     
@@ -15,11 +17,6 @@ public class EnemyMoveTwoWay : MonoBehaviour
     private void Awake()
     {
         enemyRb = GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
-        currentPoint = pointA;
     }
 
     private void FixedUpdate()
@@ -31,16 +28,15 @@ public class EnemyMoveTwoWay : MonoBehaviour
             Flip();
         }
 
-        if (CheckPointReached())
-        {
-            ChangePoint();
-        }
     }
 
     private bool CheckFlip()
     {
         var currentTransform = transform;
-        return (currentPoint.position - currentTransform.position).x * (currentTransform.forward).x < 0;
+        
+        return (Physics2D.Raycast(currentTransform.position + currentTransform.right * maxHorizontalDistance,
+            -currentTransform.up,
+            maxVerticalDistance, mask).collider == null);
     } 
     
     private void Flip()
@@ -48,17 +44,4 @@ public class EnemyMoveTwoWay : MonoBehaviour
         transform.Rotate(Vector3.up, 180);
     }
 
-    private bool CheckPointReached()
-    {
-        return Vector3.Distance(transform.position, currentPoint.position) < 0.1f;
-    }
-
-    private void ChangePoint()
-    {
-        if (currentPoint == pointA)
-            currentPoint = pointB;
-        
-        else if (currentPoint == pointB)
-            currentPoint = pointA;
-    }
 }

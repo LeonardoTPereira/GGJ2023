@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7322133574100409377}
   - component: {fileID: 7322133574100409378}
   - component: {fileID: 6849905118419498419}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7322133574100409379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.24, y: -2.55, z: 0}
-  m_LocalScale: {x: 1, y: 1.9939, z: 1}
+  m_LocalScale: {x: 1, y: 1.2244539, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -146,6 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435bd83b42f8cfc498d29cc36b4fac65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  pointA: {fileID: 0}
-  pointB: {fileID: 0}
+  speed: 5
+  mask:
+    serializedVersion: 2
+    m_Bits: 33554432
+  maxHorizontalDistance: 1
+  maxVerticalDistance: 1

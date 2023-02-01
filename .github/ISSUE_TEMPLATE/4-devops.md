@@ -8,15 +8,15 @@ assignees: ''
 
 ---
 
-#Overview
+# Overview
 What is the DevOps feature about? What will it change in the solution?
 
-#Tasks
+# Tasks
 - [ ] ...
 - [ ] ...
 
-#Additional Information
+# Additional Information
 Add any other context about the DevOps concern here.
 
-#Screenshots
+# Screenshots
 If applicable, select screenshots and images which may help to explain the DevOps concern.

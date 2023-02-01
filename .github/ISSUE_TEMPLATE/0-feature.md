@@ -7,18 +7,18 @@ assignees: ''
 
 ---
 
-#Overview
+# Overview
 What is the feature about? What will it change in the game?
 
-#Expected Behavior
+# Expected Behavior
 How will it benefit the player or the devs? What is expected of it when it is ready?
 
-#Tasks
+# Tasks
 - [ ] ...
 - [ ] ...
 
-#Additional Information
+# Additional Information
 Add any other context about the feature here.
 
-#Screenshots
+# Screenshots
 If applicable, select screenshots and images which may help to explain the feature.

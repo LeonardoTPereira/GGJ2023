@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-#Overview
+# Overview
 A clear and concise description of what you expected to happen.
 
 # To Reproduce
@@ -17,12 +17,12 @@ Steps to reproduce the behavior:
 3. Scroll down to '....'
 4. See error
 
-#Tasks
+# Tasks
 - [ ] ...
 - [ ] ...
 
-#Additional Information
+# Additional Information
 Add any other context about the bug here.
 
-#Screenshots
+# Screenshots
 If applicable, select screenshots and images which may help to explain the bug.

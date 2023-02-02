@@ -19,6 +19,10 @@ namespace Player
         [SerializeField] private Transform[] primaryWeapon;
         [SerializeField] private Transform[] secondaryWeapon;
 
+        [SerializeField] private ParticleSystem usedBulletsParticle;
+        [SerializeField] private ParticleSystem muzzleEffectParticle;
+        [SerializeField] private ParticleSystem smokeParticle;
+
         private bool _canShoot;
         private bool _isHoldingShoot;
         private BulletData _primaryBulletData;
@@ -74,9 +78,12 @@ namespace Player
                 foreach (var spawnPoint in spawnPoints)
                 {
                     Instantiate(bullet.BulletObject, spawnPoint.position, spawnPoint.rotation);
+                    usedBulletsParticle.Play();
+                    muzzleEffectParticle.Play();
                 }
                 StartCoroutine(CountCooldown(bullet.BulletSo.Cooldown));
             }
+            smokeParticle.Play();
         }
 
         private IEnumerator CountCooldown(float bulletCooldown)

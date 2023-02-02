@@ -159,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2842802671171679322}
   - component: {fileID: 5055481999204041240}
-  - component: {fileID: 6950871305773680144}
+  - component: {fileID: 6893241841029300938}
   m_Layer: 0
   m_Name: CABECA
   m_TagString: Untagged
@@ -234,7 +234,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6950871305773680144
+--- !u!114 &6893241841029300938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3026511491857154148}
   - component: {fileID: 140379776660464433}
-  - component: {fileID: 7599646458632222938}
+  - component: {fileID: 5897967589831058802}
   m_Layer: 0
   m_Name: BRACO1_000
   m_TagString: Untagged
@@ -338,7 +338,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7599646458632222938
+--- !u!114 &5897967589831058802
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3053097167112746333}
   - component: {fileID: 6614761879038418547}
-  - component: {fileID: 3845642706918704897}
+  - component: {fileID: 2673562594817542177}
   m_Layer: 0
   m_Name: FOGO-TIRO2_000
   m_TagString: Untagged
@@ -523,7 +523,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3845642706918704897
+--- !u!114 &2673562594817542177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1166,7 +1166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3071663202349778801}
   - component: {fileID: 722647777743399746}
-  - component: {fileID: 1547649017886465605}
+  - component: {fileID: 7469962790054295494}
   m_Layer: 0
   m_Name: FOGO-TIRO1
   m_TagString: Untagged
@@ -1241,7 +1241,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1547649017886465605
+--- !u!114 &7469962790054295494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1267,7 +1267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5057280937967817793}
   - component: {fileID: 6887038356553014440}
-  - component: {fileID: 5968683131771702440}
+  - component: {fileID: 7538639558114459767}
   m_Layer: 0
   m_Name: FOGO-TIRO2
   m_TagString: Untagged
@@ -1342,7 +1342,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5968683131771702440
+--- !u!114 &7538639558114459767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

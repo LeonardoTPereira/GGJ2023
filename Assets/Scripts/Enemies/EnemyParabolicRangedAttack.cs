@@ -23,8 +23,13 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
             Flip();
 
         var currentBullet = Instantiate(bullet, transform.position, transform.rotation);
-        currentBullet.GetComponent<Rigidbody2D>().velocity =
-            (new Vector2(Mathf.Sqrt(2) / 2 * transform.right.x, Mathf.Sqrt(2) / 2)) * GetCurrentLaunchSpeed();
+
+        var angle = GetCurrentLaunchAngle();
+        var speed = GetCurrentLaunchSpeed(angle);
+        
+        var bulletVelocity = (new Vector2(Mathf.Cos(angle) * transform.right.x, Mathf.Sin(angle))) * speed ;
+
+        currentBullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
     }
     
     private bool CheckFlip()
@@ -36,8 +41,8 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
     {
         transform.Rotate(Vector3.up, 180);
     }
-    
-    private float GetCurrentLaunchSpeed()
+
+    private float GetCurrentLaunchAngle()
     {
         var relativePosition = target.position - transform.position;
         var a = relativePosition.x;
@@ -46,10 +51,34 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
         if (a < 0)
             a = -a;
 
-        if (a < b)
-            return 0f;
+        var minAngle = Mathf.Atan2(b, a);
+
+        if (minAngle >= Mathf.Deg2Rad * 80f)
+            return Mathf.Deg2Rad * 90f;
         
-        return Mathf.Sqrt(gravity * a * a / (a - b));
+        if (minAngle >= Mathf.Deg2Rad * 60f)
+            return Mathf.Deg2Rad * 80f;
+        
+        if (minAngle >= Mathf.Deg2Rad * 45f)
+            return Mathf.Deg2Rad * 60f;
+        
+        return Mathf.Deg2Rad * 45f;
+
+    }
+    
+    private float GetCurrentLaunchSpeed(float angle)
+    {
+        var relativePosition = target.position - transform.position;
+        var a = relativePosition.x;
+        var b = relativePosition.y;
+
+        if (a < 0)
+            a = -a;
+
+        if (a * Mathf.Tan(Mathf.Deg2Rad * 80f) < b)
+            return 100f;    
+        
+        return Mathf.Sqrt(gravity * a * a / ( 2* Mathf.Pow(Mathf.Cos(angle), 2) * (a * Mathf.Tan(angle) - b)));
     }
     
 }

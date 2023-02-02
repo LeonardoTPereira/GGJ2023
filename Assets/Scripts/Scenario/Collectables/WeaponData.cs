@@ -10,6 +10,7 @@ public enum WeaponType
 namespace Scenario.Collectables
 {
 
+    [CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObjects/Collectable/Weapon")]
     public class WeaponData : ScriptableObject
     {
         public WeaponType type;

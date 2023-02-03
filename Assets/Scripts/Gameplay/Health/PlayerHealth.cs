@@ -12,6 +12,9 @@ public class PlayerHealth : HealthController
     public static event Action<int> PlayerTakeDamageEvent;
     public static event Action<int> PlayerTakeHealEvent;
 
+    [SerializeField] private ParticleSystem damageParticle;
+    [SerializeField] private ParticleSystem deathParticle;
+
     private void Awake()
     {
         if (Instance != null)
@@ -28,6 +31,7 @@ public class PlayerHealth : HealthController
     protected override void Kill()
     {
         Debug.Log("GAME OVER");
+        deathParticle.Play();
         PlayerDiedEvent?.Invoke();
         base.Kill();
         //Destroy(gameObject);
@@ -38,6 +42,7 @@ public class PlayerHealth : HealthController
         if (base.GetCanTakeDamage())
         {
             PlayerTakeDamageEvent?.Invoke(damage);
+            damageParticle.Play();
             base.TakeDamage(damage);
         }
     }

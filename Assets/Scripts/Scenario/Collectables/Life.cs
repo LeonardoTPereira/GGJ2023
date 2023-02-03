@@ -10,5 +10,7 @@ public class Life : Collectable
     public override void BeCollectedBy(GameObject collector)
     {
         //Call life controller
+        Debug.Log("Life");
+        Destroy(gameObject);
     }
 }

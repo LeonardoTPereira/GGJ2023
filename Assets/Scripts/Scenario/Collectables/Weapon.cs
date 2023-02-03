@@ -12,6 +12,8 @@ namespace Scenario.Collectables
         public override void BeCollectedBy(GameObject collector)
         {
             //Call collector's weapon controller.
+            Debug.Log("Weapon");
+            Destroy(gameObject);
         }
     }    
 }

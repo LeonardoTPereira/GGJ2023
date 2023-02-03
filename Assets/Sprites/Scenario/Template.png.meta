@@ -20,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -961,27 +961,6 @@ TextureImporter:
       bones: []
       spriteID: 0384361efc0f1c34d87cd9131562f69e
       internalID: 1746289143
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Template_41
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 4
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68f11335aa5055c47bb0bb98eaa78e10
-      internalID: -63910039
       vertices: []
       indices: 
       edges: []

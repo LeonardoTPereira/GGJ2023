@@ -19912,6 +19912,9 @@ MonoBehaviour:
   - {fileID: 1890300677}
   secondaryWeapon:
   - {fileID: 1890300677}
+  usedBulletsParticle: {fileID: 0}
+  muzzleEffectParticle: {fileID: 0}
+  smokeParticle: {fileID: 0}
   cooldownBonus: 1
 --- !u!114 &1842924168678115953
 MonoBehaviour:

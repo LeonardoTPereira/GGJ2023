@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using MyBox;
+using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Bosses
 {
@@ -12,6 +13,7 @@ namespace Assets.Scripts.Bosses
         [field: SerializeField] public float InvincibilityTime { get; private set; }
         [field: SerializeField] public float MinAttackCooldown { get; private set; }
         [field: SerializeField] public float MaxAttackCooldown { get; private set; }
+        [field: SerializeField] public float JumpHeight { get; private set; }
         [field: SerializeField] public GameObject VerticalLeftAttackPrefab { get; private set; }
         [field: SerializeField] public GameObject VerticalRightAttackPrefab { get; private set; }
         [field: SerializeField] public GameObject HorizontalLeftAttackPrefab { get; private set; }
@@ -20,6 +22,7 @@ namespace Assets.Scripts.Bosses
         [field: SerializeField] public Transform RightClawPosition { get; private set; }
         [field: SerializeField] public Transform UpRightClawPosition { get; private set; }
         [field: SerializeField] public Transform UpLeftClawPosition { get; private set; }
+        [field: SerializeField] public Transform PlayerTransform { get; private set; }
         private int _currentHP;
         private Animator _animator;
         private bool _isInvincible;
@@ -27,6 +30,8 @@ namespace Assets.Scripts.Bosses
         private bool _isFlying;
         private Coroutine _attackRoutine;
         private Coroutine _jumpRoutine;
+        private Rigidbody2D _rigidbody2D;
+        private Vector2 _jumpTarget;
 
         private void Awake()
         {
@@ -35,6 +40,7 @@ namespace Assets.Scripts.Bosses
             _isEnraged = false;
             _isFlying = false;
             _animator = GetComponent<Animator>();
+            _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
         public void TakeDamage(int damage)
@@ -144,6 +150,17 @@ namespace Assets.Scripts.Bosses
         private void Jump()
         {
             _animator.SetTrigger("Jump");
+            _jumpTarget = PlayerTransform.position;
+            _rigidbody2D.velocity = new Vector2(_jumpTarget.x - transform.position.x, 0);
+            _rigidbody2D.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
+        }
+
+        private void FixedUpdate()
+        {
+            if (Mathf.Abs(transform.position.x - _jumpTarget.x) < 1)
+            {
+                _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+            }
         }
 
         private void Attack()

@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editor/MainMenu/main-menu.uss?fileID=7433441132597879392&amp;guid=94783d5e4a64e714999a7d27a7b9d0a3&amp;type=3#main-menu" />
+    <ui:IMGUIContainer name="main-container" style="height: 100%; width: 100%; padding-left: 10%; padding-right: 10%; padding-top: 10%; padding-bottom: 10%;">
+        <ui:IMGUIContainer name="central-container" style="height: 100%; width: 100%;">
+            <ui:IMGUIContainer name="button-container" class="button-container">
+                <ui:Button text="Play Icon" display-tooltip-when-elided="true" name="play-button" class="button" />
+                <ui:Button text="Something Icon&#10;" display-tooltip-when-elided="true" name="something-button" class="button" style="width: 98%;" />
+                <ui:Button text="Exit Icon" display-tooltip-when-elided="true" name="exit-button" class="button" />
+            </ui:IMGUIContainer>
+        </ui:IMGUIContainer>
+    </ui:IMGUIContainer>
+</ui:UXML>

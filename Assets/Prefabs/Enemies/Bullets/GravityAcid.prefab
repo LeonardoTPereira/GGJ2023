@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7059540043610800532}
   - component: {fileID: 3563800747184979606}
   - component: {fileID: 8990974317651327120}
+  - component: {fileID: 7252544648984125276}
   m_Layer: 23
   m_Name: GravityAcid
   m_TagString: Untagged
@@ -144,3 +145,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7252544648984125276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059540043610800535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca02a8a438413e94a97b34b6b9d77638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

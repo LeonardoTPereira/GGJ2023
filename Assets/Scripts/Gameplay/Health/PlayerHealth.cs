@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerHealth : HealthController
 {
+    [SerializeField] private Animator _anim;
     public static PlayerHealth Instance;
     public static event Action<int> InitializePlayerHealthEvent;
     public static event Action PlayerDiedEvent;
@@ -32,6 +33,7 @@ public class PlayerHealth : HealthController
     {
         Debug.Log("GAME OVER");
         deathParticle.Play();
+        _anim.SetTrigger("Death");
         PlayerDiedEvent?.Invoke();
         base.Kill();
         //Destroy(gameObject);
@@ -42,6 +44,7 @@ public class PlayerHealth : HealthController
         if (base.GetCanTakeDamage())
         {
             PlayerTakeDamageEvent?.Invoke(damage);
+            _anim.SetTrigger("Damage");
             damageParticle.Play();
             base.TakeDamage(damage);
         }

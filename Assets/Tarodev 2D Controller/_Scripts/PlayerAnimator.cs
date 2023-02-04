@@ -25,8 +25,11 @@ namespace TarodevController {
         private ParticleSystem.MinMaxGradient _currentGradient;
         private Vector2 _movement;
         private bool _isBlinking = false;
+        private bool _isRunning = false;
+        private bool _isDead = false;
 
         private Coroutine blinkCorroutine;
+        private Coroutine runCorroutine;
 
         void Awake() => _player = GetComponentInParent<IPlayerController>();
 
@@ -40,8 +43,20 @@ namespace TarodevController {
 
         }
 
+        private IEnumerator RunningLoop()
+        {
+            _isRunning = true;
+            yield return new WaitForSeconds(6);
+            _anim.SetTrigger("Running");
+            _isRunning = false;
+
+        }
+
+
         void Update() {
+
             if (_player == null) return;
+            if (_isDead) return;
 
             // Flip the sprite
             if (_player.Input.X != 0) transform.localScale = new Vector3(_player.Input.X > 0 ? 1 : -1, 1, 1);
@@ -56,6 +71,9 @@ namespace TarodevController {
                 _isBlinking = false;
                 StopCoroutine(blinkCorroutine);
                 _anim.SetBool("isWalking", true);
+
+                if (!_isRunning)
+                    runCorroutine = StartCoroutine(RunningLoop());
             }
             else
             {
@@ -104,14 +122,22 @@ namespace TarodevController {
             }
 
             _movement = _player.RawMovement; // Previous frame movement is more valuable
+
+        }
+
+        private void StopAllPlayerMovements()
+        {
+            _isDead = true;
         }
 
         private void OnDisable() {
             _moveParticles.Stop();
+            PlayerHealth.PlayerDiedEvent -= StopAllPlayerMovements;
         }
 
         private void OnEnable() {
             _moveParticles.Play();
+            PlayerHealth.PlayerDiedEvent += StopAllPlayerMovements;
         }
 
         void SetColor(ParticleSystem ps) {

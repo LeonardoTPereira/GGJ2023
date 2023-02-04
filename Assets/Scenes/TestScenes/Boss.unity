@@ -411,6 +411,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2000874187470131644, guid: 8c23382576d5628428f73b2aab619294, type: 3}
+      propertyPath: <RoomCenterX>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000874187470131644, guid: 8c23382576d5628428f73b2aab619294, type: 3}
       propertyPath: <PlayerTransform>k__BackingField
       value: 
       objectReference: {fileID: 75835151}
@@ -452,11 +456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2000874187470131647, guid: 8c23382576d5628428f73b2aab619294, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.97
+      value: 4.26
       objectReference: {fileID: 0}
     - target: {fileID: 2000874187470131647, guid: 8c23382576d5628428f73b2aab619294, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.76
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 2000874187470131647, guid: 8c23382576d5628428f73b2aab619294, type: 3}
       propertyPath: m_LocalPosition.z

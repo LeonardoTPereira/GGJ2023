@@ -14,6 +14,8 @@ namespace Assets.Scripts.Bosses
         [field: SerializeField] public float MinAttackCooldown { get; private set; }
         [field: SerializeField] public float MaxAttackCooldown { get; private set; }
         [field: SerializeField] public float JumpHeight { get; private set; }
+        [field: SerializeField] public float MinFlyHeight { get; private set; }
+        [field: SerializeField] public int RoomCenterX { get; private set; }
         [field: SerializeField] public GameObject VerticalLeftAttackPrefab { get; private set; }
         [field: SerializeField] public GameObject VerticalRightAttackPrefab { get; private set; }
         [field: SerializeField] public GameObject HorizontalLeftAttackPrefab { get; private set; }
@@ -28,6 +30,7 @@ namespace Assets.Scripts.Bosses
         private bool _isInvincible;
         private bool _isEnraged;
         private bool _isFlying;
+        private bool _isJumping;
         private Coroutine _attackRoutine;
         private Coroutine _jumpRoutine;
         private Rigidbody2D _rigidbody2D;
@@ -39,6 +42,7 @@ namespace Assets.Scripts.Bosses
             _isInvincible = false;
             _isEnraged = false;
             _isFlying = false;
+            _isJumping = false;
             _animator = GetComponent<Animator>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
@@ -119,6 +123,9 @@ namespace Assets.Scripts.Bosses
             _isFlying = true;
             StopCoroutine(_attackRoutine);
             StopCoroutine(_jumpRoutine);
+            _rigidbody2D.velocity = new Vector2(RoomCenterX - transform.position.x, 0);
+            _rigidbody2D.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
+            _isJumping = true;
             _animator.SetBool("Flying", true);
         }
 
@@ -150,6 +157,7 @@ namespace Assets.Scripts.Bosses
         private void Jump()
         {
             _animator.SetTrigger("Jump");
+            _isJumping = true;
             _jumpTarget = PlayerTransform.position;
             _rigidbody2D.velocity = new Vector2(_jumpTarget.x - transform.position.x, 0);
             _rigidbody2D.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
@@ -157,9 +165,26 @@ namespace Assets.Scripts.Bosses
 
         private void FixedUpdate()
         {
-            if (Mathf.Abs(transform.position.x - _jumpTarget.x) < 1)
+            if (_isJumping)
             {
+                if (_isFlying)
+                {
+                    if (Mathf.Abs(transform.position.x - RoomCenterX) >= 1) return;
+                    _rigidbody2D.gravityScale = 0;
+                }
+                else
+                {
+                    if (Mathf.Abs(transform.position.x - _jumpTarget.x) >= 1) return;
+                }
                 _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+                _isJumping = false;
+            }
+            else if (_isFlying)
+            {
+                var sinHeight = Mathf.Sin(Time.time);
+                var newHeight = sinHeight + MinFlyHeight;
+                var newPosition = new Vector2(transform.position.x, newHeight);
+                transform.position = newPosition;
             }
         }
 

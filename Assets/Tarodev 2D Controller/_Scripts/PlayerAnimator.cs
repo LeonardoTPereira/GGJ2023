@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,8 +24,21 @@ namespace TarodevController {
         private bool _playerGrounded;
         private ParticleSystem.MinMaxGradient _currentGradient;
         private Vector2 _movement;
+        private bool _isBlinking = false;
+
+        private Coroutine blinkCorroutine;
 
         void Awake() => _player = GetComponentInParent<IPlayerController>();
+
+        private IEnumerator BlinkingLoop()
+        {
+            _isBlinking = true;
+            float randomBliking = Random.Range(5, 10);
+            _anim.SetTrigger("isBlinking");
+            yield return new WaitForSeconds(randomBliking);
+            _isBlinking = false;
+
+        }
 
         void Update() {
             if (_player == null) return;
@@ -37,7 +51,18 @@ namespace TarodevController {
             _anim.transform.rotation = Quaternion.RotateTowards(_anim.transform.rotation, Quaternion.Euler(targetRotVector), _tiltSpeed * Time.deltaTime);
 
             // Speed up idle while running
-            _anim.SetFloat(IdleSpeedKey, Mathf.Lerp(1, _maxIdleSpeed, Mathf.Abs(_player.Input.X)));
+            if (Mathf.Abs(_player.Input.X) > 0.01)
+            {
+                _isBlinking = false;
+                StopCoroutine(blinkCorroutine);
+                _anim.SetBool("isWalking", true);
+            }
+            else
+            {
+                _anim.SetBool("isWalking", false);
+                if (!_isBlinking)
+                    blinkCorroutine = StartCoroutine(BlinkingLoop());
+            }
 
             // Splat
             if (_player.LandingThisFrame) {
@@ -99,6 +124,7 @@ namespace TarodevController {
         private static readonly int GroundedKey = Animator.StringToHash("Grounded");
         private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = Animator.StringToHash("Jump");
+        private static readonly int SpeedKey = Animator.StringToHash("Speed");
 
         #endregion
     }

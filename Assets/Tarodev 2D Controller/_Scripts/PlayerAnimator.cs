@@ -125,19 +125,19 @@ namespace TarodevController {
 
         }
 
-        private void StopAllPlayerMovements()
+        private void StopAllPlayerAnimations()
         {
             _isDead = true;
         }
 
         private void OnDisable() {
             _moveParticles.Stop();
-            PlayerHealth.PlayerDiedEvent -= StopAllPlayerMovements;
+            PlayerHealth.PlayerDiedEvent -= StopAllPlayerAnimations;
         }
 
         private void OnEnable() {
             _moveParticles.Play();
-            PlayerHealth.PlayerDiedEvent += StopAllPlayerMovements;
+            PlayerHealth.PlayerDiedEvent += StopAllPlayerAnimations;
         }
 
         void SetColor(ParticleSystem ps) {

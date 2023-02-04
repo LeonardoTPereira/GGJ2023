@@ -7,10 +7,17 @@ public class EnemyLineRangedAttack : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float initialForce = 50f;
     [SerializeField] private float repeatRate = 2f;
+    [SerializeField] private Animator animator;
     
     private void Start()
     {
+        InvokeRepeating("AnimateShoot", 0f, repeatRate);
         InvokeRepeating("Shoot", 0.5f, repeatRate);
+    }
+    
+    private void AnimateShoot()
+    {
+        animator.SetTrigger("Attack");
     }
     
     private void Shoot()

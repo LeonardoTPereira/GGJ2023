@@ -42,6 +42,8 @@ public class EnemyMoveTwoWay : MonoBehaviour
     private void Flip()
     {
         transform.Rotate(Vector3.up, 180);
+        var currentScale = transform.localScale;
+        transform.localScale = new Vector3(currentScale.x, currentScale.y, -currentScale.z);
     }
 
 }

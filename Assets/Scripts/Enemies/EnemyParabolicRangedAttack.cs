@@ -11,10 +11,17 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float fireRate;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
+        InvokeRepeating("AnimateShoot", 0f, fireRate);
         InvokeRepeating("Shoot", 0.5f, fireRate);
+    }
+
+    private void AnimateShoot()
+    {
+        animator.SetTrigger("Attack");
     }
 
     private void Shoot()
@@ -30,6 +37,7 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
         var bulletVelocity = (new Vector2(Mathf.Cos(angle) * transform.right.x, Mathf.Sin(angle))) * speed ;
 
         currentBullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
+        
     }
     
     private bool CheckFlip()
@@ -40,6 +48,8 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
     private void Flip()
     {
         transform.Rotate(Vector3.up, 180);
+        var currentScale = transform.localScale;
+        transform.localScale = new Vector3(currentScale.x, currentScale.y, -currentScale.z);
     }
 
     private float GetCurrentLaunchAngle()

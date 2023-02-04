@@ -8,6 +8,7 @@ public class EnemyLineRangedAttack : MonoBehaviour
     [SerializeField] private float initialForce = 50f;
     [SerializeField] private float repeatRate = 2f;
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform mouth;
     
     private void Start()
     {
@@ -22,7 +23,7 @@ public class EnemyLineRangedAttack : MonoBehaviour
     
     private void Shoot()
     {
-        var currentBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+        var currentBullet = Instantiate(bullet, mouth.position, transform.rotation);
         currentBullet.GetComponent<Rigidbody2D>().AddForce(transform.right*initialForce, ForceMode2D.Impulse);
     }
 

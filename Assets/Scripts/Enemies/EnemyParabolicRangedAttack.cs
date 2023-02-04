@@ -12,6 +12,7 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float fireRate;
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform mouth;
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
         if (CheckFlip())
             Flip();
 
-        var currentBullet = Instantiate(bullet, transform.position, transform.rotation);
+        var currentBullet = Instantiate(bullet, mouth.position, transform.rotation);
 
         var angle = GetCurrentLaunchAngle();
         var speed = GetCurrentLaunchSpeed(angle);

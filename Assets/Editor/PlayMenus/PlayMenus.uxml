@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editor/MainMenu/main-menu.uss?fileID=7433441132597879392&amp;guid=94783d5e4a64e714999a7d27a7b9d0a3&amp;type=3#main-menu" />
+    <ui:VisualElement name="PauseMenu" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="main-container" style="width: 100%; height: 100%;">
+            <ui:VisualElement name="menu-container" style="height: 100%; width: 50%; left: 25%; right: 25%; min-width: auto; min-height: auto;">
+                <ui:VisualElement name="button-container" style="height: 50%; top: 25%; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%;">
+                    <ui:VisualElement style="height: 25%; width: 20%; left: 40%; background-image: resource(&apos;personal/actionTreeBackgroundWithoutBorder&apos;);" />
+                    <ui:Button text="MainMenuIcone" display-tooltip-when-elided="true" class="button" />
+                    <ui:Button text="SairJogoIcone" display-tooltip-when-elided="true" class="button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

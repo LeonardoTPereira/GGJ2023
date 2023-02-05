@@ -1603,7 +1603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7983978042484371907}
   - component: {fileID: 9104020796333643467}
-  - component: {fileID: 5887846624077423635}
+  - component: {fileID: 6499047602405903184}
   m_Layer: 0
   m_Name: CabecaL1
   m_TagString: Untagged
@@ -1678,7 +1678,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5887846624077423635
+--- !u!114 &6499047602405903184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

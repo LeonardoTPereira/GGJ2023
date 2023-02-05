@@ -6,11 +6,15 @@ using UnityEngine;
 
 public class PlayerHealth : HealthController
 {
+    [SerializeField] private Animator _anim;
     public static PlayerHealth Instance;
     public static event Action<int> InitializePlayerHealthEvent;
     public static event Action PlayerDiedEvent;
     public static event Action<int> PlayerTakeDamageEvent;
     public static event Action<int> PlayerTakeHealEvent;
+
+    [SerializeField] private ParticleSystem damageParticle;
+    [SerializeField] private ParticleSystem deathParticle;
 
     private void Awake()
     {
@@ -28,6 +32,8 @@ public class PlayerHealth : HealthController
     protected override void Kill()
     {
         Debug.Log("GAME OVER");
+        deathParticle.Play();
+        _anim.SetTrigger("Death");
         PlayerDiedEvent?.Invoke();
         base.Kill();
         //Destroy(gameObject);
@@ -38,6 +44,8 @@ public class PlayerHealth : HealthController
         if (base.GetCanTakeDamage())
         {
             PlayerTakeDamageEvent?.Invoke(damage);
+            _anim.SetTrigger("Damage");
+            damageParticle.Play();
             base.TakeDamage(damage);
         }
     }

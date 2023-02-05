@@ -19488,6 +19488,37 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &2755756457720161516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7693014342901063726}
+  m_Layer: 0
+  m_Name: CameraFollowThis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7693014342901063726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755756457720161516}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6432609860406773170}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5124300410236407460
 GameObject:
   m_ObjectHideFlags: 0
@@ -19794,6 +19825,7 @@ Transform:
   m_Children:
   - {fileID: 5979605535021479280}
   - {fileID: 1890300677}
+  - {fileID: 7693014342901063726}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19860,6 +19892,9 @@ MonoBehaviour:
   maxHealth: 5
   invincibilityCooldown: 0.5
   hasDeathAnimation: 1
+  _anim: {fileID: 0}
+  damageParticle: {fileID: 0}
+  deathParticle: {fileID: 0}
 --- !u!114 &6432609860406773168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19915,6 +19950,7 @@ MonoBehaviour:
   usedBulletsParticle: {fileID: 0}
   muzzleEffectParticle: {fileID: 0}
   smokeParticle: {fileID: 0}
+  _anim: {fileID: 0}
   cooldownBonus: 1
 --- !u!114 &1842924168678115953
 MonoBehaviour:

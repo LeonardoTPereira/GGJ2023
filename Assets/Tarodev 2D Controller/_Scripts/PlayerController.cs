@@ -20,6 +20,8 @@ namespace TarodevController {
         public Vector3 RawMovement { get; private set; }
         public bool Grounded => _colDown;
 
+        private bool _isDead = false;
+
         private Vector3 _lastPosition;
         private float _currentHorizontalSpeed, _currentVerticalSpeed;
 
@@ -30,6 +32,8 @@ namespace TarodevController {
         
         private void Update() {
             if(!_active) return;
+
+            if (_isDead) return;
             // Calculate velocity
             Velocity = (transform.position - _lastPosition) / Time.deltaTime;
             _lastPosition = transform.position;
@@ -43,6 +47,21 @@ namespace TarodevController {
             CalculateJump(); // Possibly overrides vertical
 
             MoveCharacter(); // Actually perform the axis movement
+        }
+
+        private void StopAllPlayerMovements()
+        {
+            _isDead = true;
+        }
+
+        private void OnDisable()
+        {
+            PlayerHealth.PlayerDiedEvent -= StopAllPlayerMovements;
+        }
+
+        private void OnEnable()
+        {
+            PlayerHealth.PlayerDiedEvent += StopAllPlayerMovements;
         }
 
 

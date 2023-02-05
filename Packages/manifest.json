@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.domybest.mybox": "file:C:/Users/jhouu/Downloads/Compressed/MyBox-master/MyBox-master",
+    "com.domybest.mybox": "https://github.com/Deadcows/MyBox.git",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "2.0.0",
     "com.unity.feature.2d": "1.0.0",
@@ -15,6 +15,7 @@
     "com.unity.timeline": "1.6.4",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "2.0.4",
     "com.unity.ugui": "1.0.0",
+    "com.unity.visualeffectgraph": "12.1.10",
     "com.unity.visualscripting": "1.8.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",

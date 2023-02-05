@@ -296,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4603833141548791422}
   - component: {fileID: 5746327163125124547}
-  - component: {fileID: 1618401830789410581}
+  - component: {fileID: 5390472161553457255}
   m_Layer: 0
   m_Name: cabecainimigo1
   m_TagString: Untagged
@@ -371,7 +371,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1618401830789410581
+--- !u!114 &5390472161553457255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

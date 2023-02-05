@@ -17,7 +17,10 @@ namespace Gameplay.Bullets
         private void Start()
         {
             RigidBody = GetComponent<Rigidbody2D>();
-            StartCoroutine(Bullet.BulletMovement.Move(new Vector2(Bullet.XSpeed, Bullet.YSpeed), this));
+            if (!TarodevController.PlayerController.isLeftDirection)
+                StartCoroutine(Bullet.BulletMovement.Move(new Vector2((-1)*Bullet.XSpeed, Bullet.YSpeed), this));
+            else
+                StartCoroutine(Bullet.BulletMovement.Move(new Vector2(Bullet.XSpeed, Bullet.YSpeed), this));
         }
 
         private void OnTriggerEnter2D(Collider2D col)

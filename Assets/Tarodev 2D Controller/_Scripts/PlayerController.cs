@@ -25,6 +25,8 @@ namespace TarodevController {
         private Vector3 _lastPosition;
         private float _currentHorizontalSpeed, _currentVerticalSpeed;
 
+        public static bool isLeftDirection;
+
         // This is horrible, but for some reason colliders are not fully established when update starts...
         private bool _active;
         void Awake() => Invoke(nameof(Activate), 0.5f);
@@ -61,6 +63,7 @@ namespace TarodevController {
 
         private void OnEnable()
         {
+            isLeftDirection = true;
             PlayerHealth.PlayerDiedEvent += StopAllPlayerMovements;
         }
 
@@ -97,6 +100,9 @@ namespace TarodevController {
         public void PlayerMovement(InputAction.CallbackContext context)
         {
             _playerMoveDirection = context.ReadValue<float>();
+            isLeftDirection = false;
+            if (_playerMoveDirection > 0)
+                isLeftDirection = true;
         }
 
         private void GatherInput() {

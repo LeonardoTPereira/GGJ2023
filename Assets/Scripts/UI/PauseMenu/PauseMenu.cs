@@ -4,33 +4,49 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UI.Utils;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private VisualElement _root;
+    private VisualElement _pauseMenu;
 
-    private void OnEnable()
+    private bool _isPauseMenuActive;
+
+    private void Start()
     {
+
         VisualElement _root = GetComponent<UIDocument>().rootVisualElement;
 
-        Button startButton = _root.Q<Button>("play-button");
-        Button exitButton = _root.Q<Button>("exit-button");
+        _pauseMenu = _root.Q<VisualElement>("PauseMenu");
+        Button startButton = _pauseMenu.Q<Button>("main-menu");
+        Button exitButton = _pauseMenu.Q<Button>("exit");
 
         startButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         exitButton.clicked += () => Application.Quit();
 
-        UIUtils.Display(_root, true);
+        UIUtils.Display(_pauseMenu, false);
+
+        _isPauseMenuActive = false;
     }
 
-
-    private void SetPanelEnableState (VisualElement panel, bool finalState)
+    public void PressPauseButton(InputAction.CallbackContext context)
     {
-        if (finalState)
-            panel.style.display = DisplayStyle.Flex;
-        else
-            panel.style.display = DisplayStyle.None;
+        if (context.performed)
+        {
+            _isPauseMenuActive = !_isPauseMenuActive;
+            //UIUtils.Display(_pauseMenu, _isPauseMenuActive);
+            tes(_pauseMenu, _isPauseMenuActive);
+        }
+    }
 
-        panel.SetEnabled(finalState);
-        
+    public void tes(VisualElement panel, bool finalState)
+    {
+        if (panel == null)
+        {
+            Debug.Log("aaaaaaaa");
+            return;
+        }
+        panel.style.display = finalState ? DisplayStyle.Flex : DisplayStyle.None;
     }
 }

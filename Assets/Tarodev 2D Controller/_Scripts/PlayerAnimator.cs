@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,11 +24,39 @@ namespace TarodevController {
         private bool _playerGrounded;
         private ParticleSystem.MinMaxGradient _currentGradient;
         private Vector2 _movement;
+        private bool _isBlinking = false;
+        private bool _isRunning = false;
+        private bool _isDead = false;
+
+        private Coroutine blinkCorroutine;
+        private Coroutine runCorroutine;
 
         void Awake() => _player = GetComponentInParent<IPlayerController>();
 
+        private IEnumerator BlinkingLoop()
+        {
+            _isBlinking = true;
+            float randomBliking = Random.Range(5, 10);
+            _anim.SetTrigger("isBlinking");
+            yield return new WaitForSeconds(randomBliking);
+            _isBlinking = false;
+
+        }
+
+        private IEnumerator RunningLoop()
+        {
+            _isRunning = true;
+            yield return new WaitForSeconds(6);
+            _anim.SetTrigger("Running");
+            _isRunning = false;
+
+        }
+
+
         void Update() {
+
             if (_player == null) return;
+            if (_isDead) return;
 
             // Flip the sprite
             if (_player.Input.X != 0) transform.localScale = new Vector3(_player.Input.X > 0 ? 1 : -1, 1, 1);
@@ -37,7 +66,21 @@ namespace TarodevController {
             _anim.transform.rotation = Quaternion.RotateTowards(_anim.transform.rotation, Quaternion.Euler(targetRotVector), _tiltSpeed * Time.deltaTime);
 
             // Speed up idle while running
-            _anim.SetFloat(IdleSpeedKey, Mathf.Lerp(1, _maxIdleSpeed, Mathf.Abs(_player.Input.X)));
+            if (Mathf.Abs(_player.Input.X) > 0.01)
+            {
+                _isBlinking = false;
+                StopCoroutine(blinkCorroutine);
+                _anim.SetBool("isWalking", true);
+
+                if (!_isRunning)
+                    runCorroutine = StartCoroutine(RunningLoop());
+            }
+            else
+            {
+                _anim.SetBool("isWalking", false);
+                if (!_isBlinking)
+                    blinkCorroutine = StartCoroutine(BlinkingLoop());
+            }
 
             // Splat
             if (_player.LandingThisFrame) {
@@ -79,14 +122,22 @@ namespace TarodevController {
             }
 
             _movement = _player.RawMovement; // Previous frame movement is more valuable
+
+        }
+
+        private void StopAllPlayerAnimations()
+        {
+            _isDead = true;
         }
 
         private void OnDisable() {
             _moveParticles.Stop();
+            PlayerHealth.PlayerDiedEvent -= StopAllPlayerAnimations;
         }
 
         private void OnEnable() {
             _moveParticles.Play();
+            PlayerHealth.PlayerDiedEvent += StopAllPlayerAnimations;
         }
 
         void SetColor(ParticleSystem ps) {
@@ -99,6 +150,7 @@ namespace TarodevController {
         private static readonly int GroundedKey = Animator.StringToHash("Grounded");
         private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = Animator.StringToHash("Jump");
+        private static readonly int SpeedKey = Animator.StringToHash("Speed");
 
         #endregion
     }

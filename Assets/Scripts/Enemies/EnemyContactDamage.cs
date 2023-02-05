@@ -7,9 +7,12 @@ using UnityEngine;
 public class EnemyContactDamage : MonoBehaviour
 {
     [SerializeField] private int contactDamage = 1;
-    
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        //Hit player
+        if (col.gameObject.CompareTag("Player"))
+        {
+            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(contactDamage);
+        }
     }
 }

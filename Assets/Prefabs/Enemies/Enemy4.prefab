@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 7905377499348614205}
   - component: {fileID: 1347258470928445032}
   - component: {fileID: 3504360781668392571}
+  - component: {fileID: 6363308087168667986}
   m_Layer: 24
   m_Name: Enemy4
   m_TagString: Enemy
@@ -275,6 +276,19 @@ MonoBehaviour:
   fireRate: 2
   animator: {fileID: 1404826970614223229}
   mouth: {fileID: 6003770709170360784}
+--- !u!114 &6363308087168667986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905377499348614207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74794c8f77576043b19dd909b1ef693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
 --- !u!1001 &5121093283487226062
 PrefabInstance:
   m_ObjectHideFlags: 0

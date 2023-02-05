@@ -25,7 +25,7 @@ namespace Gameplay.Bullets
             if (CompareTag("PlayerBullet"))
             {
                 if (!col.gameObject.CompareTag("Enemy")) return;
-                EnemyHitEventHandler?.Invoke(null, new BulletHitEventArgs(Bullet));
+                col.gameObject.GetComponent<EnemyHealth>().TakeDamage(bullet.Damage);
                 DestroyBullet();
             }
             else if (CompareTag("EnemyBullet"))

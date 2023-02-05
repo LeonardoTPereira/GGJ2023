@@ -18,7 +18,7 @@ public class Parallax : MonoBehaviour
     {
         _xStartPos = this.transform.position.x;
         _yStartPos = this.transform.position.y;
-        //Debug.Log(GetComponent<SpriteRenderer>().bounds.size.x);
+        Debug.Log(GetComponent<SpriteRenderer>().bounds.size.x);
     }
 
     void Update()

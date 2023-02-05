@@ -813,7 +813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1441855408739941821}
   - component: {fileID: 2680389159166965939}
-  - component: {fileID: 3174807632947787793}
+  - component: {fileID: 1187301477254314417}
   m_Layer: 0
   m_Name: cabecaF2
   m_TagString: Untagged
@@ -888,7 +888,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3174807632947787793
+--- !u!114 &1187301477254314417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -918,7 +918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6123305768475156547}
   - component: {fileID: 3826733718164412825}
-  - component: {fileID: 4007718758326056370}
+  - component: {fileID: 7974082004300738901}
   m_Layer: 0
   m_Name: perna1_000
   m_TagString: Untagged
@@ -993,7 +993,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4007718758326056370
+--- !u!114 &7974082004300738901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

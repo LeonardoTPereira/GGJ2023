@@ -100,9 +100,10 @@ namespace TarodevController {
         public void PlayerMovement(InputAction.CallbackContext context)
         {
             _playerMoveDirection = context.ReadValue<float>();
-            isLeftDirection = false;
-            if (_playerMoveDirection > 0)
+            if (_playerMoveDirection > 0 && !isLeftDirection)
                 isLeftDirection = true;
+            else if (_playerMoveDirection < 0 && isLeftDirection)
+                isLeftDirection = false;
         }
 
         private void GatherInput() {

@@ -883,6 +883,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.9
       objectReference: {fileID: 0}
+    - target: {fileID: 1119307777211316766, guid: 941414a4a6435e24e9b7d96b58853782, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 1119307777211316767, guid: 941414a4a6435e24e9b7d96b58853782, type: 3}
       propertyPath: _jumpHeight
       value: 40
@@ -2361,6 +2365,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7905377499348614202, guid: 360ba4e110e6a804bb561daef43e9b36, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7905377499348614202, guid: 360ba4e110e6a804bb561daef43e9b36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 134
       objectReference: {fileID: 0}
@@ -3069,6 +3077,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 865652967160887117, guid: 9f43e4c7c17338445abe1f653f545add, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 865652967160887117, guid: 9f43e4c7c17338445abe1f653f545add, type: 3}
       propertyPath: m_LocalPosition.x
       value: 99.10664
       objectReference: {fileID: 0}
@@ -3584,7 +3596,7 @@ GameObject:
   - component: {fileID: 2050683260}
   m_Layer: 25
   m_Name: WithRules
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

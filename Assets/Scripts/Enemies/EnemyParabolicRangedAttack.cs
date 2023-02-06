@@ -8,7 +8,7 @@ using Vector3 = UnityEngine.Vector3;
 public class EnemyParabolicRangedAttack : MonoBehaviour
 {
     [SerializeField] private float gravity;
-    [SerializeField] private Transform target;
+    private Transform target;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float fireRate;
     [SerializeField] private Animator animator;
@@ -16,6 +16,8 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
 
     private void Start()
     {
+        target = GameObject.FindWithTag("Player").transform;
+        
         InvokeRepeating("AnimateShoot", 0f, fireRate);
         InvokeRepeating("Shoot", 0.5f, fireRate);
     }

@@ -1,3 +1,4 @@
+using Spriter2UnityDX;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,13 @@ public class MadMantisShaderManager : MonoBehaviour
     {
         _fillRate = 0f;
         _step = 0.05f;
-        _material = GetComponent<Renderer>().material;
         _animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        _material = GetComponent<EntityRenderer>().Material;
+        _material.SetFloat("_FillRate", 0);
     }
 
     public void Enrage()
@@ -28,8 +34,8 @@ public class MadMantisShaderManager : MonoBehaviour
     {
         while (_fillRate < 1.0f)
         {
-            _material.SetFloat("_FillRate", _fillRate);
             _fillRate += _step;
+            _material.SetFloat("_FillRate", _fillRate);
             yield return new WaitForSeconds(2 * _step);
         }
         _animator.SetTrigger("FinishedRage");

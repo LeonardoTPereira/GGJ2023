@@ -9,6 +9,7 @@ TagManager:
   - Block
   - VirtualCamera
   - Heal
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

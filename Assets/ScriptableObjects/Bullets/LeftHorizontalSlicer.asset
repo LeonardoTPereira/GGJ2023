@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LeftHorizontalSlicer
   m_EditorClassIdentifier: 
   bulletName: LeftHorizontalSlicer
-  xSpeed: -12
+  xSpeed: -25
   ySpeed: 0
   cooldown: 0.2
   damage: 1

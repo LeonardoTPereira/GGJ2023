@@ -32,6 +32,10 @@ namespace Assets.Scripts.Bosses
             _isInvincible = false;
             _isEnraged = false;
             _isFlying = false;
+        }
+
+        private void Start()
+        {
             _animator = GetComponent<Animator>();
         }
 
@@ -130,22 +134,26 @@ namespace Assets.Scripts.Bosses
 
         private void VerticalAttack()
         {
+            _animator.SetTrigger("VerticalAttack");
             Instantiate(VerticalLeftAttackPrefab, LeftClawPosition.position, transform.rotation);
         }
 
         private void DoubleVerticalAttack()
         {
+            _animator.SetTrigger("VerticalAttack");
             Instantiate(VerticalLeftAttackPrefab, LeftClawPosition.position, transform.rotation);
             Instantiate(VerticalRightAttackPrefab, RightClawPosition.position, transform.rotation);
         }
 
         private void HorizontalAttack()
         {
+            _animator.SetTrigger("HorizontalAttack");
             Instantiate(HorizontalLeftAttackPrefab, LeftClawPosition.position, transform.rotation);
         }
 
         private void DoubleHorizontalAttack()
         {
+            _animator.SetTrigger("HorizontalAttack");
             Instantiate(HorizontalLeftAttackPrefab, LeftClawPosition.position, transform.rotation);
             Instantiate(HorizontalRightAttackPrefab, RightClawPosition.position, transform.rotation);
         }

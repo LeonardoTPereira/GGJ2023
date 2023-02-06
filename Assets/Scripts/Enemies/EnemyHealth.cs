@@ -5,24 +5,23 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 5;
-    private int currentHealth;
+    [SerializeField] protected int maxHealth = 5;
+    protected int currentHealth;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int amount)
+    public virtual void TakeDamage(int amount)
     {
         if (amount < 0)
             return;
-        
+
         currentHealth -= amount;
 
         if (currentHealth <= 0)
             Die();
-
     }
 
     private void Die()
@@ -30,5 +29,4 @@ public class EnemyHealth : MonoBehaviour
         //Do something
         Destroy(gameObject);
     }
-    
 }

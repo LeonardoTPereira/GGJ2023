@@ -12,9 +12,12 @@ GameObject:
   - component: {fileID: 1702369126005452061}
   - component: {fileID: -2120367988332037381}
   - component: {fileID: -1514570023193842799}
+  - component: {fileID: -95624761936551973}
+  - component: {fileID: -5263079062605193856}
+  - component: {fileID: -130107444151332865}
   m_Layer: 0
   m_Name: RightVerticalAttack
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,8 +92,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8620bcf7fa769e94fa548c2fc0325ef4, type: 3}
-  m_Color: {r: 0.2783019, g: 1, b: 0.41103843, a: 1}
+  m_Sprite: {fileID: 21300000, guid: de64979dfdccc814f8834607df21e26a, type: 3}
+  m_Color: {r: 0.2783019, g: 1, b: 0.41103843, a: 0.9019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,3 +124,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-95624761936551973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632108650389549736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca02a8a438413e94a97b34b6b9d77638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5263079062605193856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632108650389549736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83553d8eb6dc8643983eab079c6c65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &-130107444151332865
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632108650389549736}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.8

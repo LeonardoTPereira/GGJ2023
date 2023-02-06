@@ -35,3 +35,14 @@
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
+.deactivate-visualization {
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(41, 22, 22, 0);
+    left: 0;
+}

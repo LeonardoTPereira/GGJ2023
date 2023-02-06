@@ -7,7 +7,7 @@ public class CameraRoomController : MonoBehaviour
 {
     private CinemachineConfiner2D _confiner;
     [SerializeField] private CompositeCollider2D _roomCompositeColl;
-
+    [SerializeField] private bool _isSpawnPoint;
 
     void Start()
     {
@@ -20,6 +20,12 @@ public class CameraRoomController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             _confiner.m_BoundingShape2D= _roomCompositeColl;
+
+            if (_isSpawnPoint)
+            {
+                SpawnManager.Instance.UpdateSpawnPoint();
+                _isSpawnPoint = false;
+            }
         }
     }
 }

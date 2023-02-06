@@ -28,6 +28,7 @@ public class PlayerHealth : HealthController
     {
         base.InitializeHealth();
         InitializePlayerHealthEvent?.Invoke(maxHealth);
+        this.transform.position = SpawnManager.Instance.GetSpawnPoint().position;
     }
 
     protected override void Kill()
@@ -38,7 +39,6 @@ public class PlayerHealth : HealthController
         PlayerDiedEvent?.Invoke();
         base.Kill();
 
-        //TEMPORARY ##############################################################
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //Destroy(gameObject);
     }
@@ -73,7 +73,7 @@ public class PlayerHealth : HealthController
                 break;
             //TEMPORARY ##############################################################
             case "Win":
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                WinMenu.Instance.DisplayWinMenu();
                 break;
         }
     }

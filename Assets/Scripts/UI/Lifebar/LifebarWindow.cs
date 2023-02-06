@@ -34,7 +34,7 @@ public class LifebarWindow : MonoBehaviour
         PlayerHealth.InitializePlayerHealthEvent += UI_SetMaxLife;
         PlayerHealth.PlayerTakeDamageEvent += UI_TakeDamage;
         PlayerHealth.PlayerTakeHealEvent += UI_TakeHeal;
-        _root = _UIDocument.rootVisualElement;
+        _root = _UIDocument.rootVisualElement.Q<VisualElement>("lifebar-container");
         _firstLine = _root.Q<GroupBox>("first-line");
         _secondLine = _root.Q<GroupBox>("second-line");
     }

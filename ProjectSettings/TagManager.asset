@@ -9,6 +9,7 @@ TagManager:
   - Block
   - VirtualCamera
   - Heal
+  - EnemyBullet
   - Win
   layers:
   - Default

@@ -1195,7 +1195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2472290614369869396}
   - component: {fileID: 4008951420139975830}
-  - component: {fileID: 1692843678036467224}
+  - component: {fileID: 872588196989116927}
   m_Layer: 0
   m_Name: cabeca6
   m_TagString: Untagged
@@ -1270,7 +1270,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1692843678036467224
+--- !u!114 &872588196989116927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

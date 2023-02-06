@@ -18,10 +18,12 @@ public class PauseMenu : MonoBehaviour
         VisualElement _root = GetComponent<UIDocument>().rootVisualElement;
         _pauseMenu = _root.Q<VisualElement>("PauseMenu");
 
-        Button startButton = _pauseMenu.Q<Button>("main-menu");
+        Button startButton = _pauseMenu.Q<Button>("play");
+        Button mainMenuButton = _pauseMenu.Q<Button>("main-menu");
         Button exitButton = _pauseMenu.Q<Button>("exit");
 
-        startButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        startButton.clicked += () => PauseOrUnpause();
+        mainMenuButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         exitButton.clicked += () => Application.Quit();
 
         UIUtils.Display(_pauseMenu, false);
@@ -33,13 +35,17 @@ public class PauseMenu : MonoBehaviour
     {
         if (context.performed)
         {
-            Time.timeScale = 0;
-            if (_isPauseMenuActive)
-                Time.timeScale = 1;
-
-            _isPauseMenuActive = !_isPauseMenuActive;
-            UIUtils.Display(_pauseMenu, _isPauseMenuActive);
-
+            PauseOrUnpause();
         }
+    }
+
+    private void PauseOrUnpause()
+    {
+        Time.timeScale = 0;
+        if (_isPauseMenuActive)
+            Time.timeScale = 1;
+
+        _isPauseMenuActive = !_isPauseMenuActive;
+        UIUtils.Display(_pauseMenu, _isPauseMenuActive);
     }
 }

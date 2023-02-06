@@ -10,6 +10,7 @@ TagManager:
   - VirtualCamera
   - Heal
   - EnemyBullet
+  - Win
   layers:
   - Default
   - TransparentFX

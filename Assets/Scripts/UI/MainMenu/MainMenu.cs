@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
         VisualElement _root = GetComponent<UIDocument>().rootVisualElement;
 
         Button startButton = _root.Q<Button>("play-button");
-        Button somethingButton = _root.Q<Button>("something-button");
+        Button somethingButton = _root.Q<Button>("credits-button");
         Button exitButton = _root.Q<Button>("exit-button");
 
         startButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

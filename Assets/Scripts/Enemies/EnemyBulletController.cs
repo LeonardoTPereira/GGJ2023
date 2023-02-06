@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AcidController : MonoBehaviour
+public class EnemyBulletController : MonoBehaviour
 {
 
     private IEnumerator Start()

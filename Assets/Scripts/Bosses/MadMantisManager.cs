@@ -6,12 +6,11 @@ namespace Assets.Scripts.Bosses
 {
     public class MadMantisManager : MonoBehaviour
     {
-        [field: SerializeField] public int MaxHP { get; private set; }
-        [field: SerializeField] public int EnragedHP { get; private set; }
-        [field: SerializeField] public int FlyingHP { get; private set; }
-        [field: SerializeField] public float InvincibilityTime { get; private set; }
         [field: SerializeField] public float MinAttackCooldown { get; private set; }
         [field: SerializeField] public float MaxAttackCooldown { get; private set; }
+        [field: SerializeField] public float JumpHeight { get; private set; }
+        [field: SerializeField] public float MinFlyHeight { get; private set; }
+        [field: SerializeField] public int RoomCenterX { get; private set; }
         [field: SerializeField] public GameObject VerticalLeftAttackPrefab { get; private set; }
         [field: SerializeField] public GameObject VerticalRightAttackPrefab { get; private set; }
         [field: SerializeField] public GameObject HorizontalLeftAttackPrefab { get; private set; }
@@ -20,63 +19,34 @@ namespace Assets.Scripts.Bosses
         [field: SerializeField] public Transform RightClawPosition { get; private set; }
         [field: SerializeField] public Transform UpRightClawPosition { get; private set; }
         [field: SerializeField] public Transform UpLeftClawPosition { get; private set; }
-        private int _currentHP;
+        [field: SerializeField] public Transform PlayerTransform { get; private set; }
+
+        [field: SerializeField] public bool IsEnraged { get; private set; }
+        [field: SerializeField] public bool IsFlying { get; private set; }
         private Animator _animator;
-        private bool _isInvincible;
-        private bool _isEnraged;
-        private bool _isFlying;
+        private bool _isJumping;
         private Coroutine _attackRoutine;
         private Coroutine _jumpRoutine;
+        private Rigidbody2D _rigidbody2D;
+        private Vector2 _jumpTarget;
 
         private void Awake()
         {
-            _currentHP = MaxHP;
-            _isInvincible = false;
-            _isEnraged = false;
-            _isFlying = false;
+            IsEnraged = false;
+            IsFlying = false;
+            _isJumping = false;
             _animator = GetComponent<Animator>();
+            _rigidbody2D = GetComponent<Rigidbody2D>();
         }
-
-        public void TakeDamage(int damage)
-        {
-            if (_isInvincible) return;
-            _currentHP -= damage;
-            if (_currentHP < EnragedHP && !_isEnraged)
-            {
-                StartRage();
-            }
-            else if (_currentHP < FlyingHP && !_isFlying)
-            {
-                StartFly();
-            }
-            else if (_currentHP <= 0)
-            {
-                StartDeath();
-            }
-            else
-            {
-                StartCoroutine(InvincibilityCooldown());
-            }
-        }
-
-#if UNITY_EDITOR
-
-        [ButtonMethod]
-        public void OneDamage()
-        {
-            TakeDamage(1);
-        }
-
-#endif
 
         public void StartAttack()
         {
-            _attackRoutine = StartCoroutine(AttackLoop());
+            _attackRoutine ??= StartCoroutine(AttackLoop());
         }
 
         public void StartJump()
         {
-            _jumpRoutine = StartCoroutine(JumpRoutine());
+            _jumpRoutine ??= StartCoroutine(JumpRoutine());
         }
 
         public void Die()
@@ -86,33 +56,33 @@ namespace Assets.Scripts.Bosses
 
         public void Fly()
         {
-            Debug.Log("Flying");
             StartAttack();
         }
 
-        private void StartDeath()
+        public void StartDeath()
         {
+            StopCoroutine(_attackRoutine);
             _animator.SetTrigger("Death");
         }
 
-        private IEnumerator InvincibilityCooldown()
+        public void StartRage()
         {
-            yield return new WaitForSeconds(InvincibilityTime);
-            _isInvincible = false;
-        }
-
-        private void StartRage()
-        {
-            _isEnraged = true;
+            IsEnraged = true;
             StopCoroutine(_attackRoutine);
+            _attackRoutine = null;
             _animator.SetBool("Enraged", true);
         }
 
-        private void StartFly()
+        public void StartFly()
         {
-            _isFlying = true;
+            IsFlying = true;
             StopCoroutine(_attackRoutine);
+            _attackRoutine = null;
             StopCoroutine(_jumpRoutine);
+            _jumpRoutine = null;
+            _rigidbody2D.velocity = new Vector2(RoomCenterX - transform.position.x, 0);
+            _rigidbody2D.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
+            _isJumping = true;
             _animator.SetBool("Flying", true);
         }
 
@@ -122,7 +92,7 @@ namespace Assets.Scripts.Bosses
             {
                 var coolDown = Random.Range(MinAttackCooldown, MaxAttackCooldown);
                 yield return new WaitForSeconds(coolDown);
-                if (_isEnraged)
+                if (IsEnraged)
                 {
                     EnragedAttack();
                 }
@@ -138,12 +108,50 @@ namespace Assets.Scripts.Bosses
             var coolDown = Random.Range(5 * MinAttackCooldown, 5 * MaxAttackCooldown);
             yield return new WaitForSeconds(coolDown);
             StopCoroutine(_attackRoutine);
+            _attackRoutine = null;
             Jump();
         }
 
         private void Jump()
         {
             _animator.SetTrigger("Jump");
+            _isJumping = true;
+            _jumpTarget = PlayerTransform.position;
+            _rigidbody2D.velocity = new Vector2(_jumpTarget.x - transform.position.x, 0);
+            _rigidbody2D.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
+            _jumpRoutine = null;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (!IsEnraged) return;
+            if (!collision.gameObject.CompareTag("Block")) return;
+            _isJumping = false;
+        }
+
+        private void FixedUpdate()
+        {
+            if (_isJumping)
+            {
+                if (IsFlying)
+                {
+                    if (Mathf.Abs(transform.position.x - RoomCenterX) >= 1) return;
+                    _rigidbody2D.gravityScale = 0;
+                    _isJumping = false;
+                }
+                else
+                {
+                    if (Mathf.Abs(transform.position.x - _jumpTarget.x) >= 1) return;
+                }
+                _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+            }
+            else if (IsFlying)
+            {
+                var sinHeight = Mathf.Sin(Time.time) * 4;
+                var newHeight = sinHeight + MinFlyHeight;
+                var newPosition = new Vector2(transform.position.x, newHeight);
+                transform.position = newPosition;
+            }
         }
 
         private void Attack()
@@ -172,22 +180,26 @@ namespace Assets.Scripts.Bosses
 
         private void VerticalAttack()
         {
+            _animator.SetTrigger("VerticalAttack");
             Instantiate(VerticalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
         }
 
         private void DoubleVerticalAttack()
         {
+            _animator.SetTrigger("VerticalAttack");
             Instantiate(VerticalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
             Instantiate(VerticalRightAttackPrefab, LeftClawPosition.position, transform.rotation);
         }
 
         private void HorizontalAttack()
         {
+            _animator.SetTrigger("HorizontalAttack");
             Instantiate(HorizontalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
         }
 
         private void DoubleHorizontalAttack()
         {
+            _animator.SetTrigger("HorizontalAttack");
             Instantiate(HorizontalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
             Instantiate(HorizontalRightAttackPrefab, LeftClawPosition.position, transform.rotation);
         }

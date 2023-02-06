@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : HealthController
 {
@@ -36,6 +37,9 @@ public class PlayerHealth : HealthController
         _anim.SetTrigger("Death");
         PlayerDiedEvent?.Invoke();
         base.Kill();
+
+        //TEMPORARY ##############################################################
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //Destroy(gameObject);
     }
 
@@ -66,6 +70,10 @@ public class PlayerHealth : HealthController
                 break;
             case "Heal":
                 ApplyHeal(1);
+                break;
+            //TEMPORARY ##############################################################
+            case "Win":
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 break;
         }
     }

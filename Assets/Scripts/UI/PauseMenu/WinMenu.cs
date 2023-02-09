@@ -1,27 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 using UI.Utils;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
-public class PauseMenu : MonoBehaviour
+public class WinMenu : MonoBehaviour
 {
     private VisualElement _menu;
     private bool _isPaused;
+    public static WinMenu Instance;
 
     private void Start()
     {
+        if (Instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
 
         VisualElement _root = GetComponent<UIDocument>().rootVisualElement;
-        _menu = _root.Q<VisualElement>("pause-menu-container");
+        _menu = _root.Q<VisualElement>("win-menu-container");
 
         Button startButton = _menu.Q<Button>("play");
         Button mainMenuButton = _menu.Q<Button>("main-menu");
         Button exitButton = _menu.Q<Button>("exit");
 
-        startButton.clicked += PauseOrUnpause;
+        startButton.clicked += () => 
+        { 
+            Time.timeScale = 1;
+            SpawnManager.Instance.ResetSpawnPoint();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        };
         mainMenuButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         exitButton.clicked += () => Application.Quit();
 
@@ -30,21 +40,10 @@ public class PauseMenu : MonoBehaviour
         _isPaused = false;
     }
 
-    public void PressPauseButton(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            PauseOrUnpause();
-        }
-    }
-
-    private void PauseOrUnpause()
+    public void DisplayWinMenu()
     {
         Time.timeScale = 0;
-        if (_isPaused)
-            Time.timeScale = 1;
+        UIUtils.Display(_menu, true);
 
-        _isPaused = !_isPaused;
-        UIUtils.Display(_menu, _isPaused);
     }
 }

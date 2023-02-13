@@ -1,13 +1,12 @@
 {
   "dependencies": {
     "com.domybest.mybox": {
-      "version": "https://github.com/Deadcows/MyBox.git",
+      "version": "file:C:/Users/jhouu/Downloads/Compressed/MyBox-master/MyBox-master",
       "depth": 0,
-      "source": "git",
+      "source": "local",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
-      },
-      "hash": "701527564a2ce99a26a65b8ad9fe53772a3f0739"
+      }
     },
     "com.unity.2d.animation": {
       "version": "7.0.9",

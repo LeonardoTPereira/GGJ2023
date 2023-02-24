@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1686972967
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9ec0ca269ec0b4f4fa12877c83d9dd88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -224,6 +224,7 @@ MonoBehaviour:
   usedBulletsParticle: {fileID: 8272143017390993848}
   muzzleEffectParticle: {fileID: 360293449610646909}
   smokeParticle: {fileID: 6689593771250070437}
+  _anim: {fileID: 0}
   cooldownBonus: 1
 --- !u!114 &5033319859813230717
 MonoBehaviour:
@@ -374,6 +375,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 84d15dd6-4613-4de8-8c0e-b3606201bcc9
     m_ActionName: Player/ReleaseJump[/XInputControllerWindows/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 828184f6-33a3-418f-afd4-21c20b1aac3c
+    m_ActionName: Player/PauseMenu[/Keyboard/escape,/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

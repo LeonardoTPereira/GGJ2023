@@ -45,6 +45,36 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackgroundFartest
+    uniqueID: 182149659
+    locked: 0
+  - name: BackgroundFar
+    uniqueID: 1197513687
+    locked: 0
+  - name: BackgroundMiddle
+    uniqueID: 3741184877
+    locked: 0
+  - name: BackgroundClose
+    uniqueID: 1874351467
+    locked: 0
+  - name: BackgroundClosest
+    uniqueID: 2157633621
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PlayerBullet
+    uniqueID: 965471649
+    locked: 0
+  - name: Enemy
+    uniqueID: 2255505405
+    locked: 0
+  - name: Player
+    uniqueID: 2440841187
+    locked: 0
+  - name: EnemyBullet
+    uniqueID: 1686972967
+    locked: 0
+  - name: Foreground
+    uniqueID: 1198840033
     locked: 0

@@ -81,7 +81,7 @@ namespace Player
                 {
                     Instantiate(bullet.BulletObject, spawnPoint.position, spawnPoint.rotation);
                     usedBulletsParticle.Play();
-                    muzzleEffectParticle.Play();
+                    //muzzleEffectParticle.Play();
                 }
                 StartCoroutine(CountCooldown(bullet.BulletSo.Cooldown));
             }

@@ -31,7 +31,7 @@ public class Parallax : MonoBehaviour
         transform.position = new Vector3(_xStartPos + _xDistance, _yStartPos + _yDistance, transform.position.z);
 
 
-        // Repositioning of the background sprites
+        // Repositioning of background sprites
         if (_temp > _xStartPos + _backgroundSlotSize * 2)
             _xStartPos += _backgroundSlotSize * 3;
         else if (_temp < _xStartPos - _backgroundSlotSize * 2)

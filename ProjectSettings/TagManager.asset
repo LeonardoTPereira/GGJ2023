@@ -60,6 +60,9 @@ TagManager:
   - name: BackgroundClosest
     uniqueID: 2157633621
     locked: 0
+  - name: Props
+    uniqueID: 129107703
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

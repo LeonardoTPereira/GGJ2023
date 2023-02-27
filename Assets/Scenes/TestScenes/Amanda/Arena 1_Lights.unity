@@ -212,8 +212,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 4.73
-  m_PointLightOuterRadius: 9.82
+  m_PointLightInnerRadius: 7.3
+  m_PointLightOuterRadius: 25.68
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210474503}
   m_LocalRotation: {x: 0, y: 0, z: -0.035624344, w: 0.99936527}
-  m_LocalPosition: {x: -30.7, y: 7.55, z: 0}
+  m_LocalPosition: {x: -0.33, y: 9.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -525,6 +525,14 @@ PrefabInstance:
     - target: {fileID: 6254845569926007062, guid: 941414a4a6435e24e9b7d96b58853782, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.8999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254845569926007063, guid: 941414a4a6435e24e9b7d96b58853782, type: 3}
+      propertyPath: near clip plane
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254845569926007063, guid: 941414a4a6435e24e9b7d96b58853782, type: 3}
+      propertyPath: orthographic size
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6254845571399006384, guid: 941414a4a6435e24e9b7d96b58853782, type: 3}
       propertyPath: m_Name

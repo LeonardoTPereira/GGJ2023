@@ -28,6 +28,13 @@ namespace Enemy
             this.target = target;
         }
 
+        public void LookOneTimeAt(Transform target)
+        {
+            var currentTransform = transform;
+            if(Vector3.Dot(target.position - currentTransform.position, currentTransform.right) < 0)
+                Flip();
+        }
+
         public void StopLooking()
         {
             LookAt(null);

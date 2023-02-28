@@ -14,11 +14,14 @@ namespace Enemy
         [SerializeField] private float maxVerticalDistance = 1f;
 
         private Transform currentPoint;
+
+        private TransformController transformController;
     
         private Rigidbody2D enemyRb;
 
         private void Awake()
         {
+            transformController = GetComponent<TransformController>();
             enemyRb = GetComponent<Rigidbody2D>();
         }
 
@@ -28,7 +31,7 @@ namespace Enemy
         
             if (CheckFlip())
             {
-                Flip();
+                transformController.Flip();
             }
 
         }
@@ -40,13 +43,6 @@ namespace Enemy
             return (Physics2D.Raycast(currentTransform.position + currentTransform.right * maxHorizontalDistance,
                 -currentTransform.up,
                 maxVerticalDistance, mask).collider == null);
-        } 
-    
-        private void Flip()
-        {
-            transform.Rotate(Vector3.up, 180);
-            var currentScale = transform.localScale;
-            transform.localScale = new Vector3(currentScale.x, currentScale.y, -currentScale.z);
         }
 
     }

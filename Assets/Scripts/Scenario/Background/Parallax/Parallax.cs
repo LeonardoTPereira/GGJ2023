@@ -12,9 +12,9 @@ namespace Assets.Scripts.Scenario
             Farthest, Far, Middle, Close, Closest
         }
 
-        [SerializeField] private float _backgroundSlotSize; // background sprite size in X axis
         [SerializeField] private BackgroundType _backgroundType;
 
+        private float _backgroundSlotSize; // background sprite size in X axis
         private GameObject _camera;
         private float _parallaxFactorInX;
         private float _parallaxFactorInY;
@@ -33,9 +33,7 @@ namespace Assets.Scripts.Scenario
 
             GetParallaxConfigs();
 
-            // To get the background slot size, put the background sprite with this gameobject
-            if (GetComponent<SpriteRenderer>())
-                Debug.Log(GetComponent<SpriteRenderer>().bounds.size.x);
+           _backgroundSlotSize = this.gameObject.GetComponentInChildren<SpriteRenderer>().bounds.size.x;    // has to have a gameobject with a spriterender used as background
         }
 
         private void GetParallaxConfigs()

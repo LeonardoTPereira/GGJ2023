@@ -5,7 +5,10 @@ using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class EnemyParabolicRangedAttack : MonoBehaviour
+namespace Enemy
+{
+    
+    public class ParabolicRangedAttack : MonoBehaviour
 {
     [SerializeField] private float gravity;
     private Transform target;
@@ -93,5 +96,8 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
         
         return Mathf.Sqrt(gravity * a * a / ( 2* Mathf.Pow(Mathf.Cos(angle), 2) * (a * Mathf.Tan(angle) - b)));
     }
+    
+}
+
     
 }

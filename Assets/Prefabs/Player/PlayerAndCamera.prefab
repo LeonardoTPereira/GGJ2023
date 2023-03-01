@@ -1587,8 +1587,7 @@ Transform:
   m_LocalPosition: {x: -31.800001, y: 1.8999996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1857718307}
+  m_Children: []
   m_Father: {fileID: 6254845571399006387}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

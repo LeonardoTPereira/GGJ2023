@@ -175,12 +175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49ad9d36e32ad444986a1437ff4549c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHP>k__BackingField: 50
-  <EnragedHP>k__BackingField: 30
-  <FlyingHP>k__BackingField: 15
-  <InvincibilityTime>k__BackingField: 0.2
   <MinAttackCooldown>k__BackingField: 0.8
   <MaxAttackCooldown>k__BackingField: 1.2
+  <JumpHeight>k__BackingField: 0
+  <MinFlyHeight>k__BackingField: 0
+  <RoomCenterX>k__BackingField: 0
   <VerticalLeftAttackPrefab>k__BackingField: {fileID: 5632108650389549736, guid: 40783db829c8ca84cbb50dc425ea91fa, type: 3}
   <VerticalRightAttackPrefab>k__BackingField: {fileID: 5632108650389549736, guid: e98a8a6008cc2aa4b91affc1824eaa99, type: 3}
   <HorizontalLeftAttackPrefab>k__BackingField: {fileID: 5632108650389549736, guid: 1db4442118d542c429026acf02f9edaf, type: 3}
@@ -189,6 +188,9 @@ MonoBehaviour:
   <RightClawPosition>k__BackingField: {fileID: 2000874185750064022}
   <UpRightClawPosition>k__BackingField: {fileID: 2000874185807552387}
   <UpLeftClawPosition>k__BackingField: {fileID: 2000874187196739039}
+  <PlayerTransform>k__BackingField: {fileID: 0}
+  <IsEnraged>k__BackingField: 0
+  <IsFlying>k__BackingField: 0
 --- !u!212 &2000874187470131646
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -209,7 +211,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,8 +229,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2039461891
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8620bcf7fa769e94fa548c2fc0325ef4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

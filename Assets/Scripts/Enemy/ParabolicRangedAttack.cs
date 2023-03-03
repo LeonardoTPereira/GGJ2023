@@ -5,33 +5,22 @@ using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public class EnemyParabolicRangedAttack : MonoBehaviour
+namespace Enemy
+{
+    
+    public class ParabolicRangedAttack : Attack
 {
     [SerializeField] private float gravity;
+    
     private Transform target;
-    [SerializeField] private GameObject bullet;
-    [SerializeField] private float fireRate;
-    [SerializeField] private Animator animator;
-    [SerializeField] private Transform mouth;
 
-    private void Start()
+    protected override void Initialize()
     {
         target = GameObject.FindWithTag("Player").transform;
-        
-        InvokeRepeating("AnimateShoot", 0f, fireRate);
-        InvokeRepeating("Shoot", 0.5f, fireRate);
     }
 
-    private void AnimateShoot()
+    protected override void Shoot()
     {
-        animator.SetTrigger("Attack");
-    }
-
-    private void Shoot()
-    {
-        if (CheckFlip())
-            Flip();
-
         var currentBullet = Instantiate(bullet, mouth.position, transform.rotation);
 
         var angle = GetCurrentLaunchAngle();
@@ -41,18 +30,6 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
 
         currentBullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
         
-    }
-    
-    private bool CheckFlip()
-    {
-        return Vector2.Dot(target.position - transform.position, transform.right) < 0;
-    } 
-    
-    private void Flip()
-    {
-        transform.Rotate(Vector3.up, 180);
-        var currentScale = transform.localScale;
-        transform.localScale = new Vector3(currentScale.x, currentScale.y, -currentScale.z);
     }
 
     private float GetCurrentLaunchAngle()
@@ -93,5 +70,8 @@ public class EnemyParabolicRangedAttack : MonoBehaviour
         
         return Mathf.Sqrt(gravity * a * a / ( 2* Mathf.Pow(Mathf.Cos(angle), 2) * (a * Mathf.Tan(angle) - b)));
     }
+    
+}
+
     
 }

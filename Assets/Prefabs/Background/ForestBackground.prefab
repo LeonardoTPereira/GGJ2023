@@ -129,9 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3e1b4d92db77e42b0121e74f2ff7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundSlotSize: 154.08
-  _camera: {fileID: 0}
-  _parallaxFactor: 0
+  _backgroundType: 0
 --- !u!1 &2860481318567097802
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,9 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3e1b4d92db77e42b0121e74f2ff7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundSlotSize: 153.6
-  _camera: {fileID: 0}
-  _parallaxFactor: 0.5
+  _backgroundType: 0
 --- !u!1 &2860481318574804820
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,9 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3e1b4d92db77e42b0121e74f2ff7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundSlotSize: 152.8
-  _camera: {fileID: 0}
-  _parallaxFactor: 0.25
+  _backgroundType: 0
 --- !u!1 &2860481318819571761
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,9 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3e1b4d92db77e42b0121e74f2ff7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundSlotSize: 154.08
-  _camera: {fileID: 0}
-  _parallaxFactor: 0
+  _backgroundType: 0
 --- !u!1 &2860481319603295559
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,9 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3e1b4d92db77e42b0121e74f2ff7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundSlotSize: 153.6
-  _camera: {fileID: 0}
-  _parallaxFactor: 1
+  _backgroundType: 0
 --- !u!1 &2860481319695195912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,9 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3e1b4d92db77e42b0121e74f2ff7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundSlotSize: 154.08
-  _camera: {fileID: 0}
-  _parallaxFactor: 0
+  _backgroundType: 0
 --- !u!1 &2860481320054870035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,9 +1095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3e1b4d92db77e42b0121e74f2ff7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundSlotSize: 152.8
-  _camera: {fileID: 0}
-  _parallaxFactor: 0.5
+  _backgroundType: 0
 --- !u!1 &2860481320353163190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,9 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3e1b4d92db77e42b0121e74f2ff7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundSlotSize: 153.6
-  _camera: {fileID: 0}
-  _parallaxFactor: 1
+  _backgroundType: 0
 --- !u!1 &2860481320440479496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,6 +1305,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3e1b4d92db77e42b0121e74f2ff7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backgroundSlotSize: 152.8
-  _camera: {fileID: 0}
-  _parallaxFactor: 0.5
+  _backgroundType: 0

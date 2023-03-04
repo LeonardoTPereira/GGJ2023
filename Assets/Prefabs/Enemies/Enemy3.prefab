@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9157376801371557591}
   - component: {fileID: 4568276787950479484}
   - component: {fileID: 4395454514280168187}
+  - component: {fileID: 8161722548323885722}
   m_Layer: 24
   m_Name: Enemy3
   m_TagString: Enemy
@@ -29,9 +30,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5188791538998400}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.69, y: 1.84, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1062307459544212293}
@@ -39,7 +40,7 @@ Transform:
   - {fileID: 6932989261648845411}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5188791538998403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -100,10 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4905328682765478341, guid: ea69323cd43b73a4997285e00e76e945, type: 3}
-  initialForce: 10
-  repeatRate: 3
+  fireRate: 3
   animator: {fileID: 9140362696685629890}
   mouth: {fileID: 6516616014906171482}
+  shootOffSet: 0.5
+  initialForce: 10
 --- !u!70 &9157376801371557591
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ShadowGroup: 0
   m_ComponentVersion: 1
-  m_HasRenderer: 1
+  m_HasRenderer: 0
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
@@ -163,7 +165,19 @@ MonoBehaviour:
   - {x: 1.0716524, y: -2.1387367, z: 0}
   m_ShapePathHash: 903335817
   m_Mesh: {fileID: 0}
-  m_InstanceId: 70584
+  m_InstanceId: 47574
+--- !u!114 &8161722548323885722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188791538998400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355c8f6fb27594c49aff8bbdb5f75f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2429599810831793603
 GameObject:
   m_ObjectHideFlags: 0

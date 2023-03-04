@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 3504360781668392571}
   - component: {fileID: 6363308087168667986}
   - component: {fileID: -4052685395339398408}
+  - component: {fileID: 1583393119733662214}
   m_Layer: 24
   m_Name: Enemy4
   m_TagString: Enemy
@@ -218,11 +219,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82c826bb011a854b8afb596016ad7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 100
   bullet: {fileID: 7059540043610800535, guid: 6b9bcfd26629aea4385b51067580be86, type: 3}
   fireRate: 2
   animator: {fileID: 1404826970614223229}
   mouth: {fileID: 6003770709170360784}
+  shootOffSet: 0.5
+  gravity: 100
 --- !u!114 &6363308087168667986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ShadowGroup: 0
   m_ComponentVersion: 1
-  m_HasRenderer: 1
+  m_HasRenderer: 0
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
@@ -267,7 +269,19 @@ MonoBehaviour:
   - {x: 1.1097624, y: -2.1482644, z: 0}
   m_ShapePathHash: 516204107
   m_Mesh: {fileID: 0}
-  m_InstanceId: 50398
+  m_InstanceId: 46802
+--- !u!114 &1583393119733662214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905377499348614207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355c8f6fb27594c49aff8bbdb5f75f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5121093283487226062
 PrefabInstance:
   m_ObjectHideFlags: 0

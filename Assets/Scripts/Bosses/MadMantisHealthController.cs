@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Bosses
 {
-    public class MadMantisHealthController : EnemyHealth
+    public class MadMantisHealthController : Enemy.Health
     {
         [field: SerializeField] public int EnragedHP { get; private set; }
         [field: SerializeField] public int FlyingHP { get; private set; }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Gameplay;
 using Scenario.Collectables;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ public class Life : Collectable
     
     public override void BeCollectedBy(GameObject collector)
     {
-        //Call life controller
-        Debug.Log("Life");
+        var health = collector.GetComponent<HealthController>();
+        health.ApplyHeal(life.health);
         Destroy(gameObject);
     }
 }

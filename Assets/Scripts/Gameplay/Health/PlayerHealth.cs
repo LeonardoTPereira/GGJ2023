@@ -17,6 +17,11 @@ public class PlayerHealth : HealthController
     [SerializeField] private ParticleSystem damageParticle;
     [SerializeField] private ParticleSystem deathParticle;
 
+    private void Update()
+    {
+        Debug.Log(Health);
+    }
+    
     private void Awake()
     {
         if (Instance != null)
@@ -28,7 +33,7 @@ public class PlayerHealth : HealthController
     {
         base.InitializeHealth();
         InitializePlayerHealthEvent?.Invoke(maxHealth);
-        this.transform.position = SpawnManager.Instance.GetSpawnPoint().position;
+        //this.transform.position = SpawnManager.Instance.GetSpawnPoint().position;
     }
 
     protected override void Kill()

@@ -1,4 +1,5 @@
 using System.Collections;
+using Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -132,12 +133,12 @@ namespace TarodevController {
 
         private void OnDisable() {
             _moveParticles.Stop();
-            PlayerHealth.PlayerDiedEvent -= StopAllPlayerAnimations;
+            PlayerHealth.OnPlayerDied -= StopAllPlayerAnimations;
         }
 
         private void OnEnable() {
             _moveParticles.Play();
-            PlayerHealth.PlayerDiedEvent += StopAllPlayerAnimations;
+            PlayerHealth.OnPlayerDied += StopAllPlayerAnimations;
         }
 
         void SetColor(ParticleSystem ps) {

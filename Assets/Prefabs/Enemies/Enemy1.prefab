@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3111548802708079779}
   - component: {fileID: 8261826825058947238}
   - component: {fileID: 1675734967463833807}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: DamageArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 6905126659104358003}
   - component: {fileID: 4095126366298112609}
   - component: {fileID: -1230650112075371532}
-  - component: {fileID: 604254045429303540}
   - component: {fileID: 418723949375562107}
   - component: {fileID: 4404454782467100234}
   m_Layer: 24
@@ -202,19 +201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
---- !u!114 &604254045429303540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6905126659104358006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9c57a532638a3243a78646e847f2135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contactDamage: 1
 --- !u!114 &418723949375562107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +233,7 @@ MonoBehaviour:
   - {x: 1.8086147, y: 2.2101893, z: 0}
   m_ShapePathHash: 1850491881
   m_Mesh: {fileID: 0}
-  m_InstanceId: 53082
+  m_InstanceId: 46612
 --- !u!114 &4404454782467100234
 MonoBehaviour:
   m_ObjectHideFlags: 0

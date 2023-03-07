@@ -170,7 +170,7 @@ MonoBehaviour:
   - {x: 0.29669416, y: -0.50489587, z: 0}
   m_ShapePathHash: -79965100
   m_Mesh: {fileID: 0}
-  m_InstanceId: 71558
+  m_InstanceId: 46772
 --- !u!114 &-4605420182585053196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 4779020516754975988}
   - component: {fileID: 5370269128906936944}
   - component: {fileID: 2832059184176990717}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: DamageArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

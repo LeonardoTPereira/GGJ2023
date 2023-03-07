@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -58,13 +59,13 @@ namespace TarodevController {
 
         private void OnDisable()
         {
-            PlayerHealth.PlayerDiedEvent -= StopAllPlayerMovements;
+            PlayerHealth.OnPlayerDied -= StopAllPlayerMovements;
         }
 
         private void OnEnable()
         {
             isLeftDirection = true;
-            PlayerHealth.PlayerDiedEvent += StopAllPlayerMovements;
+            PlayerHealth.OnPlayerDied += StopAllPlayerMovements;
         }
 
 

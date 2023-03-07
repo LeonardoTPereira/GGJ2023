@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="FrontPageMainMenu" src="project://database/Assets/Editor/MainMenu/FrontPageMainMenu.uxml?fileID=9197481963319205126&amp;guid=c9137d24eef6e184dbb406cc7f909997&amp;type=3#FrontPageMainMenu" />
     <ui:Template name="MainSettingsMenu" src="project://database/Assets/Editor/MainMenu/MainSettingsMenu.uxml?fileID=9197481963319205126&amp;guid=8ba2c47c9d76dd44da9aa77300e92f3c&amp;type=3#MainSettingsMenu" />
-    <ui:Instance template="FrontPageMainMenu" name="FrontPageMainMenu" style="display: none; flex-grow: 1;" />
-    <ui:Instance template="MainSettingsMenu" name="MainSettingsMenu" style="flex-grow: 1;" />
+    <ui:Instance template="FrontPageMainMenu" name="FrontPageMainMenu" style="display: flex; flex-grow: 1;" />
+    <ui:Instance template="MainSettingsMenu" name="MainSettingsMenu" style="flex-grow: 1; display: none;" />
 </ui:UXML>

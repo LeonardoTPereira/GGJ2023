@@ -8,14 +8,15 @@ using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
+    private VisualElement _settingsView;
     private VisualElement _menu;
     private bool _isPaused;
 
     private void Start()
     {
 
-        VisualElement _root = GetComponent<UIDocument>().rootVisualElement;
-        _menu = _root.Q<VisualElement>("pause-menu-container");
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+        _menu = root.Q<VisualElement>("pause-menu-container");
 
         Button startButton = _menu.Q<Button>("play");
         Button mainMenuButton = _menu.Q<Button>("main-menu");

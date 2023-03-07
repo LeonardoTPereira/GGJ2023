@@ -1,15 +1,13 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Enemy
+namespace Entity
 {
     public class TransformController : MonoBehaviour
     {
-        private static readonly float UpdateLookTime = 0.5f;
-        private Transform target;
+        [SerializeField] private float updateLookTime = 0.5f;
+        
+        private Transform _target;
 
         private void Start()
         {
@@ -25,7 +23,7 @@ namespace Enemy
 
         public void LookAt(Transform target)
         {
-            this.target = target;
+            this._target = target;
         }
 
         public void LookOneTimeAt(Transform target)
@@ -44,7 +42,7 @@ namespace Enemy
         {
             while (true)
             {
-                yield return new WaitForSeconds(UpdateLookTime);
+                yield return new WaitForSeconds(updateLookTime);
                 
                 if(CheckFlipCondition())
                     Flip();
@@ -54,7 +52,7 @@ namespace Enemy
         private bool CheckFlipCondition()
         {
             var currentTransform = transform;
-            return target != null && Vector3.Dot(target.position - currentTransform.position, currentTransform.right) < 0;
+            return _target != null && Vector3.Dot(_target.position - currentTransform.position, currentTransform.right) < 0;
         }
         
         

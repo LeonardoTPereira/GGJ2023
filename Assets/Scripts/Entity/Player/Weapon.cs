@@ -6,7 +6,7 @@ using Gameplay.Bullets;
 
 namespace Player
 {
-    public class PlayerWeapon : MonoBehaviour
+    public class Weapon : MonoBehaviour
     {
         private struct BulletData
         {

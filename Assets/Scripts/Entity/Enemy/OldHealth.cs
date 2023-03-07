@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Enemy
 {
     
-    public class Health : MonoBehaviour
+    public class OldHealth : MonoBehaviour
     {
         [SerializeField] protected int maxHealth = 5;
         protected int currentHealth;

@@ -15,7 +15,7 @@ namespace Enemy
         {
             if (col.gameObject.CompareTag("Player"))
             {
-                col.gameObject.GetComponent<PlayerHealth>().TakeDamage(contactDamage);
+                col.gameObject.GetComponent<Player.Health>().TakeDamage(contactDamage);
             }
         }
     }

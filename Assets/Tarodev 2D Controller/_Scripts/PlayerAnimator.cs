@@ -133,12 +133,12 @@ namespace TarodevController {
 
         private void OnDisable() {
             _moveParticles.Stop();
-            PlayerHealth.OnPlayerDied -= StopAllPlayerAnimations;
+            Health.OnPlayerDied -= StopAllPlayerAnimations;
         }
 
         private void OnEnable() {
             _moveParticles.Play();
-            PlayerHealth.OnPlayerDied += StopAllPlayerAnimations;
+            Health.OnPlayerDied += StopAllPlayerAnimations;
         }
 
         void SetColor(ParticleSystem ps) {

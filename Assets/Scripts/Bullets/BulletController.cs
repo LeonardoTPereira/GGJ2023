@@ -27,9 +27,15 @@ namespace Gameplay.Bullets
         {
             if (CompareTag("PlayerBullet"))
             {
-                if (!col.gameObject.CompareTag("Enemy")) return;
-                col.gameObject.GetComponent<Enemy.Health>().TakeDamage(bullet.Damage);
-                DestroyBullet();
+                if (col.gameObject.CompareTag("Enemy"))
+                {
+                    col.gameObject.GetComponent<Enemy.Health>().TakeDamage(bullet.Damage);
+                    DestroyBullet();
+                }else if (col.gameObject.CompareTag("Boss"))
+                {
+                    col.gameObject.GetComponent<Enemy.OldHealth>().TakeDamage(bullet.Damage);
+                    DestroyBullet();
+                }
             }
             else if (CompareTag("EnemyBullet"))
             {

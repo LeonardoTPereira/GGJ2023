@@ -1,15 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gameplay
+namespace Entity
 {
-    public abstract class HealthController : MonoBehaviour
+    public abstract class Health : MonoBehaviour
     {
         
         [SerializeField] protected int maxHealth = 5;
         [SerializeField] protected float invincibilityCooldown = 0.5f;
         [SerializeField] protected float timeToDestroyObject = 0.5f;
+        
         private bool _canTakeDamage;
         private int _health;
 
@@ -17,12 +17,6 @@ namespace Gameplay
         {
             InitializeHealth();
             WhenInitializeHealth();
-        }
-
-        protected virtual void InitializeHealth()
-        {
-            _canTakeDamage = true;
-            _health = maxHealth;
         }
 
         public void TakeDamage(int damage)
@@ -37,10 +31,16 @@ namespace Gameplay
             StartCoroutine(CountInvincibilityCooldown());
         }
         
-        public virtual void ApplyHeal(int heal)
+        public void ApplyHeal(int heal)
         {
             WhenApplyHeal(heal);
             _health = Mathf.Clamp(_health + heal, 0, maxHealth);
+        }
+        
+        private void InitializeHealth()
+        {
+            _canTakeDamage = true;
+            _health = maxHealth;
         }
 
         private void CheckDeathAndKill()
@@ -56,7 +56,7 @@ namespace Gameplay
             _canTakeDamage = true;
         }
 
-        protected virtual void Kill()
+        private void Kill()
         {
             WhenKill();    
             Destroy(gameObject, timeToDestroyObject);

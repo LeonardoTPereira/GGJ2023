@@ -7,17 +7,17 @@ using UnityEngine;
 namespace Enemy
 {
     
-    public class BulletController : MonoBehaviour
+    public class ProjectileController : MonoBehaviour
     {
 
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(30);
         
-            DestroyBullet();                
+            DestroyProjectile();                
         }
     
-        private void DestroyBullet()
+        private void DestroyProjectile()
         {
             Destroy(gameObject);
         }
@@ -26,14 +26,14 @@ namespace Enemy
         {
             if (col.gameObject.CompareTag("Player"))
             {
-                var health = col.gameObject.GetComponent<PlayerHealth>();
+                var health = col.gameObject.GetComponent<Player.Health>();
                 health.TakeDamage(1);
-                DestroyBullet();
+                DestroyProjectile();
             }
         
             else if (col.gameObject.CompareTag("Block"))
             {
-                DestroyBullet();
+                DestroyProjectile();
             }
         }
     }

@@ -2,12 +2,13 @@ using Gameplay;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Entity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Player
 {
-    public class PlayerHealth : HealthController
+    public class Health : Entity.Health
     {
         [SerializeField] private Animator _anim;
         public static event Action<int> OnInitializePlayerHealth;

@@ -59,13 +59,13 @@ namespace TarodevController {
 
         private void OnDisable()
         {
-            PlayerHealth.OnPlayerDied -= StopAllPlayerMovements;
+            Health.OnPlayerDied -= StopAllPlayerMovements;
         }
 
         private void OnEnable()
         {
             isLeftDirection = true;
-            PlayerHealth.OnPlayerDied += StopAllPlayerMovements;
+            Health.OnPlayerDied += StopAllPlayerMovements;
         }
 
 

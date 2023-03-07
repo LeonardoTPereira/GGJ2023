@@ -33,7 +33,7 @@ public class PlayerHealth : HealthController
     {
         base.InitializeHealth();
         InitializePlayerHealthEvent?.Invoke(maxHealth);
-        //this.transform.position = SpawnManager.Instance.GetSpawnPoint().position;
+        this.transform.position = SpawnManager.Instance.GetSpawnPoint().position;
     }
 
     protected override void Kill()

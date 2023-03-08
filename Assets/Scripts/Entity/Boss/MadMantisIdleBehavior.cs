@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Bosses
+namespace Boss
 {
     public class MadMantisIdleBehavior : StateMachineBehaviour
     {

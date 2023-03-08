@@ -11,7 +11,7 @@ namespace Entity
         [SerializeField] protected float timeToDestroyObject = 0.5f;
         
         private bool _canTakeDamage;
-        private int _health;
+        protected int _health;
 
         private void Start()
         {

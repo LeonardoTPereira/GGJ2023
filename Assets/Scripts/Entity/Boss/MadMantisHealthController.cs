@@ -1,85 +1,81 @@
-﻿using MyBox;
-using Spriter2UnityDX;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unity.Mathematics;
+using System.Security.Cryptography.X509Certificates;
+using MyBox;
+using Spriter2UnityDX;
 using UnityEngine;
 
-namespace Assets.Scripts.Bosses
+namespace Boss
 {
-    public class MadMantisHealthController : Enemy.OldHealth
+    
+    public class MadMantisHealthController : Entity.Health
     {
         [field: SerializeField] public int EnragedHP { get; private set; }
         [field: SerializeField] public int FlyingHP { get; private set; }
-        [field: SerializeField] public float InvincibilityTime { get; private set; }
-        private bool _isInvincible;
-
+        
         private MadMantisManager _mantisManager;
         private EntityRenderer _spriteRenderer;
 
-        protected override void Awake()
+        private float _changingFormInvincibilityTime;
+        private float _normalInvincibilityTime;
+        
+        protected override void WhenInitializeHealth()
         {
-            base.Awake();
-            _isInvincible = false;
             _mantisManager = GetComponent<MadMantisManager>();
             _spriteRenderer = GetComponent<EntityRenderer>();
+
+            _normalInvincibilityTime = invincibilityCooldown;
+            _changingFormInvincibilityTime = 5 * invincibilityCooldown;
         }
 
-        public override void TakeDamage(int amount)
+        protected override void WhenKill()
         {
-            if (_isInvincible) return;
-            currentHealth -= amount;
+            _mantisManager.StartDeath();
+        }
 
-            if (currentHealth < EnragedHP && !_mantisManager.IsEnraged)
+        protected override void WhenTakeDamage(int damage)
+        {
+            if (_health < EnragedHP && !_mantisManager.IsEnraged)
             {
                 _mantisManager.StartRage();
-                StartCoroutine(InvincibilityCooldown(InvincibilityTime * 5, false));
+                invincibilityCooldown = _changingFormInvincibilityTime;
             }
-            else if (currentHealth < FlyingHP && !_mantisManager.IsFlying)
+            else if (_health < FlyingHP && !_mantisManager.IsFlying)
             {
                 _mantisManager.StartFly();
-                StartCoroutine(InvincibilityCooldown(InvincibilityTime * 5, true));
-            }
-            else if (currentHealth <= 0)
-            {
-                _mantisManager.StartDeath();
+                invincibilityCooldown = _changingFormInvincibilityTime;
             }
             else
             {
-                StartCoroutine(InvincibilityCooldown(InvincibilityTime, true));
+                invincibilityCooldown = _normalInvincibilityTime;
             }
+
+            StartCoroutine(StartBlinking());
         }
 
-        private IEnumerator InvincibilityCooldown(float time, bool flicker)
+        protected override void WhenApplyHeal(int heal)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private IEnumerator StartBlinking()
         {
             var currentTime = 0f;
             var blinkTime = 0.05f;
-            _isInvincible = true;
-            if (flicker)
+            var blinkingTime = _normalInvincibilityTime;
+            
+            while (currentTime < blinkingTime)
             {
-                while (currentTime < time)
-                {
-                    var originalColor = _spriteRenderer.Color;
-                    _spriteRenderer.Color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.3f);
-                    yield return new WaitForSeconds(blinkTime);
-                    currentTime += blinkTime;
-                    _spriteRenderer.Color = new Color(originalColor.r, originalColor.g, originalColor.b, 1f);
-                    yield return new WaitForSeconds(blinkTime);
-                    currentTime += blinkTime;
-                }
+                var originalColor = _spriteRenderer.Color;
+                _spriteRenderer.Color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.3f);
+                yield return new WaitForSeconds(blinkTime);
+                currentTime += blinkTime;
+                _spriteRenderer.Color = new Color(originalColor.r, originalColor.g, originalColor.b, 1f);
+                yield return new WaitForSeconds(blinkTime);
+                currentTime += blinkTime;
             }
-            else
-            {
-                yield return new WaitForSeconds(time);
-            }
-
-            _isInvincible = false;
         }
-
+        
 #if UNITY_EDITOR
 
         [ButtonMethod]
@@ -90,4 +86,6 @@ namespace Assets.Scripts.Bosses
 
 #endif
     }
+
+    
 }

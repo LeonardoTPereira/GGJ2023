@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using MyBox;
 
-namespace Assets.Scripts.Bosses
+namespace Boss
 {
     public class MadMantisManager : MonoBehaviour
     {

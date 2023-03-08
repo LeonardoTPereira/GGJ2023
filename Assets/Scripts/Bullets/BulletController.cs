@@ -34,7 +34,7 @@ namespace Gameplay.Bullets
                     DestroyBullet();
                 }else if (col.gameObject.CompareTag("Boss"))
                 {
-                    col.gameObject.GetComponent<Enemy.OldHealth>().TakeDamage(bullet.Damage);
+                    col.gameObject.GetComponent<Entity.Health>().TakeDamage(bullet.Damage);
                     DestroyBullet();
                 }
             }

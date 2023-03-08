@@ -1,4 +1,4 @@
-using Assets.Scripts.Bosses;
+using Boss;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

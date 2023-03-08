@@ -6,21 +6,19 @@ using UnityEngine.UIElements;
 using UI.Utils;
 using UnityEngine.InputSystem;
 
-public class PauseMenu : MonoBehaviour
-{
+public class PauseMenu
+{ 
     private VisualElement _settingsView;
     private VisualElement _menu;
     private bool _isPaused;
 
-    private void Start()
+    public PauseMenu(VisualElement root)
     {
-
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-        _menu = root.Q<VisualElement>("pause-menu-container");
-
         Button startButton = _menu.Q<Button>("play");
         Button mainMenuButton = _menu.Q<Button>("main-menu");
         Button exitButton = _menu.Q<Button>("exit");
+
+        //_settingsView = root.;
 
         startButton.clicked += PauseOrUnpause;
         mainMenuButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

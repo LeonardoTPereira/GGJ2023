@@ -13,9 +13,9 @@
                     <ui:DropdownField label="RESOLUTION" index="-1" choices="System.Collections.Generic.List`1[System.String]" name="resolution-dropdown" style="width: 50%;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="volume-container" style="width: 50%; justify-content: center; align-items: center;">
-                    <ui:Slider picking-mode="Ignore" label="Master Volume" value="42" high-value="100" name="MainVolumeSlider" direction="Horizontal" class="slider" />
-                    <ui:Slider picking-mode="Ignore" label="Music" value="42" high-value="100" name="Music" class="slider" />
-                    <ui:Slider picking-mode="Ignore" label="SFX" value="42" high-value="100" name="SFX" class="slider" />
+                    <ui:Slider picking-mode="Ignore" label="Master Volume" value="42" high-value="100" name="main-volume-slider" direction="Horizontal" class="slider" />
+                    <ui:Slider picking-mode="Ignore" label="Music" value="42" high-value="100" name="music-volume-slider" class="slider" />
+                    <ui:Slider picking-mode="Ignore" label="SFX" value="42" high-value="100" name="sfx-volume-slider" class="slider" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:Button text="0&#10;" display-tooltip-when-elided="true" name="back-button" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/UI/Menu/EXIT.png?fileID=2800000&amp;guid=af3a5c7232b8651419bd3f86000c7378&amp;type=3#EXIT&apos;); width: 5%; padding-bottom: 5%; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;" />

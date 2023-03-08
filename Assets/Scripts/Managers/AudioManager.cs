@@ -13,7 +13,7 @@ public class AudioManager : Audios
     // 'instance' references to itself
     public static AudioManager Instance;
 
-    [SerializeField] private AudioMixerGroup _Main_output;
+    [SerializeField] private AudioMixer _mixer;
 
     // Awake is called before the Start method
     protected override void Awake()
@@ -26,18 +26,8 @@ public class AudioManager : Audios
         base.Awake();
     }
 
-    public AudioMixerGroup GetMainMixer()
+    public AudioMixer GetMainMixer()
     {
-        return _Main_output;
-    }
-
-    public AudioMixerGroup GetMusicMixer()
-    {
-        return _Music_output;
-    }
-
-    public AudioMixerGroup GetSfxMixer() 
-    {
-        return _SFX_output;
+        return _mixer;
     }
 }

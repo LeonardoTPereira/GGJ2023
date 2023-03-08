@@ -10,7 +10,7 @@ namespace Player
 {
     public class Health : Entity.Health
     {
-        [SerializeField] private Animator _anim;
+        [SerializeField] private UnityEngine.Animator _anim;
         public static event Action<int> OnInitializePlayerHealth;
         public static event Action OnPlayerDied;
         public static event Action<int> OnPlayerTakeDamage;

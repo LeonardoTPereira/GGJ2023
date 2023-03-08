@@ -22,7 +22,7 @@ namespace Player
         [SerializeField] private ParticleSystem usedBulletsParticle;
         [SerializeField] private ParticleSystem muzzleEffectParticle;
         [SerializeField] private ParticleSystem smokeParticle;
-        [SerializeField] private Animator _anim;
+        [SerializeField] private UnityEngine.Animator _anim;
 
         private bool _canShoot;
         private bool _isHoldingShoot;

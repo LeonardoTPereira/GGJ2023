@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using Player;
+using TarodevController;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace TarodevController {
+namespace Player
+{
     /// <summary>
     /// Hey!
     /// Tarodev here. I built this controller as there was a severe lack of quality & free 2D controllers out there.
@@ -12,7 +13,7 @@ namespace TarodevController {
     /// if there's enough interest. You can play and compete for best times here: https://tarodev.itch.io/
     /// If you hve any questions or would like to brag about your score, come to discord: https://discord.gg/GqeHHnhHpz
     /// </summary>
-    public class PlayerController : MonoBehaviour, IPlayerController {
+    public class Controller : MonoBehaviour, IPlayerController {
         // Public for external hooks
         public Vector3 Velocity { get; private set; }
         public FrameInput Input { get; private set; }
@@ -30,9 +31,23 @@ namespace TarodevController {
 
         // This is horrible, but for some reason colliders are not fully established when update starts...
         private bool _active;
-        void Awake() => Invoke(nameof(Activate), 0.5f);
-        void Activate() =>  _active = true;
+
+        private void Awake()
+        {
+            Invoke(nameof(Activate), 0.5f);
+        }
         
+        private void OnEnable()
+        {
+            isLeftDirection = true;
+            global::Player.Health.OnPlayerDied += StopAllPlayerMovements;
+        }
+        
+        private void OnDisable()
+        {
+            global::Player.Health.OnPlayerDied -= StopAllPlayerMovements;
+        }
+
         private void Update() {
             if(!_active) return;
 
@@ -51,21 +66,15 @@ namespace TarodevController {
 
             MoveCharacter(); // Actually perform the axis movement
         }
+        
+        private void Activate()
+        {
+            _active = true;
+        }
 
         private void StopAllPlayerMovements()
         {
             _isDead = true;
-        }
-
-        private void OnDisable()
-        {
-            Health.OnPlayerDied -= StopAllPlayerMovements;
-        }
-
-        private void OnEnable()
-        {
-            isLeftDirection = true;
-            Health.OnPlayerDied += StopAllPlayerMovements;
         }
 
 
@@ -177,32 +186,7 @@ namespace TarodevController {
             }
         }
 
-        private void OnDrawGizmos() {
-            // Bounds
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(transform.position + _characterBounds.center, _characterBounds.size);
-
-            // Rays
-            if (!Application.isPlaying) {
-                CalculateRayRanged();
-                Gizmos.color = Color.blue;
-                foreach (var range in new List<RayRange> { _raysUp, _raysRight, _raysDown, _raysLeft }) {
-                    foreach (var point in EvaluateRayPositions(range)) {
-                        Gizmos.DrawRay(point, range.Dir * _detectionRayLength);
-                    }
-                }
-            }
-
-            if (!Application.isPlaying) return;
-
-            // Draw the future position. Handy for visualizing gravity
-            Gizmos.color = Color.red;
-            var move = new Vector3(_currentHorizontalSpeed, _currentVerticalSpeed) * Time.deltaTime;
-            Gizmos.DrawWireCube(transform.position + move, _characterBounds.size);
-        }
-
         #endregion
-
 
         #region Walk
 

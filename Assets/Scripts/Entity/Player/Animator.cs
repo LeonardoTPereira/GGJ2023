@@ -1,16 +1,18 @@
 using System.Collections;
-using Player;
+using Entity;
+using TarodevController;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace TarodevController {
+namespace Player
+{
     /// <summary>
     /// This is a pretty filthy script. I was just arbitrarily adding to it as I went.
     /// You won't find any programming prowess here.
     /// This is a supplementary script to help with effects and animation. Basically a juice factory.
     /// </summary>
-    public class PlayerAnimator : MonoBehaviour {
-        [SerializeField] private Animator _anim;
+    public class Animator : MonoBehaviour {
+        [SerializeField] private UnityEngine.Animator _anim;
         [SerializeField] private AudioSource _source;
         [SerializeField] private LayerMask _groundMask;
         [SerializeField] private ParticleSystem _jumpParticles, _launchParticles;
@@ -22,24 +24,31 @@ namespace TarodevController {
         [SerializeField] private float _maxParticleFallSpeed = -40;
 
         private IPlayerController _player;
+        private TransformController _transformController;
         private bool _playerGrounded;
         private ParticleSystem.MinMaxGradient _currentGradient;
         private Vector2 _movement;
         private bool _isBlinking = false;
         private bool _isRunning = false;
         private bool _isDead = false;
+        private float _lastInput;
 
         private Coroutine blinkCorroutine;
         private Coroutine runCorroutine;
 
-        void Awake() => _player = GetComponentInParent<IPlayerController>();
+        private void Awake()
+        {
+            _player = GetComponentInParent<IPlayerController>();
+            _transformController = GetComponentInParent<TransformController>();
+            _lastInput = 1;
+        } 
 
         private IEnumerator BlinkingLoop()
         {
             _isBlinking = true;
-            float randomBliking = Random.Range(5, 10);
+            float randomBlinking = Random.Range(5, 10);
             _anim.SetTrigger("isBlinking");
-            yield return new WaitForSeconds(randomBliking);
+            yield return new WaitForSeconds(randomBlinking);
             _isBlinking = false;
 
         }
@@ -58,13 +67,18 @@ namespace TarodevController {
 
             if (_player == null) return;
             if (_isDead) return;
-
-            // Flip the sprite
-            if (_player.Input.X != 0) transform.localScale = new Vector3(_player.Input.X > 0 ? 1 : -1, 1, 1);
-
-            // Lean while running
-            var targetRotVector = new Vector3(0, 0, Mathf.Lerp(-_maxTilt, _maxTilt, Mathf.InverseLerp(-1, 1, _player.Input.X)));
-            _anim.transform.rotation = Quaternion.RotateTowards(_anim.transform.rotation, Quaternion.Euler(targetRotVector), _tiltSpeed * Time.deltaTime);
+            
+            // Flip the object
+            if (_player.Input.X != 0)
+            {
+                if (_player.Input.X * _lastInput < 0)
+                {
+                    _transformController.Flip();
+                    _lastInput = _player.Input.X;
+                    Debug.Log("Flip Player");
+                }
+                    
+            }
 
             // Speed up idle while running
             if (Mathf.Abs(_player.Input.X) > 0.01)
@@ -133,12 +147,12 @@ namespace TarodevController {
 
         private void OnDisable() {
             _moveParticles.Stop();
-            Health.OnPlayerDied -= StopAllPlayerAnimations;
+            global::Player.Health.OnPlayerDied -= StopAllPlayerAnimations;
         }
 
         private void OnEnable() {
             _moveParticles.Play();
-            Health.OnPlayerDied += StopAllPlayerAnimations;
+            global::Player.Health.OnPlayerDied += StopAllPlayerAnimations;
         }
 
         void SetColor(ParticleSystem ps) {
@@ -148,10 +162,10 @@ namespace TarodevController {
 
         #region Animation Keys
 
-        private static readonly int GroundedKey = Animator.StringToHash("Grounded");
-        private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
-        private static readonly int JumpKey = Animator.StringToHash("Jump");
-        private static readonly int SpeedKey = Animator.StringToHash("Speed");
+        private static readonly int GroundedKey = UnityEngine.Animator.StringToHash("Grounded");
+        private static readonly int IdleSpeedKey = UnityEngine.Animator.StringToHash("IdleSpeed");
+        private static readonly int JumpKey = UnityEngine.Animator.StringToHash("Jump");
+        private static readonly int SpeedKey = UnityEngine.Animator.StringToHash("Speed");
 
         #endregion
     }

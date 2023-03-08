@@ -16,7 +16,7 @@ namespace Entity
 
         public void Flip(){
             var currentTransform = transform;
-            currentTransform.Rotate(Vector3.up, 180);
+            currentTransform.Rotate(currentTransform.up, 180);
             var currentScale = currentTransform.localScale;
             currentTransform.localScale = new Vector3(currentScale.x, currentScale.y, -currentScale.z);
         }

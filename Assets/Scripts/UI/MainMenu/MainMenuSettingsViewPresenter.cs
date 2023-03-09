@@ -58,11 +58,10 @@ public class MainMenuSettingsViewPresenter
 
         float mixerValue;
         _mixer.GetFloat(mixerVolumeName, out mixerValue);
-        slider.value = Mathf.Pow(10, mixerValue / 20 + 2);
+        slider.value = AudioManager.Instance.ConvertVolumeToSliderValue(mixerValue);
 
-        slider.RegisterValueChangedCallback((value) => SetVolume(mixerVolumeName, value.newValue));
+        slider.RegisterValueChangedCallback((value) => AudioManager.Instance.SetVolume(mixerVolumeName, value.newValue, true));
     }
-
 
     private void SetResolution(string newResolution)
     {
@@ -75,10 +74,5 @@ public class MainMenuSettingsViewPresenter
     private void SetFullscreen(bool enabled)
     {
         Screen.fullScreen = enabled;
-    }
-
-    public void SetVolume(string mixerVolume, float sliderValue)
-    {
-        _mixer.SetFloat(mixerVolume, Mathf.Log10((sliderValue + 0.01f) / 100) * 20);
     }
 }

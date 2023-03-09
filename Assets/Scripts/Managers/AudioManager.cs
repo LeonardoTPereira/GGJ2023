@@ -26,6 +26,26 @@ public class AudioManager : Audios
         base.Awake();
     }
 
+    // Converts UI Toolkit slider value to Volume(audioMixerGroup) value
+    public float ConvertSliderValueToVolume(float sliderValue)
+    {
+        return Mathf.Log10((sliderValue + 0.01f) / 100) * 20;
+    }
+
+    // Converts Volume(audioMixerGroup) value to UI Toolkit slider value
+    public float ConvertVolumeToSliderValue(float volumeValue)
+    {
+        return Mathf.Pow(10, volumeValue / 20 + 2);
+    }
+
+    public void SetVolume(string audioMixerParameterName, float volume, bool isSlider )
+    {
+        if (isSlider)
+            volume = ConvertSliderValueToVolume(volume);
+
+        _mixer.SetFloat(audioMixerParameterName, volume);
+    }
+
     public AudioMixer GetMainMixer()
     {
         return _mixer;

@@ -8,7 +8,7 @@ public class StartViewPresenter : MonoBehaviour
     private VisualElement _settingsView;
     private VisualElement _startView;
 
-    private void OnEnable()
+    private void Start()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 

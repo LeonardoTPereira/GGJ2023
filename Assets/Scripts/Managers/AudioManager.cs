@@ -21,7 +21,7 @@ public class AudioManager : Audios
         if (Instance == null)
             Instance = this;
         else
-            GameObject.Destroy(this);
+            GameObject.Destroy(gameObject);
 
         base.Awake();
     }

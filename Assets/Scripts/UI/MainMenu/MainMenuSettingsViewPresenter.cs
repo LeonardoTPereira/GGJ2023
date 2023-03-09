@@ -47,22 +47,20 @@ public class MainMenuSettingsViewPresenter
 
     private void SetoutVolumeSliders(VisualElement root)
     {
-        _mainVolumeSlider = root.Q<Slider>("main-volume-slider");
-        _musicVolumeSlider = root.Q<Slider>("music-volume-slider");
-        _sfxVolumeSlider = root.Q<Slider>("sfx-volume-slider");
-
-        SetoutSlider(_mainVolumeSlider, "MainVolume");
-        SetoutSlider(_musicVolumeSlider, "MusicVolume");
-        SetoutSlider(_sfxVolumeSlider, "SfxVolume");
+        SetoutSlider(root, _mainVolumeSlider, "MainVolume", "main-volume-slider");
+        SetoutSlider(root, _musicVolumeSlider, "MusicVolume", "music-volume-slider");
+        SetoutSlider(root, _sfxVolumeSlider, "SfxVolume", "sfx-volume-slider");
     }
 
-    private void SetoutSlider(Slider slider, string mixerVolume)
+    private void SetoutSlider(VisualElement root, Slider slider, string mixerVolumeName, string sliderName)
     {
+        slider = root.Q<Slider>(sliderName);
+
         float mixerValue;
-        _mixer.GetFloat(mixerVolume, out mixerValue);
+        _mixer.GetFloat(mixerVolumeName, out mixerValue);
         slider.value = Mathf.Pow(10, mixerValue / 20 + 2);
 
-        slider.RegisterValueChangedCallback((value) => SetVolume(mixerVolume, value.newValue));
+        slider.RegisterValueChangedCallback((value) => SetVolume(mixerVolumeName, value.newValue));
     }
 
 

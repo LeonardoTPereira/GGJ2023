@@ -1,12 +1,12 @@
 using UnityEngine;
 
-namespace Boss
+namespace Boss.MadMantis
 {
-    public class MadMantisFlyingdIdle : StateMachineBehaviour
+    public class IdleBehavior : StateMachineBehaviour
     {
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.GetComponent<MadMantisManager>().Fly();
+            animator.GetComponent<Manager>().StartAttack();
         }
     }
 }

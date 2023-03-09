@@ -1,10 +1,9 @@
 using System.Collections;
 using UnityEngine;
-using MyBox;
 
-namespace Boss
+namespace Boss.MadMantis
 {
-    public class MadMantisManager : MonoBehaviour
+    public class Manager : MonoBehaviour
     {
         [field: SerializeField] public float MinAttackCooldown { get; private set; }
         [field: SerializeField] public float MaxAttackCooldown { get; private set; }

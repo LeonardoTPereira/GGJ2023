@@ -8,10 +8,6 @@ namespace Gameplay.Bullets
         [SerializeField] private BulletSO bullet;
         [SerializeField] private float timeToDieOutScreen = 0.5f;
 
-        public static event BulletHitEventHandler EnemyHitEventHandler;
-
-        public static event BulletHitEventHandler PlayerHitEventHandler;
-
         public Rigidbody2D RigidBody { get; set; }
 
         private void Start()
@@ -26,24 +22,10 @@ namespace Gameplay.Bullets
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (CompareTag("PlayerBullet"))
-            {
-                if (col.gameObject.CompareTag("Enemy"))
-                {
-                    col.gameObject.GetComponent<Enemy.Health>().TakeDamage(bullet.Damage);
-                    DestroyBullet();
-                }else if (col.gameObject.CompareTag("Boss"))
-                {
-                    col.gameObject.GetComponent<Entity.Health>().TakeDamage(bullet.Damage);
-                    DestroyBullet();
-                }
-            }
-            else if (CompareTag("EnemyBullet"))
-            {
-                if (!col.gameObject.CompareTag("Player")) return;
-                PlayerHitEventHandler?.Invoke(null, new BulletHitEventArgs(Bullet));
-                DestroyBullet();
-            }
+            if (!CompareTag("PlayerBullet")) return;
+            if (!col.gameObject.CompareTag("Enemy")) return;
+            col.gameObject.GetComponent<Entity.Health>().TakeDamage(bullet.Damage);
+            DestroyBullet();
         }
 
         private void OnTriggerExit2D(Collider2D other)

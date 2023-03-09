@@ -1,19 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using MyBox;
 using Spriter2UnityDX;
 using UnityEngine;
 
-namespace Boss
+namespace Boss.MadMantis
 {
     
-    public class MadMantisHealthController : Entity.Health
+    public class Health : Entity.Health
     {
         [field: SerializeField] public int EnragedHP { get; private set; }
         [field: SerializeField] public int FlyingHP { get; private set; }
         
-        private MadMantisManager _mantisManager;
+        private Manager _mantisManager;
         private EntityRenderer _spriteRenderer;
 
         private float _changingFormInvincibilityTime;
@@ -21,7 +19,7 @@ namespace Boss
         
         protected override void WhenInitializeHealth()
         {
-            _mantisManager = GetComponent<MadMantisManager>();
+            _mantisManager = GetComponent<Manager>();
             _spriteRenderer = GetComponent<EntityRenderer>();
 
             _normalInvincibilityTime = invincibilityCooldown;

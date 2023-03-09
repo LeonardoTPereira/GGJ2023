@@ -26,7 +26,7 @@ namespace Enemy
         {
             if (col.gameObject.CompareTag("Player"))
             {
-                var health = col.gameObject.GetComponent<Player.Health>();
+                var health = col.gameObject.GetComponent<Entity.Health>();
                 health.TakeDamage(1);
                 DestroyProjectile();
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Gameplay;
+using Player;
 
 public class LifebarWindow : MonoBehaviour
 {
@@ -31,9 +32,9 @@ public class LifebarWindow : MonoBehaviour
 
     void Awake()
     {
-        PlayerHealth.InitializePlayerHealthEvent += UI_SetMaxLife;
-        PlayerHealth.PlayerTakeDamageEvent += UI_TakeDamage;
-        PlayerHealth.PlayerTakeHealEvent += UI_TakeHeal;
+        Health.OnInitializePlayerHealth += UI_SetMaxLife;
+        Health.OnPlayerTakeDamage += UI_TakeDamage;
+        Health.OnPlayerApplyHeal += UI_TakeHeal;
         _root = _UIDocument.rootVisualElement.Q<VisualElement>("lifebar-container");
         _firstLine = _root.Q<GroupBox>("first-line");
         _secondLine = _root.Q<GroupBox>("second-line");

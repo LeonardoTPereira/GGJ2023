@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5188791538998402}
   - component: {fileID: 5339820144208515524}
   - component: {fileID: 9157376801371557591}
-  - component: {fileID: 4568276787950479484}
   - component: {fileID: 4395454514280168187}
   - component: {fileID: 8161722548323885722}
+  - component: {fileID: 8612125823729699476}
   m_Layer: 24
   m_Name: Enemy3
   m_TagString: Enemy
@@ -122,19 +122,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.6356101, y: -0.9385022}
   m_Size: {x: 2.6404676, y: 2.8770044}
   m_Direction: 0
---- !u!114 &4568276787950479484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5188791538998400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d74794c8f77576043b19dd909b1ef693, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
 --- !u!114 &4395454514280168187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +152,7 @@ MonoBehaviour:
   - {x: 1.0716524, y: -2.1387367, z: 0}
   m_ShapePathHash: 903335817
   m_Mesh: {fileID: 0}
-  m_InstanceId: 47574
+  m_InstanceId: 65910
 --- !u!114 &8161722548323885722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +165,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355c8f6fb27594c49aff8bbdb5f75f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateLookTime: 0.5
+--- !u!114 &8612125823729699476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188791538998400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8245903112e4e96419e8b72735ba74e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  invincibilityCooldown: 0.1
+  timeToDestroyObject: 0
 --- !u!1 &2429599810831793603
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +192,7 @@ GameObject:
   - component: {fileID: 6932989261648845411}
   - component: {fileID: 6410861877055091214}
   - component: {fileID: 8918002355997381720}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: DamageArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

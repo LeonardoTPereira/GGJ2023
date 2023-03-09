@@ -53,7 +53,7 @@ Material:
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
     - _EnableExternalAlpha: 0
-    - _FillRate: 0
+    - _FillRate: 1.0000001
     - _IsEnraging: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

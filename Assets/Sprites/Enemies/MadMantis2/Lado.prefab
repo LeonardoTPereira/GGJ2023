@@ -1955,7 +1955,7 @@ GameObject:
   - component: {fileID: 1510040006}
   - component: {fileID: 1510040009}
   - component: {fileID: 1510040012}
-  - component: {fileID: 1510040013}
+  - component: {fileID: 7821055401942134407}
   m_Layer: 0
   m_Name: Lado
   m_TagString: Enemy
@@ -2120,7 +2120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contactDamage: 1
---- !u!114 &1510040013
+--- !u!114 &7821055401942134407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2129,13 +2129,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5126614541931499845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8ec52f8c1e8e6f409ca10a5c9ace2a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 888dd80683c1e5d42bcd69f0fae61755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
+  invincibilityCooldown: 0.3
+  timeToDestroyObject: 2
   <EnragedHP>k__BackingField: 20
   <FlyingHP>k__BackingField: 10
-  <InvincibilityTime>k__BackingField: 0.3
 --- !u!1 &5148497390475274342
 GameObject:
   m_ObjectHideFlags: 0

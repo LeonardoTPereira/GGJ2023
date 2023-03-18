@@ -7,6 +7,7 @@ using UI.Utils;
 using UnityEngine.InputSystem;
 using System;
 using static UnityEditor.Recorder.OutputPath;
+using UI.Menu.Play.Pause;
 
 namespace UI.Menu.Play.Pause
 {
@@ -93,6 +94,7 @@ namespace UI.Menu.Play.Pause
         // Should ideally create a popup and ask the player if really wants to go back to main menu
         private void MainMenuPopUp()
         {
+            PauseMenu.Instance.PauseOrUnpause();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 

@@ -3,6 +3,7 @@ using System.Linq;
 using TarodevController;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UI.Menu.Play.Pause;
 
 namespace Player
 {
@@ -52,6 +53,8 @@ namespace Player
             if(!_active) return;
 
             if (_isDead) return;
+
+            if (PauseMenu.Instance.IsPaused) return;
             // Calculate velocity
             Velocity = (transform.position - _lastPosition) / Time.deltaTime;
             _lastPosition = transform.position;

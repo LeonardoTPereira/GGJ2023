@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 using System;
 using static UnityEditor.Recorder.OutputPath;
 
-namespace UI.Presenters
+namespace UI.Menu.Play.Pause
 {
     public class PauseMenuPresenter : MonoBehaviour
     {
@@ -17,11 +17,13 @@ namespace UI.Presenters
         private VisualElement _frontPage;
         private VisualElement _settingsPage;
 
+        // Main Front Panel
         private Button _resumeButton;
         private Button _settingsButton;
         private Button _mainMenuButton;
         private Button _exitButton;
 
+        // Pause Settings Panel
         private Button _backButton;
         private Slider _mainVolumeSlider;
         private Slider _musicVolumeSlider;
@@ -61,7 +63,7 @@ namespace UI.Presenters
             _musicVolumeSlider = _settingsPage.Q<Slider>("music-volume-slider");
             _sfxVolumeSlider = _settingsPage.Q<Slider>("sfx-volume-slider");
 
-            _backButton.clicked += () => ClosePauseMenuSettings(false);
+            _backButton.clicked += () => ClosePauseMenuSettings(true);
         }
 
         private void SetoutSettingsVolumeSliders()

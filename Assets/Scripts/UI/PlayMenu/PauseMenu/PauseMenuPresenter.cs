@@ -35,8 +35,7 @@ namespace UI.Presenters
             SetoutFrontPageButtons();
             SetoutSettingsPageButtons();
             SetoutSettingsVolumeSliders();
-
-            UIUtils.Display(_frontPage, false);
+            //UIUtils.Display(_frontPage, false);
         }
 
         private void SetoutFrontPageButtons()
@@ -46,7 +45,10 @@ namespace UI.Presenters
             _mainMenuButton = _frontPage.Q<Button>("main-menu-button");
             _exitButton = _frontPage.Q<Button>("exit-game-button");
 
-            _resumeButton.clicked += () => ClosePauseMenuSettings(true);
+#if UNITY_EDITOR
+            SetDebugLogs();
+#endif
+
             _settingsButton.clicked += () => ClosePauseMenuSettings(false);
             _mainMenuButton.clicked += MainMenuPopUp;
             _exitButton.clicked += ExitPopUp;
@@ -89,18 +91,23 @@ namespace UI.Presenters
         // Should ideally create a popup and ask the player if really wants to go back to main menu
         private void MainMenuPopUp()
         {
-#if UNITY_EDITOR
-            Debug.Log("BACK MAIN MENU PRESSED");
-            return;
-#endif
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 
         // Should ideally create a popup and ask the player if really wants to exit the game
         private void ExitPopUp()
         {
-            Debug.Log("EXIT BUTTON PRESSED");
             Application.Quit();
         }
+#if UNITY_EDITOR
+        private void SetDebugLogs()
+        {
+            _resumeButton.clicked += () => Debug.Log("PRESSED RESUME BUTTON");
+            _settingsButton.clicked += () => Debug.Log("PRESSED SETTINGS BUTTON");
+            _mainMenuButton.clicked += () => Debug.Log("PRESSED BACK MAIN MENU BUTTON");
+            _exitButton.clicked += () => Debug.Log("PRESSED EXIT BUTTON");
+        }
+#endif
     }
+
 }

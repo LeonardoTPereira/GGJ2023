@@ -12,9 +12,7 @@ namespace UI.Presenters
     {
         private VisualElement _lifeBar;
         private VisualElement _pauseMenu;
-        //private VisualElement _settingsMenu;
-        //private VisualElement _gameoverMenu;
-        private VisualElement _winMenu;
+        //private VisualElement _winMenu;
 
         private bool _isPaused;
 
@@ -23,9 +21,11 @@ namespace UI.Presenters
             _isPaused = false;
 
             VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-            _lifeBar = root.Q<VisualElement>("life-bar-container");
+            _lifeBar = root.Q<VisualElement>("lifebar-container");
             _pauseMenu = root.Q<VisualElement>("pause-menu-container");
-            _winMenu = root.Q<VisualElement>("win-menu-container");
+            //_winMenu = root.Q<VisualElement>("win-menu-container");
+
+            SetPauseMenuEvents();
         }
 
         private void SetPauseMenuEvents()
@@ -37,8 +37,8 @@ namespace UI.Presenters
 
         private void TogglePauseMenu(bool enable)
         {
-            _lifeBar.Display(!enable);
-            _pauseMenu.Display(enable);
+            UIUtils.Display(_lifeBar, !enable);
+            UIUtils.Display(_pauseMenu, enable);
         }
 
         private void PauseOrUnpause()
@@ -53,8 +53,10 @@ namespace UI.Presenters
         {
             if (context.performed)
             {
+                Debug.Log("a");
                 PauseOrUnpause();
                 TogglePauseMenu(_isPaused);
+                Debug.Log("A");
             }
         }
     }

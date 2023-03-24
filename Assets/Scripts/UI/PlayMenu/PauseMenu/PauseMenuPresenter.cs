@@ -37,7 +37,6 @@ namespace UI.Menu.Play.Pause
             SetoutFrontPageButtons();
             SetoutSettingsPageButtons();
             SetoutSettingsVolumeSliders();
-            //UIUtils.Display(_frontPage, false);
         }
 
         private void SetoutFrontPageButtons()

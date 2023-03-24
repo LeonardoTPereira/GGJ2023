@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 using UI.Utils;
 using UnityEngine.InputSystem;
 using System;
-using static UnityEditor.Recorder.OutputPath;
 using UI.Menu.Play.Pause;
 
 namespace UI.Menu.Play.Pause
@@ -48,9 +47,8 @@ namespace UI.Menu.Play.Pause
             _mainMenuButton = _frontPage.Q<Button>("main-menu-button");
             _exitButton = _frontPage.Q<Button>("exit-game-button");
 
-#if UNITY_EDITOR
+            // Editor Debug Logs
             SetDebugLogs();
-#endif
 
             _settingsButton.clicked += () => ClosePauseMenuSettings(false);
             _mainMenuButton.clicked += MainMenuPopUp;
@@ -103,7 +101,7 @@ namespace UI.Menu.Play.Pause
         {
             Application.Quit();
         }
-#if UNITY_EDITOR
+
         private void SetDebugLogs()
         {
             _resumeButton.clicked += () => Debug.Log("PRESSED RESUME BUTTON");
@@ -111,7 +109,6 @@ namespace UI.Menu.Play.Pause
             _mainMenuButton.clicked += () => Debug.Log("PRESSED BACK MAIN MENU BUTTON");
             _exitButton.clicked += () => Debug.Log("PRESSED EXIT BUTTON");
         }
-#endif
     }
 
 }

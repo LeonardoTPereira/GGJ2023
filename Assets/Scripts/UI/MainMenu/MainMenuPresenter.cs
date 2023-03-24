@@ -20,9 +20,9 @@ public class MainMenuPresenter
         _settingsButton = root.Q<Button>("settings-button");
         _exitButton = root.Q<Button>("exit-button");
 
-#if UNITY_EDITOR
+        // Only for debug
         SetDebugToButtons();
-#endif
+
         _startButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     //  _settingsButton.clicked += () => ;
         _exitButton.clicked += () => Application.Quit();

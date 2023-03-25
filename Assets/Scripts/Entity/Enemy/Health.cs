@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Enemy
 {
-    
     public class Health : Entity.Health
     {
+        [SerializeField] private DamageEffect damageEffect;
         protected override void WhenInitializeHealth()
         {
             //Do nothing
@@ -20,6 +20,7 @@ namespace Enemy
         protected override void WhenTakeDamage(int damage)
         {
             //Trigger take damage animation
+            damageEffect.BlinkDamage();
         }
 
         protected override void WhenApplyHeal(int heal)

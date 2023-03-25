@@ -5,24 +5,27 @@ using Spriter2UnityDX;
 
 public class DamageEffect : MonoBehaviour
 {
-    [SerializeField] private float damageTime;  
+    [SerializeField] private float damageTime = 0.2f;  
     private EntityRenderer entityRenderer;
+    private Material damageMaterial;
 
-    private void Start()
+    private void Awake()
     {
         entityRenderer = GetComponent<EntityRenderer>();
+        damageMaterial = new Material(entityRenderer.Material);
+        entityRenderer.Material = damageMaterial;
+        damageMaterial.SetFloat("_Hit", 0);
     }
 
     public void BlinkDamage()
     {
-        Debug.Log("Blink Player");
         StartCoroutine(ChangeColor(damageTime));
     }
 
    IEnumerator ChangeColor(float damageTime)
     {
-        entityRenderer.Material.SetFloat("_Hit", 1);
+        damageMaterial.SetFloat("_Hit", 1);
         yield return new WaitForSeconds(damageTime);
-        entityRenderer.Material.SetFloat("_Hit", 0);
+        damageMaterial.SetFloat("_Hit", 0);
     }
 }

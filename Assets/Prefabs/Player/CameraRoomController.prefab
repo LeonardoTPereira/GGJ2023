@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _roomCompositeColl: {fileID: 64410708316725889}
+  _isSpawnPoint: 0
 --- !u!61 &64410709400172361
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ namespace Assets.Scripts.Audio
 
     public class Audios : MonoBehaviour
     {
-        [SerializeField] private AudioMixerGroup _SFX_output;
-        [SerializeField] private AudioMixerGroup _Music_output;
+        [SerializeField] protected AudioMixerGroup _SFX_output;
+        [SerializeField] protected AudioMixerGroup _Music_output;
         [SerializeField] private Sound[] _SFXs;
         [SerializeField] private Sound[] _musics;
 

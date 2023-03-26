@@ -1,0 +1,31 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Editor/PlayMenus/PauseMenu.uss?fileID=7433441132597879392&amp;guid=c5cffb2cb8ba9ef4b9c7486a88b9f3b3&amp;type=3#PauseMenu" />
+    <ui:VisualElement name="pause-menu-container" class="deactivate-visualization" style="width: 100%; height: 100%; min-height: 100%; background-color: rgba(255, 255, 255, 0); display: flex;">
+        <ui:VisualElement name="main-container" style="width: 100%; height: 100%;">
+            <ui:VisualElement name="menu-container" style="height: 100%; width: 50%; left: 25%; right: 357px; min-width: auto; min-height: auto; align-items: center; justify-content: space-between;">
+                <ui:VisualElement name="front-menu" style="width: 100%; height: 100%; -unity-text-align: upper-center; flex-direction: column; flex-wrap: nowrap; justify-content: space-between; align-items: center; display: flex;">
+                    <ui:VisualElement name="title" style="width: 100%; height: 20%;">
+                        <ui:Label text="PAUSE MENU" display-tooltip-when-elided="true" style="justify-content: flex-end; align-items: auto; white-space: normal; -unity-text-align: middle-center; height: 100%; width: 100%; -unity-font-style: bold; font-size: 50px; color: rgb(255, 255, 255);" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="button-container" style="height: 80%; top: 0; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; justify-content: flex-start; align-items: center; width: 70%;">
+                        <ui:Button display-tooltip-when-elided="true" name="resume-button" class="button" />
+                        <ui:Button display-tooltip-when-elided="true" name="settings-button" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/UI/Menu/CREDITS.png?fileID=2800000&amp;guid=677ea1e14747e5d46b292abcba7169fa&amp;type=3#CREDITS&apos;);" />
+                        <ui:Button display-tooltip-when-elided="true" name="main-menu-button" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/UI/Menu/MENU%20INICIAL.png?fileID=2800000&amp;guid=7c45b80fac2be8c41a929c9d50f524d1&amp;type=3#MENU INICIAL&apos;);" />
+                        <ui:Button display-tooltip-when-elided="true" name="exit-game-button" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/UI/Menu/EXIT.png?fileID=2800000&amp;guid=af3a5c7232b8651419bd3f86000c7378&amp;type=3#EXIT&apos;);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="settings-menu" style="width: 100%; height: 100%; -unity-text-align: upper-center; flex-direction: column; flex-wrap: nowrap; justify-content: space-between; align-items: center; display: none; white-space: normal;">
+                    <ui:VisualElement name="title">
+                        <ui:Label text="SETTINGS" display-tooltip-when-elided="true" style="justify-content: flex-end; align-items: auto; white-space: normal; -unity-text-align: middle-center; height: 76px; width: 337px; -unity-font-style: bold; font-size: 50px; color: rgb(255, 255, 255);" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="button-container" style="height: 540px; top: 0; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; justify-content: flex-start; align-items: center; width: 70%;">
+                        <ui:Slider picking-mode="Ignore" label="Main Volume" value="42" high-value="100" name="main-volume-slider" show-input-field="false" class="slider" style="cursor: initial; background-image: none;" />
+                        <ui:Slider picking-mode="Ignore" label="Music Volume" value="42" high-value="100" name="music-volume-slider" usage-hints="None" class="slider" style="width: 100%; height: 10%;" />
+                        <ui:Slider picking-mode="Ignore" label="SFX Volume" value="42" high-value="100" name="sfx-volume-slider" class="slider" style="width: 100%; height: 10%;" />
+                        <ui:Button display-tooltip-when-elided="true" name="back-button" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/UI/Menu/EXIT.png?fileID=2800000&amp;guid=af3a5c7232b8651419bd3f86000c7378&amp;type=3#EXIT&apos;);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

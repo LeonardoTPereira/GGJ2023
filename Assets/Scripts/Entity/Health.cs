@@ -9,9 +9,9 @@ namespace Entity
         [SerializeField] protected int maxHealth = 5;
         [SerializeField] protected float invincibilityCooldown = 0.5f;
         [SerializeField] protected float timeToDestroyObject = 0.5f;
+        [SerializeField] protected int _health;
         
         private bool _canTakeDamage;
-        protected int _health;
 
         private void Start()
         {

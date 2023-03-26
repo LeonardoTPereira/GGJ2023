@@ -91,14 +91,7 @@ namespace Boss.MadMantis
             {
                 var coolDown = Random.Range(MinAttackCooldown, MaxAttackCooldown);
                 yield return new WaitForSeconds(coolDown);
-                if (IsEnraged)
-                {
-                    EnragedAttack();
-                }
-                else
-                {
-                    Attack();
-                }
+                Attack();
             }
         }
 
@@ -157,7 +150,7 @@ namespace Boss.MadMantis
         {
             if (Random.value < 0.5f)
             {
-                VerticalAttack();
+                StartVerticalAttackAnimation();
             }
             else
             {
@@ -165,27 +158,18 @@ namespace Boss.MadMantis
             }
         }
 
-        private void EnragedAttack()
-        {
-            if (Random.value < 0.5f)
-            {
-                DoubleVerticalAttack();
-            }
-            else
-            {
-                DoubleHorizontalAttack();
-            }
-        }
-
-        private void VerticalAttack()
+        private void StartVerticalAttackAnimation()
         {
             _animator.SetTrigger("VerticalAttack");
+        }
+
+        public void SpawnLeftVerticalAttack()
+        {
             Instantiate(VerticalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
         }
 
-        private void DoubleVerticalAttack()
+        public void SpawnDoubleVerticalAttack()
         {
-            _animator.SetTrigger("VerticalAttack");
             Instantiate(VerticalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
             Instantiate(VerticalRightAttackPrefab, LeftClawPosition.position, transform.rotation);
         }
@@ -193,12 +177,15 @@ namespace Boss.MadMantis
         private void HorizontalAttack()
         {
             _animator.SetTrigger("HorizontalAttack");
+        }
+
+        public void SpawnLeftHorizontalAttack()
+        {
             Instantiate(HorizontalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
         }
 
-        private void DoubleHorizontalAttack()
+        public void SpawnDoubleHorizontalAttack()
         {
-            _animator.SetTrigger("HorizontalAttack");
             Instantiate(HorizontalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
             Instantiate(HorizontalRightAttackPrefab, LeftClawPosition.position, transform.rotation);
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Scenario
@@ -33,24 +31,6 @@ namespace Assets.Scripts.Scenario
         [Range(0.0f, 1.0f)]
         public float yFactor = 0.75f;
 
-        /*
-        [Header("Parallax Factor in Y axis")]
-        [Range(0.0f, 1.0f)]
-        public float closestY;
-        [Range(0.0f, 1.0f)]
-        public float closeY;
-        [Range(0.0f, 1.0f)]
-        public float middleCloseY;
-        [Range(0.0f, 1.0f)]
-        public float middleY;
-        [Range(0.0f, 1.0f)]
-        public float middleFarY;
-        [Range(0.0f, 1.0f)]
-        public float farY;
-        [Range(0.0f, 1.0f)]
-        public float farthestY;
-        */
-
         private void Awake()
         {
             if (Instance == null)
@@ -61,9 +41,9 @@ namespace Assets.Scripts.Scenario
 
         private void OnEnable()
         {
-            chunkSize = this.gameObject.GetComponentInChildren<SpriteRenderer>().bounds.size.x;
+            chunkSize = gameObject.GetComponentInChildren<SpriteRenderer>().bounds.size.x;
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-            this.gameObject.transform.SetParent(mainCamera.transform);
+            gameObject.transform.SetParent(mainCamera.transform);
         }
     }
 }

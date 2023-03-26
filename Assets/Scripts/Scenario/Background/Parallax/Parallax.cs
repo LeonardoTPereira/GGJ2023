@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts.Scenario;
 
 namespace Assets.Scripts.Scenario
 {
     public class Parallax : MonoBehaviour
     {
-        enum BackgroundType
+        private enum BackgroundType
         {
             Farthest, Far, MiddleFar, Middle, MiddleClose, Close, Closest
         }
@@ -25,7 +22,7 @@ namespace Assets.Scripts.Scenario
         private float _xDistance;
         private float _yDistance;
 
-        void Start()
+        private void Start()
         {
             GetParallaxConfigs();
             _xCentralPos = this.transform.position.x;
@@ -44,26 +41,32 @@ namespace Assets.Scripts.Scenario
                     _parallaxFactorInX = _parallaxConfigs.farthestX;
                     //_parallaxFactorInY = _parallaxConfigs.farthestY;
                     break;
+
                 case BackgroundType.Far:
                     _parallaxFactorInX = _parallaxConfigs.farX;
                     //_parallaxFactorInY = _parallaxConfigs.farY;
                     break;
+
                 case BackgroundType.MiddleFar:
                     _parallaxFactorInX = _parallaxConfigs.middleFarX;
                     //_parallaxFactorInY = _parallaxConfigs.middleFarY;
                     break;
+
                 case BackgroundType.Middle:
                     _parallaxFactorInX = _parallaxConfigs.middleX;
                     //_parallaxFactorInY = _parallaxConfigs.middleY;
                     break;
+
                 case BackgroundType.MiddleClose:
                     _parallaxFactorInX = _parallaxConfigs.middleCloseX;
                     //_parallaxFactorInY = _parallaxConfigs.middleCloseY;
                     break;
+
                 case BackgroundType.Close:
                     _parallaxFactorInX = _parallaxConfigs.closeX;
                     //_parallaxFactorInY = _parallaxConfigs.closeY;
                     break;
+
                 case BackgroundType.Closest:
                     _parallaxFactorInX = _parallaxConfigs.closestX;
                     //_parallaxFactorInY = _parallaxConfigs.closestY;
@@ -74,7 +77,7 @@ namespace Assets.Scripts.Scenario
             _backgroundSlotSize = _parallaxConfigs.chunkSize;
         }
 
-        void Update()
+        private void Update()
         {
 #if UNITY_EDITOR
             GetParallaxConfigs();

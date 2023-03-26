@@ -19804,6 +19804,7 @@ GameObject:
   - component: {fileID: 6432609860406773168}
   - component: {fileID: 1724403711008554826}
   - component: {fileID: 1842924168678115953}
+  - component: {fileID: 9073609205368203108}
   m_Layer: 24
   m_Name: Player
   m_TagString: Player
@@ -19842,7 +19843,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011938572, y: 0.37009382}
+  m_Offset: {x: -0.011938572, y: 1.3111733}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -19853,7 +19854,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4536638, y: 5.799283}
+  m_Size: {x: 1.4536638, y: 3.917124}
   m_EdgeRadius: 0
 --- !u!50 &7995153062059324114
 Rigidbody2D:
@@ -20086,6 +20087,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!70 &9073609205368203108
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6432609860406773169}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.050056458, y: -1.0411946}
+  m_Size: {x: 1.6413116, y: 3.082389}
+  m_Direction: 0
 --- !u!1001 &2217210748796577205
 PrefabInstance:
   m_ObjectHideFlags: 0

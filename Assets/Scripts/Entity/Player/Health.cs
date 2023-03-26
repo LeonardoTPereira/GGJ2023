@@ -11,6 +11,8 @@ namespace Player
     public class Health : Entity.Health
     {
         [SerializeField] private UnityEngine.Animator _anim;
+        [SerializeField] private DamageEffect damageEffect;
+
         public static event Action<int> OnInitializePlayerHealth;
         public static event Action OnPlayerDied;
         public static event Action<int> OnPlayerTakeDamage;
@@ -18,7 +20,7 @@ namespace Player
 
         [SerializeField] private ParticleSystem damageParticle;
         [SerializeField] private ParticleSystem deathParticle;
-    
+
         protected override void WhenInitializeHealth()
         {
             OnInitializePlayerHealth?.Invoke(maxHealth);
@@ -40,6 +42,7 @@ namespace Player
         
             _anim.SetTrigger("Damage");
             damageParticle.Play();
+            damageEffect.BlinkDamage();
         }
 
         protected override void WhenApplyHeal(int heal)

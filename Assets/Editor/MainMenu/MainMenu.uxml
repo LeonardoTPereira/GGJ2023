@@ -2,14 +2,25 @@
     <ui:Template name="FrontPageMainMenu" src="project://database/Assets/Editor/MainMenu/FrontPageMainMenu.uxml?fileID=9197481963319205126&amp;guid=c9137d24eef6e184dbb406cc7f909997&amp;type=3#FrontPageMainMenu" />
     <ui:Template name="MainSettingsMenu" src="project://database/Assets/Editor/MainMenu/MainSettingsMenu.uxml?fileID=9197481963319205126&amp;guid=8ba2c47c9d76dd44da9aa77300e92f3c&amp;type=3#MainSettingsMenu" />
     <ui:VisualElement name="Root" style="width: 100%; height: 100%;">
-        <ui:VisualElement name="Background" style="width: 100%; height: 100%; position: absolute; background-image: none; align-items: center; background-color: rgb(137, 151, 87);">
-            <ui:VisualElement name="logo" style="position: absolute; width: 60%; height: 50%; align-items: center; margin-top: 5%;">
-                <ui:VisualElement name="image" style="overflow: hidden; width: 80%; height: 0; display: flex; visibility: visible; position: absolute; background-image: url(&apos;project://database/Assets/Sprites/UI/Menu/logo_without_bg.png?fileID=2800000&amp;guid=f167fca69b5091845b21b4401c766203&amp;type=3#logo_without_bg&apos;); padding-bottom: 35%; justify-content: flex-start; top: 5%;">
-                    <ui:VisualElement name="tira-linha" style="-unity-background-image-tint-color: rgb(137, 151, 87); height: 0; width: 1.5%; position: absolute; left: -1%; background-color: rgb(137, 151, 87); padding-bottom: 45%;" />
-                    <ui:VisualElement name="tira-linha" style="-unity-background-image-tint-color: rgb(137, 151, 87); height: 0; width: 1%; position: absolute; left: auto; background-color: rgb(137, 151, 87); right: -1px; padding-bottom: 45%;" />
-                    <ui:VisualElement name="tira-linha" style="-unity-background-image-tint-color: rgb(137, 151, 87); height: 0; width: 100%; position: absolute; left: auto; background-color: rgb(137, 151, 87); right: auto; bottom: 1%; padding-bottom: 1%;" />
+        <ui:VisualElement name="Background" style="width: 100%; height: 100%; position: absolute; background-image: none; align-items: center; background-color: rgb(39, 37, 33);">
+            <ui:VisualElement name="back-scene" style="width: 100%; height: 100%; position: absolute; top: auto;">
+                <ui:VisualElement name="rochas-tras" style="position: absolute; width: 100%; height: 100%; flex-direction: row; top: 1%;">
+                    <ui:VisualElement name="rocha-tras" style="position: relative; width: 50%; height: 100%; padding-bottom: 0; background-image: url(&apos;project://database/Assets/Sprites/Scenario/NovoLevel/rochatras2.png?fileID=2800000&amp;guid=1e41572c9826f84428c09fa6b83b13c0&amp;type=3#rochatras2&apos;);" />
+                    <ui:VisualElement name="rocha-tras" style="position: relative; width: 50%; height: 100%; padding-bottom: 0; background-image: url(&apos;project://database/Assets/Sprites/Scenario/NovoLevel/rochatras3.png?fileID=2800000&amp;guid=9d73620bf24608b41bf01cfb89d501ee&amp;type=3#rochatras3&apos;);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="rochas-tras2" style="position: absolute; width: 100%; height: 100%; flex-direction: row; top: 1%;">
+                    <ui:VisualElement name="rocha-tras" style="position: absolute; width: 100%; height: 100%; padding-bottom: 0; background-image: url(&apos;project://database/Assets/Sprites/Scenario/NovoLevel/rochatras1.png?fileID=2800000&amp;guid=d943bbe1ef52fbf409a73cb61aca5420&amp;type=3#rochatras1&apos;); top: 2%;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="cipo-cima" style="position: absolute; width: 100%; height: 0; padding-bottom: 10%; background-image: url(&apos;project://database/Assets/Sprites/Scenario/NovoLevel/cipos1.png?fileID=2800000&amp;guid=63f051536cb794945b36f4ee483befee&amp;type=3#cipos1&apos;);" />
+                <ui:VisualElement name="rochas-frente" style="position: absolute; width: 100%; height: 100%; flex-direction: row; background-image: none; align-items: flex-end; display: none; top: 1%;">
+                    <ui:VisualElement name="rocha-tras" style="position: relative; width: 50%; height: 50%; padding-bottom: 0; background-image: url(&apos;project://database/Assets/Sprites/Scenario/NovoLevel/rochafrente1.png?fileID=2800000&amp;guid=361295017a476a9479b1e15ff6c3a22b&amp;type=3#rochafrente1&apos;);" />
+                    <ui:VisualElement name="rocha-tras" style="position: relative; width: 50%; height: 50%; padding-bottom: 0; background-image: url(&apos;project://database/Assets/Sprites/Scenario/NovoLevel/rochafrente4.png?fileID=2800000&amp;guid=d98d08da7ca4ab840a4a4dbe9f9a5021&amp;type=3#rochafrente4&apos;);" />
                 </ui:VisualElement>
             </ui:VisualElement>
+            <ui:VisualElement name="logo" style="position: absolute; width: 60%; height: 50%; align-items: center; margin-top: 5%;">
+                <ui:VisualElement name="image" style="overflow: hidden; width: 80%; height: 0; display: flex; visibility: visible; position: absolute; background-image: url(&apos;project://database/Assets/Sprites/UI/Menu/logo_without_bg.png?fileID=2800000&amp;guid=f167fca69b5091845b21b4401c766203&amp;type=3#logo_without_bg&apos;); padding-bottom: 35%; justify-content: flex-start; top: 5%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="rocha-cima" style="position: absolute; width: 100%; height: 0; padding-bottom: 10%; background-image: url(&apos;project://database/Assets/Sprites/Scenario/NovoLevel/rochascima1.png?fileID=2800000&amp;guid=caec44efe75ba1a449393caba3d16fe5&amp;type=3#rochascima1&apos;);" />
             <ui:VisualElement name="Tiles" style="position: absolute; width: 100%; height: 100%; justify-content: flex-start;">
                 <ui:VisualElement name="LeftUP" style="position: absolute; width: 30%; height: 20%; top: 60%; align-items: stretch; justify-content: flex-start; flex-direction: row;">
                     <ui:VisualElement name="VisualElement" style="position: relative; width: 0; height: 100%; background-image: url(&apos;project://database/Assets/Sprites/Scenario/TILE2,3.png?fileID=-1497360027&amp;guid=2345a71b81dccb04c83d91820f212d56&amp;type=3#TILE2,3_1&apos;); padding-bottom: 0; padding-left: 0; padding-right: 33%; padding-top: 0; -unity-background-scale-mode: stretch-to-fill; -unity-slice-left: initial; -unity-slice-top: initial; background-color: rgba(56, 56, 56, 0); top: auto;" />
@@ -30,7 +41,7 @@
             <ui:VisualElement name="Player" style="position: absolute; top: 35%; width: 0; height: 30%; background-image: url(&apos;project://database/Assets/Sprites/Player/player.png?fileID=2800000&amp;guid=1031ce43a49298e42ac2e377f06bb00e&amp;type=3#player&apos;); left: 20%; padding-right: 10%;" />
             <ui:VisualElement name="ObjectsCloseToTiles" style="position: absolute; width: 100%; height: 100%;">
                 <ui:VisualElement name="Left" style="position: absolute; top: 50%; width: 30%; height: 15%; flex-direction: row;">
-                    <ui:VisualElement name="CloseToTiles" style="position: relative; top: auto; width: 0; height: 100%; padding-right: 30%; background-image: url(&apos;project://database/Assets/Sprites/Scenario/Level1/planta2.png?fileID=2800000&amp;guid=fd9f3e0a64e18dc4f99a6d112e0be93e&amp;type=3#planta2&apos;);" />
+                    <ui:VisualElement name="CloseToTiles" style="position: relative; top: auto; width: 0; height: 100%; padding-right: 30%; background-image: url(&apos;project://database/Assets/Sprites/Scenario/Level1/planta2.png?fileID=2800000&amp;guid=fd9f3e0a64e18dc4f99a6d112e0be93e&amp;type=3#planta2&apos;); -unity-background-image-tint-color: rgba(56, 56, 56, 0);" />
                     <ui:VisualElement name="CloseToTiles" style="position: relative; top: auto; width: 0; height: 100%; padding-right: 30%; background-image: url(&apos;project://database/Assets/Sprites/Player/FORMIGA/itens/LAPIDE.png?fileID=2800000&amp;guid=b92e13a241a98a344a83b169636db487&amp;type=3#LAPIDE&apos;);" />
                 </ui:VisualElement>
                 <ui:VisualElement name="Right" style="position: absolute; top: 70%; width: 30%; height: 15%; flex-direction: row; left: 70%;">
@@ -39,7 +50,6 @@
                     <ui:VisualElement name="CloseToTiles" style="position: relative; top: auto; width: 0; height: 100%; padding-right: 30%; background-image: none;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="rocha-cima" style="position: absolute; width: 100%; height: 0; padding-bottom: 10%; background-image: url(&apos;project://database/Assets/Sprites/Scenario/NovoLevel/rochascima1.png?fileID=2800000&amp;guid=caec44efe75ba1a449393caba3d16fe5&amp;type=3#rochascima1&apos;);" />
         </ui:VisualElement>
         <ui:VisualElement name="Menus" style="width: 100%; height: 100%;">
             <ui:Instance template="FrontPageMainMenu" name="FrontPageMainMenu" style="display: flex; flex-grow: 1;" />

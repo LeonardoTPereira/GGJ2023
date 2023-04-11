@@ -10,7 +10,7 @@ using UI.Menu.Play.Pause;
 
 namespace UI.Menu.Play.Pause
 {
-    public class PauseMenuPresenter : MonoBehaviour
+    public class PauseMenuPresenter
     {
         public Action ResumeAction { set => _resumeButton.clicked += value; }
 

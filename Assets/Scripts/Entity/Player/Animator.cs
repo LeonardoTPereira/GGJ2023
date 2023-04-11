@@ -75,7 +75,6 @@ namespace Player
                 {
                     _transformController.Flip();
                     _lastInput = _player.Input.X;
-                    Debug.Log("Flip Player");
                 }
                     
             }

@@ -11,6 +11,7 @@ public class StartViewPresenter : MonoBehaviour
     private VisualElement _startView;
 
     private MainMenuPresenter _menuPresenter;
+    private MainMenuSettingsViewPresenter _settingsPresenter;
 
     private void Start()
     {
@@ -27,30 +28,48 @@ public class StartViewPresenter : MonoBehaviour
         _menuPresenter = new MainMenuPresenter(_startView);
         _menuPresenter.OpenSettings = () => ToggleSettingsMenu(true);
 
-        MainMenuSettingsViewPresenter settingsPresenter = new MainMenuSettingsViewPresenter(_settingsView);
-        settingsPresenter.BackAction = () => ToggleSettingsMenu(false);
+        _settingsPresenter = new MainMenuSettingsViewPresenter(_settingsView);
+        _settingsPresenter.BackAction = () => ToggleSettingsMenu(false);
+//      _settingsPresenter.BackAction = () => _menuPresenter.SetSettingsMenu(false);
     }
 
     public void ToggleSettingsMenu(bool enable)
     {
         _startView.Display(!enable);
         _settingsView.Display(enable);
+        _settingsPresenter.SetSettingsMenu(enable);
     }
-    
+
+
+    #region GET INPUT
     public void OnDownButton()
     {
-        _menuPresenter.DownPressed();
+        _settingsPresenter.DownPressed();
     }
 
     public void OnUpButton()
     {
-        _menuPresenter.UpPressed();
+        _settingsPresenter.UpPressed();
     }
-    
+
+    public void OnLeftButton()
+    {
+        _settingsPresenter.LeftPressed();
+    }
+
+    public void OnRightButton()
+    {
+        _settingsPresenter.RightPressed();
+    }    
     
     public void OnSubmit()
     {
-        _menuPresenter.SubmitPressed();
+        _settingsPresenter.SubmitPressed();
     }
     
+    public void OnClick()
+    {
+        _settingsPresenter.ClickPressed();
+    }
+    #endregion
 }

@@ -14,11 +14,9 @@ public class MainMenuPresenter
     private Button _settingsButton;
     private Button _exitButton;
 
-    private Button _selectedButton;
+    private bool _IsSettingsMenuActive;
 
-    private bool _IsStartButtonSelected;
-    private bool _IsSettingsButtonSelected;
-    private bool _IsExitButtonSelected;
+    private const int SETTINGS_BUTTON_INDEX = 1;
 
 
     private static List<Button> _buttons = new List<Button>();
@@ -27,9 +25,7 @@ public class MainMenuPresenter
 
     public MainMenuPresenter(VisualElement root) 
     {
-        _IsStartButtonSelected = true;
-        _IsSettingsButtonSelected = false;
-        _IsExitButtonSelected = false;
+        _IsSettingsMenuActive = false;
 
         _startButton = root.Q<Button>("play-button");
         _settingsButton = root.Q<Button>("settings-button");
@@ -59,43 +55,62 @@ public class MainMenuPresenter
     
     public void DownPressed()
     {
-        if (_selectedIndex < 2)
-            _selectedIndex += 1;
-        _buttons[_selectedIndex].style.opacity = 1f;
+        if (!_IsSettingsMenuActive)
+        {
+            if (_selectedIndex < 2)
+                _selectedIndex += 1;
+            _buttons[_selectedIndex].style.opacity = 1f;
 
-        if (_selectedIndex - 1 >= 0)
-            _buttons[_selectedIndex - 1].style.opacity = .7f;
+            if (_selectedIndex - 1 >= 0)
+                _buttons[_selectedIndex - 1].style.opacity = .7f;
+        }
     }
 
     public void UpPressed()
     {
-        if (_selectedIndex <= 0)
-            _selectedIndex = 0;
-        else if (_selectedIndex > 0)
+        if (!_IsSettingsMenuActive)
         {
-            _selectedIndex -= 1;
+            if (_selectedIndex <= 0)
+                _selectedIndex = 0;
+            else if (_selectedIndex > 0)
+            {
+                _selectedIndex -= 1;
 
-            if (_selectedIndex + 1 < 3)
-                _buttons[_selectedIndex + 1].style.opacity = .7f;
+                if (_selectedIndex + 1 < 3)
+                    _buttons[_selectedIndex + 1].style.opacity = .7f;
+            }
+            _buttons[_selectedIndex].style.opacity = 1f;
         }
-        _buttons[_selectedIndex].style.opacity = 1f;    
+    }
+
+    public void SetSettingsMenu(bool act)
+    {
+        _IsSettingsMenuActive = act;
     }
 
     public void SubmitPressed()
     {
 
         Debug.Log("INDEX SELECTED: " + _selectedIndex);
-
-        Button button = _buttons[_selectedIndex];
-        var e = new NavigationSubmitEvent();
-        e.target = null;
-        e.target = button;
-        Debug.Log(e);
-        button.SendEvent(e);
-        e.target = null;
-        /*
-        using (var e = new NavigationSubmitEvent() { target = button })
+        if (!_IsSettingsMenuActive)
+        {
+            Button button = _buttons[_selectedIndex];
+            /*
+            var e = new NavigationSubmitEvent();
+            e.target = null;
+            e.target = button;
+            Debug.Log(e);
             button.SendEvent(e);
-        */
+            e.target = null;
+            */
+        
+            using (var e = new NavigationSubmitEvent() { target = button })
+                button.SendEvent(e);
+
+            if (_selectedIndex == SETTINGS_BUTTON_INDEX)
+            {
+                _IsSettingsMenuActive = true;
+            }
+        }
     }
 }

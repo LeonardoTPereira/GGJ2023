@@ -7,7 +7,6 @@ namespace Enemy
     
     public class LineRangedAttack : Attack
     {
-        
         [SerializeField] private float initialForce = 50f;
 
         protected override void Initialize()

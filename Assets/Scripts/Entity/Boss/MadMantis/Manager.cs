@@ -91,14 +91,7 @@ namespace Boss.MadMantis
             {
                 var coolDown = Random.Range(MinAttackCooldown, MaxAttackCooldown);
                 yield return new WaitForSeconds(coolDown);
-                if (IsEnraged)
-                {
-                    EnragedAttack();
-                }
-                else
-                {
-                    Attack();
-                }
+                Attack();
             }
         }
 
@@ -157,50 +150,80 @@ namespace Boss.MadMantis
         {
             if (Random.value < 0.5f)
             {
-                VerticalAttack();
+                StartVerticalAttackAnimation();
             }
             else
             {
-                HorizontalAttack();
+                StartHorizontalAttackAnimation();
             }
         }
 
-        private void EnragedAttack()
+        private void StartVerticalAttackAnimation()
         {
             if (Random.value < 0.5f)
             {
-                DoubleVerticalAttack();
+                _animator.SetTrigger("VerticalAttackTop");
             }
             else
             {
-                DoubleHorizontalAttack();
+                _animator.SetTrigger("VerticalAttackBottom");
             }
         }
 
-        private void VerticalAttack()
+        public void SpawnLeftVerticalAttackTop()
         {
-            _animator.SetTrigger("VerticalAttack");
+            Instantiate(VerticalLeftAttackPrefab, UpRightClawPosition.position, transform.rotation);
+        }
+
+        public void SpawnLeftVerticalAttackBottom()
+        {
             Instantiate(VerticalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
         }
 
-        private void DoubleVerticalAttack()
+        public void SpawnDoubleVerticalAttackTop()
         {
-            _animator.SetTrigger("VerticalAttack");
+            Instantiate(VerticalLeftAttackPrefab, UpRightClawPosition.position, transform.rotation);
+            Instantiate(VerticalRightAttackPrefab, UpLeftClawPosition.position, transform.rotation);
+        }
+
+        public void SpawnDoubleVerticalAttackBottom()
+        {
             Instantiate(VerticalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
             Instantiate(VerticalRightAttackPrefab, LeftClawPosition.position, transform.rotation);
         }
 
-        private void HorizontalAttack()
+        private void StartHorizontalAttackAnimation()
         {
-            _animator.SetTrigger("HorizontalAttack");
+            if (Random.value < 0.5f)
+            {
+                _animator.SetTrigger("HorizontalAttackTop");
+            }
+            else
+            {
+                _animator.SetTrigger("HorizontalAttackBottom");
+            }
+        }
+
+        public void SpawnLeftHorizontalAttackTop()
+        {
+            Instantiate(HorizontalLeftAttackPrefab, UpRightClawPosition.position, transform.rotation);
+        }
+
+        public void SpawnLeftHorizontalAttackBottom()
+        {
             Instantiate(HorizontalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
         }
 
-        private void DoubleHorizontalAttack()
+        public void SpawnDoubleHorizontalAttackBottom()
         {
-            _animator.SetTrigger("HorizontalAttack");
             Instantiate(HorizontalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
             Instantiate(HorizontalRightAttackPrefab, LeftClawPosition.position, transform.rotation);
+        }
+
+        public void SpawnDoubleHorizontalAttackTop()
+        {
+            Instantiate(HorizontalLeftAttackPrefab, UpRightClawPosition.position, transform.rotation);
+            Instantiate(HorizontalRightAttackPrefab, UpLeftClawPosition.position, transform.rotation);
         }
     }
 }

@@ -154,40 +154,76 @@ namespace Boss.MadMantis
             }
             else
             {
-                HorizontalAttack();
+                StartHorizontalAttackAnimation();
             }
         }
 
         private void StartVerticalAttackAnimation()
         {
-            _animator.SetTrigger("VerticalAttack");
+            if (Random.value < 0.5f)
+            {
+                _animator.SetTrigger("VerticalAttackTop");
+            }
+            else
+            {
+                _animator.SetTrigger("VerticalAttackBottom");
+            }
         }
 
-        public void SpawnLeftVerticalAttack()
+        public void SpawnLeftVerticalAttackTop()
+        {
+            Instantiate(VerticalLeftAttackPrefab, UpRightClawPosition.position, transform.rotation);
+        }
+
+        public void SpawnLeftVerticalAttackBottom()
         {
             Instantiate(VerticalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
         }
 
-        public void SpawnDoubleVerticalAttack()
+        public void SpawnDoubleVerticalAttackTop()
+        {
+            Instantiate(VerticalLeftAttackPrefab, UpRightClawPosition.position, transform.rotation);
+            Instantiate(VerticalRightAttackPrefab, UpLeftClawPosition.position, transform.rotation);
+        }
+
+        public void SpawnDoubleVerticalAttackBottom()
         {
             Instantiate(VerticalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
             Instantiate(VerticalRightAttackPrefab, LeftClawPosition.position, transform.rotation);
         }
 
-        private void HorizontalAttack()
+        private void StartHorizontalAttackAnimation()
         {
-            _animator.SetTrigger("HorizontalAttack");
+            if (Random.value < 0.5f)
+            {
+                _animator.SetTrigger("HorizontalAttackTop");
+            }
+            else
+            {
+                _animator.SetTrigger("HorizontalAttackBottom");
+            }
         }
 
-        public void SpawnLeftHorizontalAttack()
+        public void SpawnLeftHorizontalAttackTop()
+        {
+            Instantiate(HorizontalLeftAttackPrefab, UpRightClawPosition.position, transform.rotation);
+        }
+
+        public void SpawnLeftHorizontalAttackBottom()
         {
             Instantiate(HorizontalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
         }
 
-        public void SpawnDoubleHorizontalAttack()
+        public void SpawnDoubleHorizontalAttackBottom()
         {
             Instantiate(HorizontalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
             Instantiate(HorizontalRightAttackPrefab, LeftClawPosition.position, transform.rotation);
+        }
+
+        public void SpawnDoubleHorizontalAttackTop()
+        {
+            Instantiate(HorizontalLeftAttackPrefab, UpRightClawPosition.position, transform.rotation);
+            Instantiate(HorizontalRightAttackPrefab, UpLeftClawPosition.position, transform.rotation);
         }
     }
 }

@@ -50,7 +50,6 @@ namespace Player
             _anim.SetTrigger("isBlinking");
             yield return new WaitForSeconds(randomBlinking);
             _isBlinking = false;
-
         }
 
         private IEnumerator RunningLoop()
@@ -59,9 +58,7 @@ namespace Player
             yield return new WaitForSeconds(6);
             _anim.SetTrigger("Running");
             _isRunning = false;
-
         }
-
 
         void Update() {
 
@@ -75,8 +72,7 @@ namespace Player
                 {
                     _transformController.Flip();
                     _lastInput = _player.Input.X;
-                }
-                    
+                }   
             }
 
             // Speed up idle while running
@@ -99,6 +95,7 @@ namespace Player
             // Splat
             if (_player.LandingThisFrame) {
                 _anim.SetTrigger(GroundedKey);
+                _anim.ResetTrigger(JumpKey);
                 _source.PlayOneShot(_footsteps[Random.Range(0, _footsteps.Length)]);
             }
 
@@ -162,9 +159,7 @@ namespace Player
         #region Animation Keys
 
         private static readonly int GroundedKey = UnityEngine.Animator.StringToHash("Grounded");
-        private static readonly int IdleSpeedKey = UnityEngine.Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = UnityEngine.Animator.StringToHash("Jump");
-        private static readonly int SpeedKey = UnityEngine.Animator.StringToHash("Speed");
 
         #endregion
     }

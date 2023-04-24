@@ -141,19 +141,37 @@ namespace Player
         #region Collisions
 
         [Header("COLLISION")][SerializeField] private Bounds _characterBounds;
+        [SerializeField] private LayerMask _allGroundsLayers;
         [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private LayerMask _platformLayer;
         [SerializeField] private int _detectorCount = 3;
         [SerializeField] private float _detectionRayLength = 0.1f;
         [SerializeField][Range(0.1f, 0.3f)] private float _rayBuffer = 0.1f; // Prevents side detectors hitting the ground
+        private bool _isPlatformEffected = true;
 
         private RayRange _raysUp, _raysRight, _raysDown, _raysLeft;
         private bool _colUp, _colRight, _colDown, _colLeft;
 
         private float _timeLeftGrounded;
 
+        // Tests if PlatformEffector2D is disabling collision between the player and the platform
+        private void TestPlatformEffector2D()
+        {
+            if (Velocity.y > 0f)
+            {
+                //Velocity = new Vector3(Velocity.x, 0f , Velocity.z);
+                _isPlatformEffected = true;
+            }
+            else
+            {
+                _isPlatformEffected = !_testPlatformOverlap;
+            }
+        }
+
         // We use these raycast checks for pre-collision information
         private void RunCollisionChecks()
         {
+            TestPlatformEffector2D();
             // Generate ray ranges.
             CalculateRayRanged();
 
@@ -176,7 +194,15 @@ namespace Player
 
             bool RunDetection(RayRange range)
             {
-                return EvaluateRayPositions(range).Any(point => Physics2D.Raycast(point, range.Dir, _detectionRayLength, _groundLayer));
+                bool platformTest = EvaluateRayPositions(range).Any(point => Physics2D.Raycast(point, range.Dir, _detectionRayLength, _platformLayer));
+                bool groundTest = EvaluateRayPositions(range).Any(point => Physics2D.Raycast(point, range.Dir, _detectionRayLength, _groundLayer));
+                
+                if (_isPlatformEffected)
+                {
+                    platformTest = false;
+                }
+                //Debug.Log("plat: " + platformTest + " ground: " + groundTest);
+                return groundTest || platformTest;
             }
         }
 
@@ -331,7 +357,7 @@ namespace Player
         [Header("MOVE")]
         [SerializeField, Tooltip("Raising this value increases collision accuracy at the cost of performance.")]
         private int _freeColliderIterations = 10;
-
+        private bool _testPlatformOverlap = false;
         // We cast our bounds before moving to avoid future collisions
         private void MoveCharacter()
         {
@@ -340,14 +366,22 @@ namespace Player
             var move = RawMovement * Time.deltaTime;
             var furthestPoint = pos + move;
 
+            if (Physics2D.OverlapBox(furthestPoint, _characterBounds.size, 0, _platformLayer))
+                _testPlatformOverlap = true;
+            else
+                _testPlatformOverlap = false;
+
             // check furthest movement. If nothing hit, move and don't do extra checks
-            var hit = Physics2D.OverlapBox(furthestPoint, _characterBounds.size, 0, _groundLayer);
+            var hit = Physics2D.OverlapBox(furthestPoint, _characterBounds.size, 0, _allGroundsLayers);
+            if (_isPlatformEffected)            
+                hit = Physics2D.OverlapBox(furthestPoint, _characterBounds.size, 0, _groundLayer);
+
             if (!hit)
             {
                 transform.position += move;
                 return;
             }
-
+            Debug.Log("Afection: " + _isPlatformEffected);
             // otherwise increment away from current pos; see what closest position we can move to
             var positionToMoveTo = transform.position;
             for (int i = 1; i < _freeColliderIterations; i++)
@@ -356,7 +390,10 @@ namespace Player
                 var t = (float)i / _freeColliderIterations;
                 var posToTry = Vector2.Lerp(pos, furthestPoint, t);
 
-                if (Physics2D.OverlapBox(posToTry, _characterBounds.size, 0, _groundLayer))
+                //bool overlapTest = Physics2D.OverlapBox(posToTry, _characterBounds.size, 0, _allGroundsLayers);
+                //if (_isPlatformEffected)
+                bool overlapTest = Physics2D.OverlapBox(posToTry, _characterBounds.size, 0, _groundLayer);
+                if (overlapTest)
                 {
                     transform.position = positionToMoveTo;
 

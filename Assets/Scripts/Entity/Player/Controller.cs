@@ -177,7 +177,7 @@ namespace Player
 
             // Ground
             LandingThisFrame = false;
-            var groundedCheck = RunDetection(_raysDown);
+            var groundedCheck = RunDetection(_raysDown, false);
             if (_colDown && !groundedCheck) _timeLeftGrounded = Time.time; // Only trigger when first leaving
             else if (!_colDown && groundedCheck)
             {
@@ -188,16 +188,16 @@ namespace Player
             _colDown = groundedCheck;
 
             // The rest
-            _colUp = RunDetection(_raysUp);
-            _colLeft = RunDetection(_raysLeft);
-            _colRight = RunDetection(_raysRight);
+            _colUp = RunDetection(_raysUp, false);
+            _colLeft = RunDetection(_raysLeft, true);
+            _colRight = RunDetection(_raysRight, true);
 
-            bool RunDetection(RayRange range)
+            bool RunDetection(RayRange range, bool isLeftOrRight)
             {
                 bool platformTest = EvaluateRayPositions(range).Any(point => Physics2D.Raycast(point, range.Dir, _detectionRayLength, _platformLayer));
                 bool groundTest = EvaluateRayPositions(range).Any(point => Physics2D.Raycast(point, range.Dir, _detectionRayLength, _groundLayer));
                 
-                if (_isPlatformEffected)
+                if (_isPlatformEffected || isLeftOrRight)
                 {
                     platformTest = false;
                 }
@@ -365,23 +365,23 @@ namespace Player
             RawMovement = new Vector3(_currentHorizontalSpeed, _currentVerticalSpeed); // Used externally
             var move = RawMovement * Time.deltaTime;
             var furthestPoint = pos + move;
-
+            
             if (Physics2D.OverlapBox(furthestPoint, _characterBounds.size, 0, _platformLayer))
                 _testPlatformOverlap = true;
             else
                 _testPlatformOverlap = false;
-
+            
             // check furthest movement. If nothing hit, move and don't do extra checks
-            var hit = Physics2D.OverlapBox(furthestPoint, _characterBounds.size, 0, _allGroundsLayers);
+            Collider2D hit = Physics2D.OverlapBox(furthestPoint, _characterBounds.size, 0, _allGroundsLayers);
             if (_isPlatformEffected)            
                 hit = Physics2D.OverlapBox(furthestPoint, _characterBounds.size, 0, _groundLayer);
 
-            if (!hit)
+            if (!hit || Grounded)
             {
                 transform.position += move;
                 return;
             }
-            Debug.Log("Afection: " + _isPlatformEffected);
+            Debug.Log("Afection: " + _isPlatformEffected  + " !_testPlatform: " + !_testPlatformOverlap);
             // otherwise increment away from current pos; see what closest position we can move to
             var positionToMoveTo = transform.position;
             for (int i = 1; i < _freeColliderIterations; i++)
@@ -390,9 +390,9 @@ namespace Player
                 var t = (float)i / _freeColliderIterations;
                 var posToTry = Vector2.Lerp(pos, furthestPoint, t);
 
-                //bool overlapTest = Physics2D.OverlapBox(posToTry, _characterBounds.size, 0, _allGroundsLayers);
-                //if (_isPlatformEffected)
-                bool overlapTest = Physics2D.OverlapBox(posToTry, _characterBounds.size, 0, _groundLayer);
+                bool overlapTest = Physics2D.OverlapBox(posToTry, _characterBounds.size, 0, _allGroundsLayers);
+                if (_isPlatformEffected)
+                    overlapTest = Physics2D.OverlapBox(posToTry, _characterBounds.size, 0, _groundLayer);
                 if (overlapTest)
                 {
                     transform.position = positionToMoveTo;

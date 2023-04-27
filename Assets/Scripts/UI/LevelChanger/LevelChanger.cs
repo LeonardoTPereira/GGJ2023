@@ -29,8 +29,7 @@ namespace UI.LevelChanger
 
         public void FadeToNextLevel()
         {
-            _nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
-            _animator.SetTrigger("FadeOut");
+            FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         public void OnFadeComplete()

@@ -9,7 +9,7 @@ public class DamageEffect : MonoBehaviour
     private EntityRenderer entityRenderer;
     private Material damageMaterial;
 
-    private void Awake()
+    private void Start()
     {
         entityRenderer = GetComponent<EntityRenderer>();
         damageMaterial = new Material(entityRenderer.Material);

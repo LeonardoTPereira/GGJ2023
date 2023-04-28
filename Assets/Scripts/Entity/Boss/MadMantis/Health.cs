@@ -5,18 +5,17 @@ using UnityEngine;
 
 namespace Boss.MadMantis
 {
-    
     public class Health : Entity.Health
     {
         [field: SerializeField] public int EnragedHP { get; private set; }
         [field: SerializeField] public int FlyingHP { get; private set; }
-        
+
         private Manager _mantisManager;
         private EntityRenderer _spriteRenderer;
 
         private float _changingFormInvincibilityTime;
         private float _normalInvincibilityTime;
-        
+
         protected override void WhenInitializeHealth()
         {
             _mantisManager = GetComponent<Manager>();
@@ -33,6 +32,7 @@ namespace Boss.MadMantis
 
         protected override void WhenTakeDamage(int damage)
         {
+            _mantisManager.PlayDamageSound();
             if (_health < EnragedHP && !_mantisManager.IsEnraged)
             {
                 _mantisManager.StartRage();
@@ -47,7 +47,6 @@ namespace Boss.MadMantis
             {
                 invincibilityCooldown = _normalInvincibilityTime;
             }
-
             StartCoroutine(StartBlinking());
         }
 
@@ -61,7 +60,7 @@ namespace Boss.MadMantis
             var currentTime = 0f;
             var blinkTime = 0.05f;
             var blinkingTime = _normalInvincibilityTime;
-            
+
             while (currentTime < blinkingTime)
             {
                 var originalColor = _spriteRenderer.Color;
@@ -73,7 +72,7 @@ namespace Boss.MadMantis
                 currentTime += blinkTime;
             }
         }
-        
+
 #if UNITY_EDITOR
 
         [ButtonMethod]
@@ -84,6 +83,4 @@ namespace Boss.MadMantis
 
 #endif
     }
-
-    
 }

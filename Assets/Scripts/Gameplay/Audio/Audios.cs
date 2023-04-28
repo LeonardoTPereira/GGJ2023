@@ -6,7 +6,7 @@ namespace Assets.Scripts.Audio
 {
     // How to use:
     // Inside some script of an object you desire to play a sound listed on the AudioManager
-    // you can simply type: 
+    // you can simply type:
     // ***************** 'FindObjectOfType<AudioManager>().Play("Name of the sound");' ******************
     // passing the name of the sound to play it.
 
@@ -35,6 +35,7 @@ namespace Assets.Scripts.Audio
                 s.source.volume = s.volume;
                 s.source.pitch = s.pitch;
                 s.source.spatialBlend = s.spatialBlend;
+                s.source.playOnAwake = false;
             }
         }
 
@@ -166,7 +167,7 @@ namespace Assets.Scripts.Audio
             return s.clip;
         }
 
-        // Not working, AudioSettings.dspTime is not returning 
+        // Not working, AudioSettings.dspTime is not returning
         public void PlayMusicOneShot(string intro, string loop)
         {
             AudioSource musicSource = Array.Find(_musics, sound => sound.name == loop).source;

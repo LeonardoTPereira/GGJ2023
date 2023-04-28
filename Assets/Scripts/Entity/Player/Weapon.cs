@@ -83,7 +83,7 @@ namespace Player
                     usedBulletsParticle.Play();
                     //muzzleEffectParticle.Play();
                 }
-                StartCoroutine(CountCooldown(bullet.BulletSo.Cooldown));       
+                StartCoroutine(CountCooldown(bullet.BulletSo.Cooldown));
             }
             smokeParticle.Play();
         }

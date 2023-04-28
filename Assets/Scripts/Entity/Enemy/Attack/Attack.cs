@@ -11,11 +11,9 @@ namespace Enemy
         
         [SerializeField] protected GameObject bullet;
         [SerializeField] private float fireRate;
-        [SerializeField] private float particleDelay;
         [SerializeField] private Animator animator;
         [SerializeField] protected Transform mouth;
         [SerializeField] private float shootOffSet = 0.5f;
-        [SerializeField] private ParticleSystem salivaParticle;
 
         private TransformController transformController;
         
@@ -28,7 +26,6 @@ namespace Enemy
         
             InvokeRepeating("AnimateShoot", 0f, fireRate);
             InvokeRepeating("Shoot", shootOffSet, fireRate);
-            InvokeRepeating("PlayParticle", 0f, fireRate + particleDelay);
         }
 
         protected abstract void Initialize();
@@ -39,11 +36,6 @@ namespace Enemy
         }
 
         protected abstract void Shoot();
-
-        private void PlayParticle()
-        {
-            salivaParticle.Play();
-        }
 
     }
 

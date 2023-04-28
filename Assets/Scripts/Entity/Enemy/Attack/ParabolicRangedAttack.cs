@@ -10,8 +10,9 @@ namespace Enemy
     
     public class ParabolicRangedAttack : Attack
 {
-        [SerializeField] private float gravity;
-        private Transform target;
+    [SerializeField] private float gravity;
+    
+    private Transform target;
 
     protected override void Initialize()
     {
@@ -26,7 +27,7 @@ namespace Enemy
         var speed = GetCurrentLaunchSpeed(angle);
         
         var bulletVelocity = (new Vector2(Mathf.Cos(angle) * transform.right.x, Mathf.Sin(angle))) * speed ;
-        
+
         currentBullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
         
     }

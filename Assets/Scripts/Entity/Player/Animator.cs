@@ -1,5 +1,6 @@
 using System.Collections;
 using Entity;
+using MyBox;
 using TarodevController;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,13 +12,12 @@ namespace Player
     /// You won't find any programming prowess here.
     /// This is a supplementary script to help with effects and animation. Basically a juice factory.
     /// </summary>
-    public class Animator : MonoBehaviour {
+    public class Animator : MonoBehaviour
+    {
         [SerializeField] private UnityEngine.Animator _anim;
-        [SerializeField] private AudioSource _source;
         [SerializeField] private LayerMask _groundMask;
         [SerializeField] private ParticleSystem _jumpParticles, _launchParticles;
         [SerializeField] private ParticleSystem _moveParticles, _landParticles;
-        [SerializeField] private AudioClip[] _footsteps;
         [SerializeField] private float _maxTilt = .1f;
         [SerializeField] private float _tiltSpeed = 1;
         [SerializeField, Range(1f, 3f)] private float _maxIdleSpeed = 2;
@@ -32,6 +32,7 @@ namespace Player
         private bool _isRunning = false;
         private bool _isDead = false;
         private float _lastInput;
+        private readonly string[] stepsSFX = { "Step 01", "Step 02", "Step 03" };
 
         private Coroutine blinkCorroutine;
         private Coroutine runCorroutine;
@@ -41,7 +42,7 @@ namespace Player
             _player = GetComponentInParent<IPlayerController>();
             _transformController = GetComponentInParent<TransformController>();
             _lastInput = 1;
-        } 
+        }
 
         private IEnumerator BlinkingLoop()
         {
@@ -60,11 +61,11 @@ namespace Player
             _isRunning = false;
         }
 
-        void Update() {
-
+        private void Update()
+        {
             if (_player == null) return;
             if (_isDead) return;
-            
+
             // Flip the object
             if (_player.Input.X != 0)
             {
@@ -72,8 +73,9 @@ namespace Player
                 {
                     _transformController.Flip();
                     _lastInput = _player.Input.X;
-                }   
+                }
             }
+            
 
             // Speed up idle while running
             if (Mathf.Abs(_player.Input.X) > 0.01)
@@ -93,19 +95,22 @@ namespace Player
             }
 
             // Splat
-            if (_player.LandingThisFrame) {
+            if (_player.LandingThisFrame)
+            {
                 _anim.SetTrigger(GroundedKey);
                 _anim.ResetTrigger(JumpKey);
-                _source.PlayOneShot(_footsteps[Random.Range(0, _footsteps.Length)]);
+                AudioManager.Instance.PlaySFX(stepsSFX.GetRandom());
             }
 
             // Jump effects
-            if (_player.JumpingThisFrame) {
+            if (_player.JumpingThisFrame)
+            {
                 _anim.SetTrigger(JumpKey);
                 _anim.ResetTrigger(GroundedKey);
 
                 // Only play particles when grounded (avoid coyote)
-                if (_player.Grounded) {
+                if (_player.Grounded)
+                {
                     SetColor(_jumpParticles);
                     SetColor(_launchParticles);
                     _jumpParticles.Play();
@@ -113,27 +118,29 @@ namespace Player
             }
 
             // Play landing effects and begin ground movement effects
-            if (!_playerGrounded && _player.Grounded) {
+            if (!_playerGrounded && _player.Grounded)
+            {
                 _playerGrounded = true;
                 _moveParticles.Play();
                 _landParticles.transform.localScale = Vector3.one * Mathf.InverseLerp(0, _maxParticleFallSpeed, _movement.y);
                 SetColor(_landParticles);
                 _landParticles.Play();
             }
-            else if (_playerGrounded && !_player.Grounded) {
+            else if (_playerGrounded && !_player.Grounded)
+            {
                 _playerGrounded = false;
                 _moveParticles.Stop();
             }
 
             // Detect ground color
             var groundHit = Physics2D.Raycast(transform.position, Vector3.down, 2, _groundMask);
-            if (groundHit && groundHit.transform.TryGetComponent(out SpriteRenderer r)) {
+            if (groundHit && groundHit.transform.TryGetComponent(out SpriteRenderer r))
+            {
                 _currentGradient = new ParticleSystem.MinMaxGradient(r.color * 0.9f, r.color * 1.2f);
                 SetColor(_moveParticles);
             }
 
             _movement = _player.RawMovement; // Previous frame movement is more valuable
-
         }
 
         private void StopAllPlayerAnimations()
@@ -141,17 +148,20 @@ namespace Player
             _isDead = true;
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             _moveParticles.Stop();
             global::Player.Health.OnPlayerDied -= StopAllPlayerAnimations;
         }
 
-        private void OnEnable() {
+        private void OnEnable()
+        {
             _moveParticles.Play();
             global::Player.Health.OnPlayerDied += StopAllPlayerAnimations;
         }
 
-        void SetColor(ParticleSystem ps) {
+        private void SetColor(ParticleSystem ps)
+        {
             var main = ps.main;
             main.startColor = _currentGradient;
         }
@@ -161,6 +171,6 @@ namespace Player
         private static readonly int GroundedKey = UnityEngine.Animator.StringToHash("Grounded");
         private static readonly int JumpKey = UnityEngine.Animator.StringToHash("Jump");
 
-        #endregion
+        #endregion Animation Keys
     }
 }

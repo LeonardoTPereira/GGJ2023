@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using System;
 
 namespace Entity
 {
@@ -9,8 +8,6 @@ namespace Entity
         [SerializeField] private float updateLookTime = 0.5f;
         
         private Transform _target;
-
-        public static event Action OnFlip;
 
         private void Start()
         {
@@ -48,10 +45,7 @@ namespace Entity
                 yield return new WaitForSeconds(updateLookTime);
                 
                 if(CheckFlipCondition())
-                {
-                    OnFlip?.Invoke();
                     Flip();
-                }
             }
         }
 

@@ -6,17 +6,19 @@
     <Style src="project://database/Assets/Editor/MainMenu/uss/main-menu-button.uss?fileID=7433441132597879392&amp;guid=5e70b1e54a26f6f4cb53df75c7cc8e83&amp;type=3#main-menu-button" />
     <Style src="project://database/Assets/Editor/MainMenu/uss/volume-slider.uss?fileID=7433441132597879392&amp;guid=3fdeefc8e6e67fd41aab906e743b1a34&amp;type=3#volume-slider" />
     <ui:VisualElement name="main-container" class="main-container" style="background-color: rgba(127, 127, 127, 0);">
-        <ui:GroupBox style="width: 100%; height: 100%; align-items: center; color: rgba(72, 58, 58, 0.75); background-color: rgba(129, 149, 119, 0.6);">
-            <ui:VisualElement name="settings-container" style="width: 100%; height: 100%; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; align-items: stretch;">
-                <ui:VisualElement name="screen-container" style="width: 100%; height: 100%; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; justify-content: center; align-items: center;">
-                    <ui:Toggle label="FULLSCREEN" name="fullscreen-toggle" style="width: 40%; -unity-font-style: bold; font-size: 20px; position: relative; left: auto; top: auto;" />
-                    <ui:DropdownField label="RESOLUTION" index="-1" choices="System.Collections.Generic.List`1[System.String]" name="resolution-dropdown" style="width: 40%; font-size: 20px; -unity-font-style: bold; position: relative; left: auto; top: auto;" />
-                    <ui:Slider label="Master Volume" value="42" high-value="100" name="main-volume-slider" direction="Horizontal" show-input-field="false" picking-mode="Ignore" class="slider" style="font-size: 20px; -unity-font-style: bold; width: 40%; position: relative; left: auto; top: auto; margin-left: 0; margin-right: 0; margin-top: 1%; margin-bottom: 0;" />
-                    <ui:Slider label="Music" value="42" high-value="100" name="music-volume-slider" picking-mode="Ignore" class="slider" style="font-size: 20px; -unity-font-style: bold; width: 40%; position: relative; margin-left: 0; margin-right: 0; margin-top: 1%; margin-bottom: 0; left: auto; top: auto;" />
-                    <ui:Slider label="SFX" value="42" high-value="100" name="sfx-volume-slider" picking-mode="Ignore" class="slider" style="font-size: 20px; -unity-font-style: bold; width: 40%; position: relative; margin-left: 0; margin-right: 0; margin-top: 1%; margin-bottom: 0; left: auto; top: auto;" />
-                    <ui:Button text="0&#10;" display-tooltip-when-elided="true" name="back-button" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/UI/Menu/EXIT.png?fileID=2800000&amp;guid=af3a5c7232b8651419bd3f86000c7378&amp;type=3#EXIT&apos;); width: 5%; padding-bottom: 5%; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; flex-direction: column; height: 0; padding-left: 0; padding-right: 0; padding-top: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; left: 47.5%; top: 80%; right: 0; bottom: 0; position: absolute;" />
+        <ui:VisualElement name="central-container" class="central-container" style="flex-direction: column; flex-wrap: nowrap; background-color: rgba(31, 140, 41, 0.64);">
+            <ui:VisualElement name="settings-container" style="width: 100%; height: 80%; flex-direction: row;">
+                <ui:VisualElement name="screen-container" style="width: 50%; height: auto; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; justify-content: center; align-items: center;">
+                    <ui:Toggle label="FULLSCREEN" name="fullscreen-toggle" style="width: 84.5%; -unity-font-style: bold; font-size: 20px;" />
+                    <ui:DropdownField label="RESOLUTION" index="-1" choices="System.Collections.Generic.List`1[System.String]" name="resolution-dropdown" style="width: 85%; font-size: 20px; -unity-font-style: bold;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="volume-container" style="width: 50%; justify-content: center; align-items: center;">
+                    <ui:Slider picking-mode="Ignore" label="Master Volume" value="42" high-value="100" name="main-volume-slider" direction="Horizontal" class="slider" style="font-size: 20px; -unity-font-style: bold;" />
+                    <ui:Slider picking-mode="Ignore" label="Music" value="42" high-value="100" name="music-volume-slider" class="slider" style="font-size: 20px; -unity-font-style: bold;" />
+                    <ui:Slider picking-mode="Ignore" label="SFX" value="42" high-value="100" name="sfx-volume-slider" class="slider" style="font-size: 20px; -unity-font-style: bold;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-        </ui:GroupBox>
+            <ui:Button text="0&#10;" display-tooltip-when-elided="true" name="back-button" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/UI/Menu/EXIT.png?fileID=2800000&amp;guid=af3a5c7232b8651419bd3f86000c7378&amp;type=3#EXIT&apos;); width: 5%; padding-bottom: 5%; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

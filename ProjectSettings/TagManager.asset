@@ -35,13 +35,13 @@ TagManager:
   - 
   - 
   - 
-  - Ground
+  - 
   - Projectile
   - Units
   - Platform
   - DestroyerWall
   - DamageZone
-  - FlyingUnits
+  - 
   - 
   - 
   - 
@@ -70,9 +70,6 @@ TagManager:
   - name: PlayerBullet
     uniqueID: 965471649
     locked: 0
-  - name: BackgroundParticle
-    uniqueID: 157839515
-    locked: 0
   - name: Enemy
     uniqueID: 2255505405
     locked: 0
@@ -84,7 +81,4 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1198840033
-    locked: 0
-  - name: ForegroundParticle
-    uniqueID: 534615245
     locked: 0

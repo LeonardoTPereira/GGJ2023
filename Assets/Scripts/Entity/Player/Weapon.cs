@@ -79,7 +79,8 @@ namespace Player
                 _anim.SetTrigger("Shoot");
                 foreach (var spawnPoint in spawnPoints)
                 {
-                    Instantiate(bullet.BulletObject, spawnPoint.position, spawnPoint.rotation);
+                    Quaternion spawnRotation = new Quaternion(Quaternion.AngleAxis(0, Vector3.right).x, spawnPoint.rotation.y, 0, spawnPoint.rotation.w);  
+                    Instantiate(bullet.BulletObject, spawnPoint.position, spawnRotation);
                     usedBulletsParticle.Play();
                     //muzzleEffectParticle.Play();
                 }

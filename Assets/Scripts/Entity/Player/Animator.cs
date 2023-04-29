@@ -75,6 +75,7 @@ namespace Player
                     _lastInput = _player.Input.X;
                 }
             }
+            
 
             // Speed up idle while running
             if (Mathf.Abs(_player.Input.X) > 0.01)
@@ -97,6 +98,7 @@ namespace Player
             if (_player.LandingThisFrame)
             {
                 _anim.SetTrigger(GroundedKey);
+                _anim.ResetTrigger(JumpKey);
                 AudioManager.Instance.PlaySFX(stepsSFX.GetRandom());
             }
 
@@ -167,9 +169,7 @@ namespace Player
         #region Animation Keys
 
         private static readonly int GroundedKey = UnityEngine.Animator.StringToHash("Grounded");
-        private static readonly int IdleSpeedKey = UnityEngine.Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = UnityEngine.Animator.StringToHash("Jump");
-        private static readonly int SpeedKey = UnityEngine.Animator.StringToHash("Speed");
 
         #endregion Animation Keys
     }

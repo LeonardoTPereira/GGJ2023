@@ -17,7 +17,6 @@ public class LightPulser : MonoBehaviour
     void FixedUpdate()
     {
         float phi = ((Time.time / duration) * Mathf.PI) + offset;
-        //float amplitude = (Mathf.Cos(phi) * 0.5f + offset)/2;
         float amplitude = (((Mathf.Cos(phi) + 1 ) * (maxValue - minValue))/ 2) + minValue;
         light.intensity = amplitude;
     }

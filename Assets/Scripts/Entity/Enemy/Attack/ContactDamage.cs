@@ -18,7 +18,5 @@ namespace Enemy
                 col.gameObject.GetComponent<Player.Health>().TakeDamage(contactDamage);
             }
         }
-    }
-
-    
+    }    
 }

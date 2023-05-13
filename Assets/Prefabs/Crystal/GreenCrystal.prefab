@@ -179,5 +179,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 2
   minValue: 0
-  maxValue: 2
+  maxValue: 0.7
   offset: 0.75

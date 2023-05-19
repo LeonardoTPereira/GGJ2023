@@ -9,14 +9,19 @@ namespace UI.LevelChanger
         [SerializeField] private bool _setNextSceneIndexManuallyBellow;
         [SerializeField] private int _nextSceneIndex;
 
+        public void SetNextScene()
+        {
+            if (_setNextSceneIndexManuallyBellow)
+                LevelChanger.Instance.FadeToLevel(_nextSceneIndex);
+            else
+                LevelChanger.Instance.FadeToNextLevel();
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                if (_setNextSceneIndexManuallyBellow)
-                    LevelChanger.Instance.FadeToLevel(_nextSceneIndex);
-                else
-                    LevelChanger.Instance.FadeToNextLevel();
+                SetNextScene();
             }
         }
     }

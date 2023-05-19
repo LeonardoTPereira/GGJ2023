@@ -76,7 +76,7 @@ namespace Player
             {
                 yield return null;
                 if (!_canShoot) continue;
-                _anim.SetTrigger("Shoot");
+                _anim.SetBool("isShooting", true);
                 foreach (var spawnPoint in spawnPoints)
                 {
                     Quaternion spawnRotation = new Quaternion(Quaternion.AngleAxis(0, Vector3.right).x, spawnPoint.rotation.y, 0, spawnPoint.rotation.w);  
@@ -87,6 +87,7 @@ namespace Player
                 StartCoroutine(CountCooldown(bullet.BulletSo.Cooldown));
             }
             smokeParticle.Play();
+            _anim.SetBool("isShooting", false);
         }
 
         private IEnumerator CountCooldown(float bulletCooldown)

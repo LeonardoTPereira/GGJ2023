@@ -6,8 +6,19 @@ namespace UI.LevelChanger
 {
     public class NextSceneSetter : MonoBehaviour
     {
+        public static NextSceneSetter Instance;
         [SerializeField] private bool _setNextSceneIndexManuallyBellow;
         [SerializeField] private int _nextSceneIndex;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+                Destroy(this);
+        }
 
         public void SetNextScene()
         {

@@ -75,6 +75,7 @@ namespace Boss.MadMantis
             StopCoroutine(_attackRoutine);
             AudioManager.Instance.PlaySFX(deathSFXName);
             _animator.SetTrigger("Death");
+            UI.LevelChanger.NextSceneSetter.Instance.SetNextScene();    // Pass to the next level
         }
 
         public void StartRage()

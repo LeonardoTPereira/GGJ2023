@@ -51,6 +51,13 @@
     right: auto;
     background-image: none;
     flex-basis: auto;
-    background-color: rgba(226, 29, 29, 0);
+    background-color: rgba(255, 255, 255, 0);
     opacity: 1;
+    rotate: 0;
+    transform-origin: center;
+    scale: 1.1 1.1;
+    justify-content: flex-start;
+    align-items: stretch;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-background-scale-mode: stretch-to-fill;
 }

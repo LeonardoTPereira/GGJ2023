@@ -157,7 +157,7 @@ MonoBehaviour:
   - {x: 0.29669416, y: -0.50489587, z: 0}
   m_ShapePathHash: -79965100
   m_Mesh: {fileID: 0}
-  m_InstanceId: 84652
+  m_InstanceId: 99960
 --- !u!114 &-4605420182585053196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,8 +185,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   invincibilityCooldown: 0.1
-  timeToDestroyObject: 0
+  timeToDestroyObject: 0.2
   _health: 0
+  explosionDeathParticle: {fileID: 6359405189448947148, guid: ca33c5b6160229c40aac6815f0eef603, type: 3}
+  damageBloodParticle: {fileID: 4376755945586867465, guid: 42c9fa627bf65fb48b64400be91ef95c, type: 3}
+  damageCollider: {fileID: 2832059184176990717}
   damageEffect: {fileID: 921189114108525517}
 --- !u!1 &4241335097125796210
 GameObject:

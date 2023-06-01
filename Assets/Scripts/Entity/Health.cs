@@ -59,7 +59,6 @@ namespace Entity
         private void Kill()
         {
             WhenKill();    
-            Destroy(gameObject, timeToDestroyObject);
         }
 
         protected abstract void WhenInitializeHealth();

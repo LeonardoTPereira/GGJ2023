@@ -15,6 +15,7 @@ namespace Enemy
         protected override void WhenKill()
         {
             //Trigger death animation
+            Destroy(gameObject, timeToDestroyObject);
         }
 
         protected override void WhenTakeDamage(int damage)

@@ -7,9 +7,10 @@ namespace Enemy
     public class Health : Entity.Health
     {
         [SerializeField] private ParticleSystem explosionDeathParticle;
-        [SerializeField] private ParticleSystem damageBloodParticle;
+        [SerializeField] private ParticleSystem damageParticle;
         [SerializeField] private Collider2D damageCollider;
         [SerializeField] private DamageEffect damageEffect;
+
         protected override void WhenInitializeHealth()
         {
             //Do nothing
@@ -27,7 +28,7 @@ namespace Enemy
         protected override void WhenTakeDamage(int damage)
         {
             //Trigger take damage animation
-            damageBloodParticle.Play();
+            damageParticle.Play();
             damageEffect.BlinkDamage();
         }
 

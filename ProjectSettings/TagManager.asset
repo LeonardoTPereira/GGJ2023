@@ -71,6 +71,9 @@ TagManager:
   - name: PlayerBullet
     uniqueID: 965471649
     locked: 0
+  - name: BackgroundParticles
+    uniqueID: 3465089133
+    locked: 0
   - name: Enemy
     uniqueID: 2255505405
     locked: 0
@@ -82,4 +85,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 1198840033
+    locked: 0
+  - name: ForegroundParticles
+    uniqueID: 2149398597
     locked: 0

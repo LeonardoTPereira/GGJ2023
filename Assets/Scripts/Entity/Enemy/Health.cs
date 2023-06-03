@@ -28,6 +28,7 @@ namespace Enemy
         protected override void WhenTakeDamage(int damage)
         {
             //Trigger take damage animation
+            AudioManager.Instance.PlaySFX("Inimigo_Tomando_Dano");
             damageParticle.Play();
             damageEffect.BlinkDamage();
         }

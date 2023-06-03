@@ -106,6 +106,7 @@ namespace Player
             if (_player.JumpingThisFrame)
             {
                 _anim.SetTrigger(JumpKey);
+                AudioManager.Instance.PlaySFX("Player_Pulo");
                 _anim.ResetTrigger(GroundedKey);
 
                 // Only play particles when grounded (avoid coyote)

@@ -274,7 +274,7 @@ MonoBehaviour:
   - {x: 1.8086147, y: 2.2101893, z: 0}
   m_ShapePathHash: 1850491881
   m_Mesh: {fileID: 0}
-  m_InstanceId: 55172
+  m_InstanceId: 34562
 --- !u!114 &4404454782467100234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,6 +503,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7455440498963225494}
     m_Modifications:
+    - target: {fileID: 2621199547988642477, guid: ca33c5b6160229c40aac6815f0eef603, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223223868919460041, guid: ca33c5b6160229c40aac6815f0eef603, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6359405189448947148, guid: ca33c5b6160229c40aac6815f0eef603, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414024903744040674, guid: ca33c5b6160229c40aac6815f0eef603, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7877605588889131640, guid: ca33c5b6160229c40aac6815f0eef603, type: 3}
       propertyPath: m_Name
       value: ExplosionDeathParticle

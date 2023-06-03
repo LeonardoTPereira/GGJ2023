@@ -22,6 +22,7 @@ namespace Boss.MadMantis
 
         [field: SerializeField] public bool IsEnraged { get; private set; }
         [field: SerializeField] public bool IsFlying { get; private set; }
+        [SerializeField] private float fadeCooldown = 3f;
         private Animator _animator;
         private bool _isJumping;
         private Coroutine _attackRoutine;
@@ -75,7 +76,11 @@ namespace Boss.MadMantis
             StopCoroutine(_attackRoutine);
             AudioManager.Instance.PlaySFX(deathSFXName);
             _animator.SetTrigger("Death");
-            UI.LevelChanger.NextSceneSetter.Instance.SetNextScene();    // Pass to the next level
+        }
+
+        public void ChangeToNextScene()
+        {
+            UI.LevelChanger.NextSceneSetter.Instance.SetNextScene(fadeCooldown);    // Pass to the next level
         }
 
         public void StartRage()

@@ -9,6 +9,7 @@ namespace Boss.MadMantis
     {
         [field: SerializeField] public int EnragedHP { get; private set; }
         [field: SerializeField] public int FlyingHP { get; private set; }
+        //[SerializeField] protected float timeToDestroyObject = 0.5f;
 
         private Manager _mantisManager;
         private EntityRenderer _spriteRenderer;
@@ -72,6 +73,12 @@ namespace Boss.MadMantis
                 currentTime += blinkTime;
             }
         }
+
+        public void DestroyBoss()
+        {
+            Destroy(gameObject, timeToDestroyObject);
+        }
+        
 
 #if UNITY_EDITOR
 

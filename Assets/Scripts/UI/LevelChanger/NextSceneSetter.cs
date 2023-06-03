@@ -10,6 +10,7 @@ namespace UI.LevelChanger
         [SerializeField] private bool _setNextSceneIndexManuallyBellow;
         [SerializeField] private int _nextSceneIndex;
 
+
         private void Awake()
         {
             if (Instance == null)
@@ -20,12 +21,9 @@ namespace UI.LevelChanger
                 Destroy(this);
         }
 
-        public void SetNextScene()
+        public void SetNextScene(float timeToStart = 0)
         {
-            if (_setNextSceneIndexManuallyBellow)
-                LevelChanger.Instance.FadeToLevel(_nextSceneIndex);
-            else
-                LevelChanger.Instance.FadeToNextLevel();
+            StartCoroutine(StartNextScene(timeToStart));
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -34,6 +32,16 @@ namespace UI.LevelChanger
             {
                 SetNextScene();
             }
+        }
+
+        private IEnumerator StartNextScene(float timeToStart)
+        {
+            yield return new WaitForSeconds(timeToStart);
+  
+            if (_setNextSceneIndexManuallyBellow)
+                LevelChanger.Instance.FadeToLevel(_nextSceneIndex);
+            else
+                LevelChanger.Instance.FadeToNextLevel();
         }
     }
 }

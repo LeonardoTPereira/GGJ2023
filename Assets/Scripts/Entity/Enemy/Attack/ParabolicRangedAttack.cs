@@ -27,7 +27,7 @@ namespace Enemy
         var speed = GetCurrentLaunchSpeed(angle);
         
         var bulletVelocity = (new Vector2(Mathf.Cos(angle) * transform.right.x, Mathf.Sin(angle))) * speed ;
-
+        AudioManager.Instance.PlaySFX("Tiro_Inimigo_Longo");
         currentBullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
         
     }

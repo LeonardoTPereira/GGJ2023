@@ -77,6 +77,7 @@ namespace Player
                 yield return null;
                 if (!_canShoot) continue;
                 _anim.SetBool("isShooting", true);
+                AudioManager.Instance.PlaySFX("Player_Tiro");
                 foreach (var spawnPoint in spawnPoints)
                 {
                     Quaternion spawnRotation = new Quaternion(Quaternion.AngleAxis(0, Vector3.right).x, spawnPoint.rotation.y, 0, spawnPoint.rotation.w);  

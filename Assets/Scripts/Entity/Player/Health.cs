@@ -39,10 +39,10 @@ namespace Player
         protected override void WhenTakeDamage(int damage)
         {
             OnPlayerTakeDamage?.Invoke(damage);
-        
             _anim.SetTrigger("Damage");
             damageParticle.Play();
             damageEffect.BlinkDamage();
+            AudioManager.Instance.PlaySFX("Player_Tomando_Dano");
         }
 
         protected override void WhenApplyHeal(int heal)

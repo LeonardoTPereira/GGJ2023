@@ -19,6 +19,7 @@ namespace Enemy
         {
             var currentBullet = Instantiate(bullet, mouth.position, transform.rotation);
             currentBullet.GetComponent<Rigidbody2D>().AddForce(transform.right*initialForce, ForceMode2D.Impulse);
+            AudioManager.Instance.PlaySFX("Tiro_Inimigo_Curto");
         }
 
     }

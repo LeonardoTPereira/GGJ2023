@@ -9,7 +9,7 @@ public class CameraRoomController : MonoBehaviour
     [SerializeField] private CompositeCollider2D _roomCompositeColl;
     [SerializeField] private bool _isSpawnPoint;
 
-    void Start()
+    private void Start()
     {
         var _virtualCamera = GameObject.FindGameObjectWithTag("VirtualCamera");
         _confiner = _virtualCamera.GetComponent<CinemachineConfiner2D>();
@@ -19,7 +19,7 @@ public class CameraRoomController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            _confiner.m_BoundingShape2D= _roomCompositeColl;
+            _confiner.m_BoundingShape2D = _roomCompositeColl;
 
             if (_isSpawnPoint)
             {

@@ -28,12 +28,14 @@ namespace Boss.MadMantis
 
         protected override void WhenKill()
         {
+            _mantisManager.PlayDeathParticle();
             _mantisManager.StartDeath();
         }
 
         protected override void WhenTakeDamage(int damage)
         {
             _mantisManager.PlayDamageSound();
+            _mantisManager.PlayDamageParticle();
             if (_health < EnragedHP && !_mantisManager.IsEnraged)
             {
                 _mantisManager.StartRage();

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3458166313910308462}
   - component: {fileID: 5443657286932445393}
   m_Layer: 10
-  m_Name: BossDamageParticle
+  m_Name: MantisDamageParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

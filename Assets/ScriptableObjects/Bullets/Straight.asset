@@ -16,5 +16,5 @@ MonoBehaviour:
   xSpeed: 70
   ySpeed: 0
   cooldown: 0.2
-  damage: 1
+  damage: 4
   bulletMovement: {fileID: 11400000, guid: 2d54a37b411a9d246909ae549601f65f, type: 2}

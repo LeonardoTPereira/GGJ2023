@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GlowBullet
+  m_Name: GlowBullet 1
   m_Shader: {fileID: -6465566751694194690, guid: 1b42e869ae0334c4fa78695b8b668f91, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

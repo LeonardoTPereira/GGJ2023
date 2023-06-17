@@ -382,15 +382,15 @@ namespace Player
                     transform.position = positionToMoveTo;
 
                     // EDGE DETECTION PART
-                    /*
+                    
                     // We've landed on a corner or hit our head on a ledge. Nudge the player gently
-                    if (i == 1)
+                    if (i == 1 && !_isDashing)
                     {
                         if (_currentVerticalSpeed < 0) _currentVerticalSpeed = 0;
                         var dir = transform.position - hit.transform.position;
                         transform.position += dir.normalized * move.magnitude;
                     }
-                    */
+                    
                     return;
                 }
 
@@ -405,6 +405,7 @@ namespace Player
         #region Dash
 
         [Header("DASH")]
+        [SerializeField] private bool _hasDashInvincibility;
         [SerializeField] private float _dashVelocity = 10f;
         [SerializeField] private float _dashTime = 0.5f;
         [SerializeField] private float _dashCooldown = 1f;
@@ -427,6 +428,8 @@ namespace Player
                 else 
                     _dashDir = Vector3.left;
 
+                if (_hasDashInvincibility)
+                    StartCoroutine(GetComponent<Health>().CountMovementInvincibilityCooldown(_dashTime));
                 StartCoroutine(StartDashCooldown());
                 StartCoroutine(StopDashing());
             }

@@ -9,6 +9,7 @@ namespace Entity
         [SerializeField] protected float invincibilityCooldown = 0.5f;
         [SerializeField] protected float timeToDestroyObject = 0.5f;
         [SerializeField] protected int _health;
+        protected bool _isInMovementInvincibility = false;
 
         private bool _canTakeDamage;
 
@@ -21,7 +22,7 @@ namespace Entity
         public void TakeDamage(int damage)
         {
             if (damage < 0) return;
-            if (!_canTakeDamage) return;
+            if (!_canTakeDamage || _isInMovementInvincibility) return;
 
             _health -= damage;
 
@@ -53,6 +54,13 @@ namespace Entity
             _canTakeDamage = false;
             yield return new WaitForSeconds(invincibilityCooldown);
             _canTakeDamage = true;
+        }
+
+        public IEnumerator CountMovementInvincibilityCooldown(float cooldown)
+        {
+            _isInMovementInvincibility = true;
+            yield return new WaitForSeconds(cooldown);
+            _isInMovementInvincibility = false;
         }
 
         private void Kill()

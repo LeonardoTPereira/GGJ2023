@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using TarodevController;
 using UnityEngine;
@@ -35,6 +36,9 @@ namespace Player
         // This is horrible, but for some reason colliders are not fully established when update starts...
         private bool _active;
 
+        //private TrailRenderer _trailRenderer;
+        private Rigidbody2D _rb;
+
         private void Awake()
         {
             Invoke(nameof(Activate), 0.5f);
@@ -44,6 +48,11 @@ namespace Player
         {
             isLeftDirection = true;
             global::Player.Health.OnPlayerDied += StopAllPlayerMovements;
+        }
+
+        private void Start()
+        {
+            //_trailRenderer = GetComponent<TrailRenderer>();
         }
 
         private void OnDisable()
@@ -64,6 +73,8 @@ namespace Player
 
             GatherInput();
             RunCollisionChecks();
+
+            CalculateDash();
 
             CalculateWalk(); // Horizontal movement
             CalculateJumpApex(); // Affects fall speed, so calculate before gravity
@@ -87,6 +98,7 @@ namespace Player
 
         private bool _pressedJump;
         private bool _releasedJump;
+        private bool _pressedDash;
         private float _playerMoveDirection;
 
         public void PressJump(InputAction.CallbackContext context)
@@ -114,6 +126,14 @@ namespace Player
                 isLeftDirection = true;
             else if (_playerMoveDirection < 0 && isLeftDirection)
                 isLeftDirection = false;
+        }
+
+        public void PressDash(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _pressedDash = true;
+            }
         }
 
         private void GatherInput()
@@ -332,6 +352,12 @@ namespace Player
         {
             var pos = transform.position;
             RawMovement = new Vector3(_currentHorizontalSpeed, _currentVerticalSpeed); // Used externally
+
+            if (_isDashing)
+            {
+                RawMovement = _dashDir * _dashVelocity;
+            }
+
             var move = RawMovement * Time.deltaTime;
             var furthestPoint = pos + move;
 
@@ -355,14 +381,16 @@ namespace Player
                 {
                     transform.position = positionToMoveTo;
 
+                    // EDGE DETECTION PART
+                    
                     // We've landed on a corner or hit our head on a ledge. Nudge the player gently
-                    if (i == 1)
+                    if (i == 1 && !_isDashing)
                     {
                         if (_currentVerticalSpeed < 0) _currentVerticalSpeed = 0;
                         var dir = transform.position - hit.transform.position;
                         transform.position += dir.normalized * move.magnitude;
                     }
-
+                    
                     return;
                 }
 
@@ -370,6 +398,72 @@ namespace Player
             }
         }
 
+
+
         #endregion Move
+
+        #region Dash
+
+        [Header("DASH")]
+        [SerializeField] private bool _hasDashInvincibility;
+        [SerializeField] private float _dashVelocity = 10f;
+        [SerializeField] private float _dashTime = 0.5f;
+        [SerializeField] private float _dashCooldown = 1f;
+        private Vector3 _dashDir;
+        private bool _isDashing;
+        private bool _canDash = true;
+        private bool _isInDashCooldown = false;
+
+        private void CalculateDash()
+        {
+            if (_pressedDash && _canDash && !_isInDashCooldown)
+            {
+                _pressedDash = false;
+                _isDashing = true;
+                _canDash = false;
+                //_trailRenderer.emitting = true;
+
+                if (isLeftDirection)
+                    _dashDir = Vector3.right;
+                else 
+                    _dashDir = Vector3.left;
+
+                if (_hasDashInvincibility)
+                    StartCoroutine(GetComponent<Health>().CountMovementInvincibilityCooldown(_dashTime));
+                StartCoroutine(StartDashCooldown());
+                StartCoroutine(StopDashing());
+            }
+            
+            // _animator.SetBool("IsDashing", _isDashing);  // DASH ANIMATION HERE
+            
+            if (_isDashing)
+            {
+                return;
+            }
+
+            if (Grounded)
+            {
+                _canDash = true;
+            }
+        }
+
+        private IEnumerator StopDashing()
+        {
+            yield return new WaitForSeconds(_dashTime);
+            //_trailRenderer.emitting = false;
+            _isDashing = false;
+        }
+
+        private IEnumerator StartDashCooldown()
+        {
+            if (_isInDashCooldown)
+                yield break;
+
+            _isInDashCooldown = true;
+            yield return new WaitForSeconds(_dashCooldown);
+            _isInDashCooldown = false;
+        }
+
+        #endregion
     }
 }

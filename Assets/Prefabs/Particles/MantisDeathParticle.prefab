@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3227506402478458395}
   - component: {fileID: 4897053804864540156}
   m_Layer: 10
-  m_Name: BossDeathParticle
+  m_Name: MantisDeathParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

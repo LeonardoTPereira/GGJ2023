@@ -191,6 +191,9 @@ MonoBehaviour:
   <PlayerTransform>k__BackingField: {fileID: 0}
   <IsEnraged>k__BackingField: 0
   <IsFlying>k__BackingField: 0
+  fadeCooldown: 3
+  damageParticle: {fileID: 3458166313910308462, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
+  deathParticle: {fileID: 3227506402478458395, guid: b73b6a7a73f6355409bd69bf7e37b254, type: 3}
 --- !u!212 &2000874187470131646
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -230,7 +233,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8620bcf7fa769e94fa548c2fc0325ef4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

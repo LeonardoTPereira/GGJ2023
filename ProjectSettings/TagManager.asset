@@ -13,6 +13,7 @@ TagManager:
   - Win
   - Boss
   - Platform
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -35,8 +36,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Ground
+  - FlyingEnemy
   - Projectile
   - Units
   - Platform
@@ -45,7 +46,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - PostProcessing
   m_SortingLayers:
   - name: BackgroundFartest
     uniqueID: 182149659
@@ -65,9 +66,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Props
-    uniqueID: 129107703
-    locked: 0
   - name: PlayerBullet
     uniqueID: 965471649
     locked: 0
@@ -80,6 +78,9 @@ TagManager:
   - name: Player
     uniqueID: 2440841187
     locked: 0
+  - name: Props
+    uniqueID: 129107703
+    locked: 0
   - name: EnemyBullet
     uniqueID: 1686972967
     locked: 0
@@ -88,4 +89,7 @@ TagManager:
     locked: 0
   - name: ForegroundParticles
     uniqueID: 2149398597
+    locked: 0
+  - name: CameraSortingLayer
+    uniqueID: 87246637
     locked: 0

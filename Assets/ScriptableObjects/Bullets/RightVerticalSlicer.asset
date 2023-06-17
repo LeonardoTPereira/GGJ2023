@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RightVerticalSlicer
   m_EditorClassIdentifier: 
   bulletName: RightVerticalSlicer
-  xSpeed: 18
+  xSpeed: 40
   ySpeed: 0
   cooldown: 0.2
   damage: 1

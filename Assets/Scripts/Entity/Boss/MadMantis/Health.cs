@@ -2,6 +2,8 @@ using System.Collections;
 using MyBox;
 using Spriter2UnityDX;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 namespace Boss.MadMantis
 {
@@ -43,7 +45,7 @@ namespace Boss.MadMantis
             }
             else if (_health < FlyingHP && !_mantisManager.IsFlying)
             {
-                _mantisManager.StartFly();
+                _mantisManager.StartFinalStageTransition();
                 invincibilityCooldown = _changingFormInvincibilityTime;
             }
             else
@@ -80,7 +82,6 @@ namespace Boss.MadMantis
         {
             Destroy(gameObject, timeToDestroyObject);
         }
-        
 
 #if UNITY_EDITOR
 

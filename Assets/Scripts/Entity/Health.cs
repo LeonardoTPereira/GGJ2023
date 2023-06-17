@@ -5,15 +5,14 @@ namespace Entity
 {
     public abstract class Health : MonoBehaviour
     {
-        
         [SerializeField] protected int maxHealth = 5;
         [SerializeField] protected float invincibilityCooldown = 0.5f;
         [SerializeField] protected float timeToDestroyObject = 0.5f;
         [SerializeField] protected int _health;
-        
+
         private bool _canTakeDamage;
 
-        private void Start()
+        protected virtual void Start()
         {
             InitializeHealth();
             WhenInitializeHealth();
@@ -23,20 +22,20 @@ namespace Entity
         {
             if (damage < 0) return;
             if (!_canTakeDamage) return;
-            
+
             _health -= damage;
-            
+
             WhenTakeDamage(damage);
             CheckDeathAndKill();
             StartCoroutine(CountInvincibilityCooldown());
         }
-        
+
         public void ApplyHeal(int heal)
         {
             WhenApplyHeal(heal);
             _health = Mathf.Clamp(_health + heal, 0, maxHealth);
         }
-        
+
         private void InitializeHealth()
         {
             _canTakeDamage = true;
@@ -58,13 +57,15 @@ namespace Entity
 
         private void Kill()
         {
-            WhenKill();    
+            WhenKill();
         }
 
         protected abstract void WhenInitializeHealth();
-        protected abstract void WhenKill();
-        protected abstract void WhenTakeDamage(int damage);
-        protected abstract void WhenApplyHeal(int heal);
 
+        protected abstract void WhenKill();
+
+        protected abstract void WhenTakeDamage(int damage);
+
+        protected abstract void WhenApplyHeal(int heal);
     }
 }

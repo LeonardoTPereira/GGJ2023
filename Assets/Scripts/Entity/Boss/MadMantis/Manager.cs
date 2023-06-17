@@ -1,3 +1,4 @@
+using Assets.Scripts.Effects;
 using System.Collections;
 using UnityEngine;
 
@@ -38,6 +39,7 @@ namespace Boss.MadMantis
         private const string damageSFXName = "MantisDamage";
         private const string deathSFXName = "MantisDeath";
         private const string verticalBulletSFXName = "MantisVerticalBullet";
+        private const string mantisRageSFXName = "MantisRage";
         private const string MantisOST = "MantisOST";
 
         private void Awake()
@@ -88,19 +90,28 @@ namespace Boss.MadMantis
 
         public void StartRage()
         {
+            AudioManager.Instance.PlaySFX(mantisRageSFXName);
             IsEnraged = true;
             StopCoroutine(_attackRoutine);
             _attackRoutine = null;
             _animator.SetBool("Enraged", true);
         }
 
-        public void StartFly()
+        public void StartFinalStageTransition()
         {
-            IsFlying = true;
             StopCoroutine(_attackRoutine);
             _attackRoutine = null;
             StopCoroutine(_jumpRoutine);
             _jumpRoutine = null;
+            AudioManager.Instance.PlaySFX(mantisRageSFXName);
+
+            BossFinalStageEffect.Instance.StartFinalBossStageEffect();
+            BossFinalStageEffect.Instance.hasFinishedEffects.AddListener(StartFly);
+        }
+
+        private void StartFly()
+        {
+            IsFlying = true;
             _rigidbody2D.velocity = new Vector2(RoomCenterX - transform.position.x, 0);
             _rigidbody2D.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
             _isJumping = true;
@@ -208,14 +219,14 @@ namespace Boss.MadMantis
         {
             AudioManager.Instance.PlaySFX(verticalAttackSFXName);
             Instantiate(VerticalLeftAttackPrefab, UpRightClawPosition.position, transform.rotation);
-            Instantiate(VerticalRightAttackPrefab, UpLeftClawPosition.position, transform.rotation);
+            Instantiate(VerticalRightAttackPrefab, UpLeftClawPosition.position, transform.rotation).GetComponent<SpriteRenderer>().flipX = true;
         }
 
         public void SpawnDoubleVerticalAttackBottom()
         {
             AudioManager.Instance.PlaySFX(verticalAttackSFXName);
             Instantiate(VerticalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
-            Instantiate(VerticalRightAttackPrefab, LeftClawPosition.position, transform.rotation);
+            Instantiate(VerticalRightAttackPrefab, LeftClawPosition.position, transform.rotation).GetComponent<SpriteRenderer>().flipX = true;
         }
 
         private void StartHorizontalAttackAnimation()
@@ -245,14 +256,14 @@ namespace Boss.MadMantis
         public void SpawnDoubleHorizontalAttackBottom()
         {
             Instantiate(HorizontalLeftAttackPrefab, RightClawPosition.position, transform.rotation);
-            Instantiate(HorizontalRightAttackPrefab, LeftClawPosition.position, transform.rotation);
+            Instantiate(HorizontalRightAttackPrefab, LeftClawPosition.position, transform.rotation).GetComponent<SpriteRenderer>().flipX = true;
         }
 
         public void SpawnDoubleHorizontalAttackTop()
         {
             AudioManager.Instance.PlaySFX(horizontalAttackSFXName);
             Instantiate(HorizontalLeftAttackPrefab, UpRightClawPosition.position, transform.rotation);
-            Instantiate(HorizontalRightAttackPrefab, UpLeftClawPosition.position, transform.rotation);
+            Instantiate(HorizontalRightAttackPrefab, UpLeftClawPosition.position, transform.rotation).GetComponent<SpriteRenderer>().flipX = true;
         }
 
         internal void PlayDamageSound()

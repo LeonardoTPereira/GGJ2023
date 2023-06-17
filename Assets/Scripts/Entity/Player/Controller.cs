@@ -36,7 +36,7 @@ namespace Player
         // This is horrible, but for some reason colliders are not fully established when update starts...
         private bool _active;
 
-        private TrailRenderer _trailRenderer;
+        //private TrailRenderer _trailRenderer;
         private Rigidbody2D _rb;
 
         private void Awake()
@@ -52,8 +52,7 @@ namespace Player
 
         private void Start()
         {
-            _trailRenderer = GetComponent<TrailRenderer>();
-            _rb = GetComponent<Rigidbody2D>();
+            //_trailRenderer = GetComponent<TrailRenderer>();
         }
 
         private void OnDisable()
@@ -81,7 +80,6 @@ namespace Player
             CalculateJumpApex(); // Affects fall speed, so calculate before gravity
             CalculateGravity(); // Vertical movement
             CalculateJump(); // Possibly overrides vertical
-
 
             MoveCharacter(); // Actually perform the axis movement
         }
@@ -383,6 +381,8 @@ namespace Player
                 {
                     transform.position = positionToMoveTo;
 
+                    // EDGE DETECTION PART
+                    /*
                     // We've landed on a corner or hit our head on a ledge. Nudge the player gently
                     if (i == 1)
                     {
@@ -390,13 +390,15 @@ namespace Player
                         var dir = transform.position - hit.transform.position;
                         transform.position += dir.normalized * move.magnitude;
                     }
-
+                    */
                     return;
                 }
 
                 positionToMoveTo = posToTry;
             }
         }
+
+
 
         #endregion Move
 
@@ -415,11 +417,10 @@ namespace Player
         {
             if (_pressedDash && _canDash && !_isInDashCooldown)
             {
-                Debug.Log("DASH STARTED");
                 _pressedDash = false;
                 _isDashing = true;
                 _canDash = false;
-                _trailRenderer.emitting = true;
+                //_trailRenderer.emitting = true;
 
                 if (isLeftDirection)
                     _dashDir = Vector3.right;
@@ -434,7 +435,6 @@ namespace Player
             
             if (_isDashing)
             {
-                _rb.velocity = _dashDir.normalized * _dashVelocity;
                 return;
             }
 
@@ -447,7 +447,7 @@ namespace Player
         private IEnumerator StopDashing()
         {
             yield return new WaitForSeconds(_dashTime);
-            _trailRenderer.emitting = false;
+            //_trailRenderer.emitting = false;
             _isDashing = false;
         }
 

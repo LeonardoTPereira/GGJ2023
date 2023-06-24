@@ -283,7 +283,9 @@ namespace Boss.MadMantis
             {
                 rotation = Quaternion.Euler(0, 0, normal.z - 90);
             }
-                Instantiate(damageParticle, transform.position, rotation).Play();
+            var instanceDamageParticle = Instantiate(damageParticle, transform.position, rotation);
+            instanceDamageParticle.Play();
+            Destroy(instanceDamageParticle, 1f);
         }
 
         internal void PlayDeathParticle()

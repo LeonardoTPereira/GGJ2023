@@ -1119,7 +1119,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1399192474}
         m_TargetAssemblyTypeName: UI.LevelChanger.NextSceneSetter, Assembly-CSharp
         m_MethodName: SetNextScene
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

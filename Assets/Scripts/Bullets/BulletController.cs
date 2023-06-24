@@ -25,6 +25,12 @@ namespace Gameplay.Bullets
             if (!CompareTag("PlayerBullet")) return;
             if (!col.gameObject.CompareTag("Enemy")) return;
             col.gameObject.GetComponent<Entity.Health>().TakeDamage(bullet.Damage);
+            
+            if (col.gameObject.name == "MadMantis")
+            {   
+                col.gameObject.GetComponent<Boss.MadMantis.Manager>().PlayDamageParticle(transform, RigidBody.velocity);
+            }
+
             DestroyBullet();
         }
 

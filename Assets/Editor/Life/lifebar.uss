@@ -8,6 +8,9 @@
 }
 
 .heart {
-    width: 10%;
-    height: 100%;
+    width: 5%;
+    height: 50%;
+    padding-right: 0;
+    margin-right: 15px;
+    align-items: center;
 }

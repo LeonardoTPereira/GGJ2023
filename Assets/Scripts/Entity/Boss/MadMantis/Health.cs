@@ -80,6 +80,7 @@ namespace Boss.MadMantis
 
         public void DestroyBoss()
         {
+            GetComponent<BoxCollider2D>().enabled = false;
             Destroy(gameObject, timeToDestroyObject);
         }
 

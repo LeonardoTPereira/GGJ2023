@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 806903719}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: LeftMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806903718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.51, y: -0.53, z: 0}
+  m_LocalPosition: {x: 2.51, y: -1.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 937524432}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,6 +64,90 @@ Transform:
   m_Father: {fileID: 3251644526324655086}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &981068204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981068205}
+  - component: {fileID: 981068206}
+  m_Layer: 31
+  m_Name: ShockWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &981068205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981068204}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 70, y: 40, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3251644526324655086}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &981068206
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981068204}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 433ac8b35f40eaf4cae057571ca56624, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 87246637
+  m_SortingLayer: 9
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 3b3442530a9b0794090d1f3137e5f5a7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.88580245, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1340161723
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1340161724}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: AttackSpawnPositions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +183,117 @@ Transform:
   m_Father: {fileID: 3251644526324655086}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1972356465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1972356466}
+  - component: {fileID: 1972356467}
+  m_Layer: 24
+  m_Name: SpotLight (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1972356466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972356465}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.09, y: 0.65, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3251644526324655086}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1972356467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972356465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.3
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: fd477086
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_Vertices:
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 7.8
+  m_PointLightOuterRadius: 13.81
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1984607026
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1984607027}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: RightMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984607026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.51, y: -0.53, z: 0}
+  m_LocalPosition: {x: -2.51, y: -1.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -139,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2010836919}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: RightHigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2137078718}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: LeftHigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 788206189842913740}
   - component: {fileID: 1928320319485970995}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: braco1_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +458,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fdf7c883039d35f42ab4caadf4a01bcc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -286,7 +481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7575554297367345037}
   - component: {fileID: 447724744662151358}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: CorpoL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +542,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eddf321513182674ebd352b2c7e41848, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -370,7 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8574699402007475315}
   - component: {fileID: 2089664932977160846}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asafrente4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +626,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5165c1374f763ca4a98b54f5ad20e6a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -453,7 +648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6920731036139431693}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7731897931997308454}
   - component: {fileID: 7832369840458589566}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asaf2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +742,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09e6b06e3134a2446a7cf4fb1a7ff6e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -569,7 +764,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9035162363197752998}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5974029042683226026}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 742221157090532901}
   - component: {fileID: 5922769956036897882}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: braco1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -696,7 +891,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5b6373134127ea341afeae6a7172a6f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -719,7 +914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7029580381531080435}
   - component: {fileID: 2401832315922530342}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asal3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,7 +975,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9e0f7c67e6d9a674783756aca7741379, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -803,7 +998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122603907147609424}
   - component: {fileID: 7313507300624901902}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asal2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,7 +1059,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 95611a724eec341419e2f56c0149215c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -886,7 +1081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6430368622552125456}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +1113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5235627459006623354}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +1146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9095475514319493289}
   - component: {fileID: 6517399091181474909}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asal1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,7 +1207,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c0bfa6512ae13a648978dda1341baa04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1034,7 +1229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1882105414258507532}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: lado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1072,7 +1267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4272675228762637654}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1105,7 +1300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8405911952694380005}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,7 +1334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4198262970614902315}
   - component: {fileID: 3332039650434861961}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: perna1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1200,7 +1395,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5cf19a5b1fd69ab40b797fd6ee6de2f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1223,7 +1418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6095391519096159882}
   - component: {fileID: 2881136956645952057}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asafrente1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1284,7 +1479,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 94a975c8f8b792045af26f5a006e7a79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1307,7 +1502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5572589537698129527}
   - component: {fileID: 1347349757419308449}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: braco2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1368,7 +1563,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b81bba0f09a2d90428b7359bb0eaf29c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1391,7 +1586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8172068664589997432}
   - component: {fileID: 5534059589104013229}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asal4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1452,7 +1647,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 188f02087d2c64e4e8d2cebc443ba4d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1465,6 +1660,64 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1752337698517793592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8102679778454379288}
+  - component: {fileID: 4010734672799593561}
+  m_Layer: 22
+  m_Name: foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8102679778454379288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752337698517793592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3251644526324655086}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4010734672799593561
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752337698517793592}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1961209682656529619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,7 +1728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3574350918226581653}
   - component: {fileID: 5188781978879325808}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asafrente3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1536,7 +1789,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: e0351c42b59b1634db4bec5650e57b31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1558,7 +1811,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985225423156073106}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1591,7 +1844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3846449145999121815}
   - component: {fileID: 4313979774897050768}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bracoFrente2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1652,7 +1905,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ab8c5d8e246aa05488620c473ab51b9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1675,7 +1928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1447487391496367090}
   - component: {fileID: 5438075858140440162}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: vento2_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1736,7 +1989,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a5810ab53b1679349b8a94a8fdc19412, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1758,7 +2011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2639880204604608933}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_020
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1792,7 +2045,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3859752187856797494}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: _009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,7 +2078,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8936628147242589738}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1859,7 +2112,7 @@ GameObject:
   - component: {fileID: 5043350495560288429}
   - component: {fileID: 2695099782485992367}
   - component: {fileID: 8700630920765580137}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bracoFrente3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1920,7 +2173,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cee4f15083bce4d47b245f870d2825c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1958,7 +2211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8794373148728296899}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1992,7 +2245,7 @@ GameObject:
   - component: {fileID: 7011999095709458062}
   - component: {fileID: 8885939431749104350}
   - component: {fileID: 5683918228908133118}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bracoL1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2053,7 +2306,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a8286ea2ae749804c82c425adacfdf8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2091,7 +2344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 18590469061748911}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2124,7 +2377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7286797535823554186}
   - component: {fileID: 813316924233777137}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bracoL1_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2185,7 +2438,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f1cec024b62ec744b91be5f7aea96661, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2207,7 +2460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5989381510914258018}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2242,7 +2495,7 @@ GameObject:
   - component: {fileID: 3713504534115001740}
   - component: {fileID: 5313509806810146005}
   - component: {fileID: 1499049711434587412}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: CabecaL1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2303,7 +2556,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ee6332d1d3cc4ae4c81716be07b54770, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2346,7 +2599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5108689211611963130}
   - component: {fileID: 1108161884870220695}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: PernaFrente3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2407,7 +2660,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 74ffdeeecd0693b4a892cf26cdec741f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2430,7 +2683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8757649790537598056}
   - component: {fileID: 9032040203007165041}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asafrente2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2491,7 +2744,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 2227df4d55d471146a8e180fea295f73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2513,7 +2766,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7028232115751010109}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2546,7 +2799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4217978623817715996}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2579,7 +2832,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7836449626462344022}
   - component: {fileID: 656584241762618531}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: corpoF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2640,7 +2893,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aab35596b4466884db040a52de6e66be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2663,7 +2916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108563764569363875}
   - component: {fileID: 842214849121639505}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: perna2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2724,7 +2977,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ba4e790b6ceb9cd4f9d8230ff741dd90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2748,7 +3001,7 @@ GameObject:
   - component: {fileID: 4883045132160526765}
   - component: {fileID: 7091997614158655290}
   - component: {fileID: 7691259812416116639}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: perna1_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2809,7 +3062,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3d41ed23387513348836eb22dcb49237, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2847,7 +3100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9100052022253092534}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2887,7 +3140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5156421046349795630}
   - component: {fileID: 4961178519230698477}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asaf1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2948,7 +3201,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e5f941da4f0013c4b9b0648ddb25b152, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2971,7 +3224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 229277714460996986}
   - component: {fileID: 5760932255320407491}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: pernaL2_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3032,7 +3285,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9af37f5e8da34c548a9b9aed2520e58b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3054,7 +3307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2936892585854793924}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3086,7 +3339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6339790807847926794}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3133,7 +3386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8748235811790576051}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_019
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3166,7 +3419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7387542069180123536}
   - component: {fileID: 7042221198223859641}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: pernaL2_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3227,7 +3480,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a51428d0ed03a50438121a79da26274a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3257,7 +3510,7 @@ GameObject:
   - component: {fileID: 1677509981}
   - component: {fileID: 1677509982}
   - component: {fileID: 1677509983}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: Lado
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3273,7 +3526,7 @@ Transform:
   m_GameObject: {fileID: 4578145955274910894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1882105414258507532}
@@ -3282,6 +3535,9 @@ Transform:
   - {fileID: 1447487391496367090}
   - {fileID: 1340161724}
   - {fileID: 937524432}
+  - {fileID: 1972356466}
+  - {fileID: 981068205}
+  - {fileID: 8102679778454379288}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3409,10 +3665,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49ad9d36e32ad444986a1437ff4549c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MinAttackCooldown>k__BackingField: 1.5
-  <MaxAttackCooldown>k__BackingField: 2
-  <JumpHeight>k__BackingField: 30
-  <MinFlyHeight>k__BackingField: 20
+  <MinAttackCooldown>k__BackingField: 0.7
+  <MaxAttackCooldown>k__BackingField: 1.2
+  <JumpHeight>k__BackingField: 60
+  <MinFlyHeight>k__BackingField: 40
   <RoomCenterX>k__BackingField: 0
   <VerticalLeftAttackPrefab>k__BackingField: {fileID: 5632108650389549736, guid: 40783db829c8ca84cbb50dc425ea91fa, type: 3}
   <VerticalRightAttackPrefab>k__BackingField: {fileID: 5632108650389549736, guid: e98a8a6008cc2aa4b91affc1824eaa99, type: 3}
@@ -3449,7 +3705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2487555868897238127}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3481,7 +3737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6087429872617389669}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_023
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3513,7 +3769,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 624206969111581303}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_022
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3547,7 +3803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5017115832506427789}
   - component: {fileID: 3456597647852438888}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bracoL2_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3608,7 +3864,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a9c42463dd25e1c4aac75de127fb94a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3631,7 +3887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2182637083852060932}
   - component: {fileID: 8082025086578517613}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: PernaFrente4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3692,7 +3948,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 511d1e019108b4841bd80e3cbd864833, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3714,7 +3970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3386684941490799414}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_026
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3746,7 +4002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8111043283274234637}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3779,7 +4035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5960676448231610690}
   - component: {fileID: 3301189756034151379}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: perna2_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3840,7 +4096,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7996b2d82542ea942a558bb2f8828824, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3864,7 +4120,7 @@ GameObject:
   - component: {fileID: 8203493120965443516}
   - component: {fileID: 9020340604255528758}
   - component: {fileID: 5164702550852701284}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: cabecaF2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3925,7 +4181,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e3577eb1c61a85f45814e6fc0da5f211, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3968,7 +4224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2089634872204864267}
   - component: {fileID: 7653384871557774917}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: corpo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4029,7 +4285,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 04a4932b04c15a646b79c59b0843e69e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4051,7 +4307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 190556134272548160}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4083,7 +4339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3310453183165043035}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4117,7 +4373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5373667301024837492}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_025
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4149,7 +4405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4129700870216754900}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4182,7 +4438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5476374812747901939}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_024
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4215,7 +4471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7539799071743013279}
   - component: {fileID: 6499056139158569432}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asaf4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4276,7 +4532,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 331fd48a19cc58440baf7f20f8be1d40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4299,7 +4555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6351374746689791648}
   - component: {fileID: 380193817784348838}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: vento
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4360,7 +4616,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4ee2e07d2db211545a3ae0122cbad8d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4382,7 +4638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 667415096938426608}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4416,7 +4672,7 @@ GameObject:
   - component: {fileID: 5844028310008894342}
   - component: {fileID: 311648691614308559}
   - component: {fileID: 6590483186737422989}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: cabecaFrente8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4477,7 +4733,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c134563b4cacbde41834894ee5991526, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4519,7 +4775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8239302491567325611}
   - component: {fileID: 315199972081277205}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: asaf3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4580,7 +4836,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: da0b6c047a113ce4fb5f1b9a74a0daa6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4603,7 +4859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6109798007200552182}
   - component: {fileID: 4576056211426804961}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: vento2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4664,7 +4920,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a5810ab53b1679349b8a94a8fdc19412, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4686,7 +4942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3582720068791710350}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4719,7 +4975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7321378269430023967}
   - component: {fileID: 8284513304591769020}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: PernaFrente1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4780,7 +5036,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8ed51bd8196df3f4987e954c4167b069, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4802,7 +5058,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826314732310539581}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4834,7 +5090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4785452131729212144}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4867,7 +5123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9205026363932672324}
   - component: {fileID: 4289138610484460206}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bracoL1_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4928,7 +5184,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dfada35122c6c764482d5e8a0426d8d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4951,7 +5207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4688576982347230095}
   - component: {fileID: 5465441881893731838}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bracoFrente4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5012,7 +5268,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5729f6bfb87a8d047b5594607ed4ff5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5034,7 +5290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5669756963261470042}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: 005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5068,7 +5324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9063700458421754048}
   - component: {fileID: 6644230853414117629}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: braco2_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5129,7 +5385,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1c0c72bb90b90eb469d9be45b74b2f15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5152,7 +5408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4339649944778944502}
   - component: {fileID: 6125075888709262839}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: PernaFrente2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5213,7 +5469,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 15a5ae495459f394788cd68cb897a616, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5236,7 +5492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5528971591683153892}
   - component: {fileID: 3250610741591110506}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bracoL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5297,7 +5553,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e7d3af33c6374304bbc7d1ed44e65fb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5319,7 +5575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6454440973547310107}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5351,7 +5607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3623847795677276494}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_027
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5383,7 +5639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5679410333202920041}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5417,7 +5673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567636057012829074}
   - component: {fileID: 5589769513171596042}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bracoL1_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5478,7 +5734,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dfada35122c6c764482d5e8a0426d8d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5501,7 +5757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1493074761169668260}
   - component: {fileID: 1900977348343189074}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: pernaL2_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5562,7 +5818,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a51428d0ed03a50438121a79da26274a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5585,7 +5841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5462760619490959205}
   - component: {fileID: 6103761636504527914}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: pernaL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5646,7 +5902,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9af37f5e8da34c548a9b9aed2520e58b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5668,7 +5924,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7752162307808331914}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5700,7 +5956,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6197354135183185894}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5733,7 +5989,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 947277785717083071}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bone_008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5767,7 +6023,7 @@ GameObject:
   - component: {fileID: 2786520216007711046}
   - component: {fileID: 2155986622265988973}
   - component: {fileID: 6294885815179749399}
-  m_Layer: 24
+  m_Layer: 22
   m_Name: bracoFrente1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5828,7 +6084,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2039461891
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 63a602f94f214af47bb35c8f1ee73371, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5867,6 +6123,10 @@ PrefabInstance:
     - target: {fileID: 770133705971219518, guid: b73b6a7a73f6355409bd69bf7e37b254, type: 3}
       propertyPath: m_Name
       value: MantisDeathParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 770133705971219518, guid: b73b6a7a73f6355409bd69bf7e37b254, type: 3}
+      propertyPath: m_Layer
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 3227506402478458395, guid: b73b6a7a73f6355409bd69bf7e37b254, type: 3}
       propertyPath: lengthInSec
@@ -5979,6 +6239,10 @@ PrefabInstance:
     - target: {fileID: 4897053804864540156, guid: b73b6a7a73f6355409bd69bf7e37b254, type: 3}
       propertyPath: m_LengthScale
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032868017581744526, guid: b73b6a7a73f6355409bd69bf7e37b254, type: 3}
+      propertyPath: m_Layer
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 7179337815486716843, guid: b73b6a7a73f6355409bd69bf7e37b254, type: 3}
       propertyPath: lengthInSec
@@ -6111,6 +6375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MantisDamageParticle
       objectReference: {fileID: 0}
+    - target: {fileID: 1887213002716129644, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
+      propertyPath: m_Layer
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 2150441890000471293, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6129,7 +6397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2150441890000471293, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2150441890000471293, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
       propertyPath: m_LocalRotation.x
@@ -6141,7 +6409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2150441890000471293, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2150441890000471293, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6153,7 +6421,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2150441890000471293, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458166313910308462, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
+      propertyPath: lengthInSec
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458166313910308462, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458166313910308462, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458166313910308462, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458166313910308462, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458166313910308462, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974429864830094415, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}
+      propertyPath: m_Layer
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 962da6eef576ddd4eb3685a0d4ab77df, type: 3}

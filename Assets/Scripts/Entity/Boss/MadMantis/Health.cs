@@ -25,7 +25,7 @@ namespace Boss.MadMantis
             _spriteRenderer = GetComponent<EntityRenderer>();
 
             _normalInvincibilityTime = invincibilityCooldown;
-            _changingFormInvincibilityTime = 5 * invincibilityCooldown;
+            _changingFormInvincibilityTime = 9 * invincibilityCooldown;
         }
 
         protected override void WhenKill()

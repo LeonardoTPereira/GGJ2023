@@ -78,7 +78,7 @@ namespace Boss.MadMantis
 
         public void StartDeath()
         {
-            StopCoroutine(_attackRoutine);
+            StopAttackRoutine();
             AudioManager.Instance.PlaySFX(deathSFXName);
             _animator.SetTrigger("Death");
         }
@@ -92,17 +92,14 @@ namespace Boss.MadMantis
         {
             AudioManager.Instance.PlaySFX(mantisRageSFXName);
             IsEnraged = true;
-            StopCoroutine(_attackRoutine);
-            _attackRoutine = null;
+            StopAttackRoutine();
             _animator.SetBool("Enraged", true);
         }
 
         public void StartFinalStageTransition()
         {
-            StopCoroutine(_attackRoutine);
-            _attackRoutine = null;
-            StopCoroutine(_jumpRoutine);
-            _jumpRoutine = null;
+            StopAttackRoutine();
+            StopJumpRoutine();
             AudioManager.Instance.PlaySFX(mantisRageSFXName);
 
             BossFinalStageEffect.Instance.StartFinalBossStageEffect();
@@ -132,8 +129,7 @@ namespace Boss.MadMantis
         {
             var coolDown = Random.Range(5 * MinAttackCooldown, 5 * MaxAttackCooldown);
             yield return new WaitForSeconds(coolDown);
-            StopCoroutine(_attackRoutine);
-            _attackRoutine = null;
+            StopAttackRoutine();
             Jump();
         }
 
@@ -291,6 +287,24 @@ namespace Boss.MadMantis
         internal void PlayDeathParticle()
         {
             deathParticle.Play();
+        }
+
+        private void StopAttackRoutine()
+        {
+            if (_attackRoutine != null)
+            {
+                StopCoroutine(_attackRoutine);
+                _attackRoutine = null;
+            }
+        }
+
+        private void StopJumpRoutine()
+        {
+            if (_jumpRoutine != null)
+            {
+                StopCoroutine(_jumpRoutine);
+                _jumpRoutine = null;
+            }
         }
     }
 }

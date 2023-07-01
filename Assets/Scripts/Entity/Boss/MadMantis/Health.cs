@@ -81,6 +81,7 @@ namespace Boss.MadMantis
         public void DestroyBoss()
         {
             GetComponent<BoxCollider2D>().enabled = false;
+            timeToDestroyObject = 0.05f;
             Destroy(gameObject, timeToDestroyObject);
         }
 

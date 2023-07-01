@@ -28,6 +28,8 @@ public class MainMenuSettingsViewPresenter
 
     private AudioMixer _mixer;
 
+    private Color TEXT_COLOR = new Color(.82f, .82f, .82f);   // gray color for text
+
     public MainMenuSettingsViewPresenter(VisualElement root)
     {
         _backButton = root.Q<Button>("back-button");
@@ -42,6 +44,9 @@ public class MainMenuSettingsViewPresenter
         _resolutionSelection.choices = _resolutions;
         _resolutionSelection.RegisterValueChangedCallback((value) => SetResolution(value.newValue));
         _resolutionSelection.index = 0;
+
+        _fullScreenToggle.style.color = TEXT_COLOR;
+        _resolutionSelection.style.color = TEXT_COLOR;
     }
 
     private void SetoutVolumeSliders(VisualElement root)
@@ -60,6 +65,7 @@ public class MainMenuSettingsViewPresenter
         slider.value = AudioManager.Instance.ConvertVolumeToSliderValue(mixerValue);
 
         slider.RegisterValueChangedCallback((value) => AudioManager.Instance.SetVolume(mixerVolumeName, value.newValue, true));
+        slider.style.color = TEXT_COLOR;   // gray color
     }
 
     private void SetResolution(string newResolution)

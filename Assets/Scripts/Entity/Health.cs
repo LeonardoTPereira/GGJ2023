@@ -7,7 +7,7 @@ namespace Entity
     {
         [SerializeField] protected int maxHealth = 5;
         [SerializeField] protected float invincibilityCooldown = 0.5f;
-        [SerializeField] protected float timeToDestroyObject = 0.5f;
+        [SerializeField] protected float timeToDestroyObject;
         [SerializeField] protected int _health;
         protected bool _isInMovementInvincibility = false;
 

@@ -29,6 +29,7 @@ namespace Boss.MadMantis
         
         private Animator _animator;
         private bool _isJumping;
+        private bool _isDead;
         private Coroutine _attackRoutine;
         private Coroutine _jumpRoutine;
         private Rigidbody2D _rigidbody2D;
@@ -81,6 +82,8 @@ namespace Boss.MadMantis
             StopAttackRoutine();
             AudioManager.Instance.PlaySFX(deathSFXName);
             _animator.SetTrigger("Death");
+            _rigidbody2D.gravityScale = 9.8f;
+            _isDead = true;
         }
 
         public void ChangeToNextScene()
@@ -152,6 +155,8 @@ namespace Boss.MadMantis
 
         private void FixedUpdate()
         {
+            if (_isDead) return;
+
             if (_isJumping)
             {
                 if (IsFlying)

@@ -82,8 +82,12 @@ namespace Boss.MadMantis
             StopAttackRoutine();
             AudioManager.Instance.PlaySFX(deathSFXName);
             _animator.SetTrigger("Death");
-            _rigidbody2D.gravityScale = 9.8f;
             _isDead = true;
+        }
+
+        public void StartFall()
+        {
+            _rigidbody2D.gravityScale = 9.8f;
         }
 
         public void ChangeToNextScene()
@@ -163,6 +167,7 @@ namespace Boss.MadMantis
                 {
                     if (Mathf.Abs(transform.position.x - RoomCenterX) >= 1) return;
                     _rigidbody2D.gravityScale = 0;
+                    _rigidbody2D.velocity = Vector2.zero;
                     _isJumping = false;
                 }
                 else

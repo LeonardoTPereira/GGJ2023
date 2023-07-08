@@ -291,7 +291,6 @@ namespace Boss.MadMantis
             }
             var instanceDamageParticle = Instantiate(damageParticle, transform.position, rotation);
             instanceDamageParticle.Play();
-            Destroy(instanceDamageParticle, 1f);
         }
 
         internal void PlayDeathParticle()

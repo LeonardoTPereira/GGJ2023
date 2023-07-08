@@ -11,8 +11,7 @@ namespace Boss.MadMantis
     {
         [field: SerializeField] public int EnragedHP { get; private set; }
         [field: SerializeField] public int FlyingHP { get; private set; }
-        //[SerializeField] protected float timeToDestroyObject = 0.5f;
-
+        
         private Manager _mantisManager;
         private EntityRenderer _spriteRenderer;
 
@@ -25,11 +24,12 @@ namespace Boss.MadMantis
             _spriteRenderer = GetComponent<EntityRenderer>();
 
             _normalInvincibilityTime = invincibilityCooldown;
-            _changingFormInvincibilityTime = 5 * invincibilityCooldown;
+            _changingFormInvincibilityTime = 9 * invincibilityCooldown;
         }
 
         protected override void WhenKill()
         {
+            GetComponent<BoxCollider2D>().enabled = false;
             _mantisManager.PlayDeathParticle();
             _mantisManager.StartDeath();
         }

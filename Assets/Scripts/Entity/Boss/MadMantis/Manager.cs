@@ -24,11 +24,12 @@ namespace Boss.MadMantis
         [field: SerializeField] public bool IsEnraged { get; private set; }
         [field: SerializeField] public bool IsFlying { get; private set; }
 
-        [SerializeField] private float fadeCooldown = 3f;
+        [SerializeField] private float fadeCooldown = 1f;
         [SerializeField] private ParticleSystem damageParticle, deathParticle;
         
         private Animator _animator;
         private bool _isJumping;
+        private bool _isDead;
         private Coroutine _attackRoutine;
         private Coroutine _jumpRoutine;
         private Rigidbody2D _rigidbody2D;
@@ -78,9 +79,15 @@ namespace Boss.MadMantis
 
         public void StartDeath()
         {
-            StopCoroutine(_attackRoutine);
+            StopAttackRoutine();
             AudioManager.Instance.PlaySFX(deathSFXName);
             _animator.SetTrigger("Death");
+            _isDead = true;
+        }
+
+        public void StartFall()
+        {
+            _rigidbody2D.gravityScale = 9.8f;
         }
 
         public void ChangeToNextScene()
@@ -92,17 +99,14 @@ namespace Boss.MadMantis
         {
             AudioManager.Instance.PlaySFX(mantisRageSFXName);
             IsEnraged = true;
-            StopCoroutine(_attackRoutine);
-            _attackRoutine = null;
+            StopAttackRoutine();
             _animator.SetBool("Enraged", true);
         }
 
         public void StartFinalStageTransition()
         {
-            StopCoroutine(_attackRoutine);
-            _attackRoutine = null;
-            StopCoroutine(_jumpRoutine);
-            _jumpRoutine = null;
+            StopAttackRoutine();
+            StopJumpRoutine();
             AudioManager.Instance.PlaySFX(mantisRageSFXName);
 
             BossFinalStageEffect.Instance.StartFinalBossStageEffect();
@@ -132,8 +136,7 @@ namespace Boss.MadMantis
         {
             var coolDown = Random.Range(5 * MinAttackCooldown, 5 * MaxAttackCooldown);
             yield return new WaitForSeconds(coolDown);
-            StopCoroutine(_attackRoutine);
-            _attackRoutine = null;
+            StopAttackRoutine();
             Jump();
         }
 
@@ -156,12 +159,15 @@ namespace Boss.MadMantis
 
         private void FixedUpdate()
         {
+            if (_isDead) return;
+
             if (_isJumping)
             {
                 if (IsFlying)
                 {
                     if (Mathf.Abs(transform.position.x - RoomCenterX) >= 1) return;
                     _rigidbody2D.gravityScale = 0;
+                    _rigidbody2D.velocity = Vector2.zero;
                     _isJumping = false;
                 }
                 else
@@ -285,12 +291,29 @@ namespace Boss.MadMantis
             }
             var instanceDamageParticle = Instantiate(damageParticle, transform.position, rotation);
             instanceDamageParticle.Play();
-            Destroy(instanceDamageParticle, 1f);
         }
 
         internal void PlayDeathParticle()
         {
             deathParticle.Play();
+        }
+
+        private void StopAttackRoutine()
+        {
+            if (_attackRoutine != null)
+            {
+                StopCoroutine(_attackRoutine);
+                _attackRoutine = null;
+            }
+        }
+
+        private void StopJumpRoutine()
+        {
+            if (_jumpRoutine != null)
+            {
+                StopCoroutine(_jumpRoutine);
+                _jumpRoutine = null;
+            }
         }
     }
 }

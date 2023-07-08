@@ -1135,7 +1135,7 @@ Transform:
   - {fileID: 3310453183165043035}
   m_Father: {fileID: 6339790807847926794}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 173.62112}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 172.64534}
 --- !u!1 &770345375689436908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1290,7 @@ Transform:
   - {fileID: 4688576982347230095}
   m_Father: {fileID: 9100052022253092534}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 79.3781}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -173.60161}
 --- !u!1 &1067327033454763639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,7 +1323,7 @@ Transform:
   - {fileID: 7011999095709458062}
   m_Father: {fileID: 5679410333202920041}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.550728}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -23.8088}
 --- !u!1 &1121836412610207601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,7 +1699,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752337698517793592}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2035,7 +2035,7 @@ Transform:
   - {fileID: 6351374746689791648}
   m_Father: {fileID: 1882105414258507532}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 113.52103}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -151.00153}
 --- !u!1 &2127071755853552279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,7 +2266,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8405911952694380005}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 85.20016}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 75.4}
 --- !u!212 &8885939431749104350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2483,7 +2483,7 @@ Transform:
   - {fileID: 5108689211611963130}
   m_Father: {fileID: 1882105414258507532}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -159.84721}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -164.53911}
 --- !u!1 &2522338545174741206
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,7 +2789,7 @@ Transform:
   - {fileID: 7321378269430023967}
   m_Father: {fileID: 1882105414258507532}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 156.32623}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 150.97012}
 --- !u!1 &3118110881598749818
 GameObject:
   m_ObjectHideFlags: 0
@@ -3129,7 +3129,7 @@ Transform:
   - {fileID: 2089634872204864267}
   m_Father: {fileID: 1882105414258507532}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.93939865}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.6450932}
 --- !u!1 &3642101181975341815
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,7 +3329,7 @@ Transform:
   - {fileID: 5043350495560288429}
   m_Father: {fileID: 4272675228762637654}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -64.001854, z: -7.2548084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.6375403}
 --- !u!1 &4030883982868243544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,7 +3376,7 @@ Transform:
   - {fileID: 7575554297367345037}
   m_Father: {fileID: 1882105414258507532}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -92.14686}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -16.878948}
 --- !u!1 &4212546648714110265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3408,7 +3408,7 @@ Transform:
   - {fileID: 9063700458421754048}
   m_Father: {fileID: 6197354135183185894}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.108736}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.137543}
 --- !u!1 &4504835386460354600
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,7 +3590,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 4
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -3792,7 +3792,7 @@ Transform:
   - {fileID: 108563764569363875}
   m_Father: {fileID: 3251644526324655086}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 166.04652}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -121.09444}
 --- !u!1 &4994316322059817763
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,7 +4183,7 @@ SpriteRenderer:
   m_SortingLayerID: -2039461891
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e3577eb1c61a85f45814e6fc0da5f211, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 184b9415d03b50e42a36aaab311aa3f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4329,7 +4329,7 @@ Transform:
   - {fileID: 5017115832506427789}
   m_Father: {fileID: 5669756963261470042}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -19.296392}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -19.26726}
 --- !u!1 &6172302741490046732
 GameObject:
   m_ObjectHideFlags: 0
@@ -4428,7 +4428,7 @@ Transform:
   - {fileID: 3846449145999121815}
   m_Father: {fileID: 9100052022253092534}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -114.23937}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 166.70699}
 --- !u!1 &6637323421203151382
 GameObject:
   m_ObjectHideFlags: 0
@@ -4460,7 +4460,7 @@ Transform:
   - {fileID: 5156421046349795630}
   m_Father: {fileID: 6339790807847926794}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -111.915115}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -111.98917}
 --- !u!1 &6695864991216356253
 GameObject:
   m_ObjectHideFlags: 0
@@ -4576,7 +4576,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2639880204604608933}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 126.26817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 97.19}
 --- !u!212 &380193817784348838
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4660,7 +4660,7 @@ Transform:
   - {fileID: 8203493120965443516}
   m_Father: {fileID: 6339790807847926794}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.416586}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.8597794}
 --- !u!1 &7138939664664781113
 GameObject:
   m_ObjectHideFlags: 0
@@ -4964,7 +4964,7 @@ Transform:
   - {fileID: 2786520216007711046}
   m_Father: {fileID: 4129700870216754900}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 64, z: 7.056096}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.2774754}
 --- !u!1 &7556955292046121022
 GameObject:
   m_ObjectHideFlags: 0
@@ -5313,7 +5313,7 @@ Transform:
   - {fileID: 5528971591683153892}
   m_Father: {fileID: 6339790807847926794}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 161.26453}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 162.18225}
 --- !u!1 &8108263753888895464
 GameObject:
   m_ObjectHideFlags: 0
@@ -5597,7 +5597,7 @@ Transform:
   - {fileID: 3713504534115001740}
   m_Father: {fileID: 6339790807847926794}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 13.332092}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.488861}
 --- !u!1 &8681768974488322939
 GameObject:
   m_ObjectHideFlags: 0
@@ -5662,7 +5662,7 @@ Transform:
   - {fileID: 742221157090532901}
   m_Father: {fileID: 6339790807847926794}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -158.10352}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -133.78592}
 --- !u!1 &8846931348079374867
 GameObject:
   m_ObjectHideFlags: 0
@@ -5979,7 +5979,7 @@ Transform:
   - {fileID: 5572589537698129527}
   m_Father: {fileID: 6339790807847926794}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -170.74635}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -152.06589}
 --- !u!1 &9198975290979770840
 GameObject:
   m_ObjectHideFlags: 0
@@ -88693,7 +88693,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0, z: 0.676877, w: 0.73609614}
+        value: {x: 0, y: 0, z: 0.6115271, w: 0.79122347}
         inSlope: {x: 0, y: 0, z: 0, w: 0}
         outSlope: {x: 0, y: 0, z: 0, w: 0}
         tangentMode: 0
@@ -88702,7 +88702,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
       - serializedVersion: 3
         time: 1
-        value: {x: 0, y: 0, z: 0.676877, w: 0.73609614}
+        value: {x: 0, y: 0, z: 0.6115271, w: 0.79122347}
         inSlope: {x: 0, y: 0, z: 0, w: 0}
         outSlope: {x: 0, y: 0, z: 0, w: 0}
         tangentMode: 0
@@ -89116,7 +89116,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.00383292, y: -0.05066891, z: -0.008}
+        value: {x: -1.79, y: -0.24, z: -0.008}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -89125,7 +89125,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1
-        value: {x: -0.00383292, y: -0.05066891, z: -0.008}
+        value: {x: -1.79, y: -0.24, z: -0.008}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -91112,118 +91112,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.x
-    path: lado/001/bone_016/bone_017/bracoL1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.y
-    path: lado/001/bone_016/bone_017/bracoL1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0.676877
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0.676877
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.z
-    path: lado/001/bone_016/bone_017/bracoL1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0.73609614
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0.73609614
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.w
-    path: lado/001/bone_016/bone_017/bracoL1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: 2.6402895
         inSlope: 0
         outSlope: 0
@@ -92535,7 +92423,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.00383292
+        value: -1.79
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -92544,7 +92432,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: -0.00383292
+        value: -1.79
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -92563,7 +92451,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.05066891
+        value: -0.24
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -92572,7 +92460,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: -0.05066891
+        value: -0.24
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -93200,6 +93088,118 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalScale.z
     path: lado/001/003/004/bracoL1_000
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: lado/001/bone_016/bone_017/bracoL1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: lado/001/bone_016/bone_017/bracoL1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.6115271
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.6115271
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: lado/001/bone_016/bone_017/bracoL1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.79122347
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.79122347
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: lado/001/bone_016/bone_017/bracoL1
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -93763,7 +93763,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -93772,7 +93772,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: -0
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -93819,7 +93819,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 85.20016
+        value: 75.4
         inSlope: 0.000022888184
         outSlope: 0.000022888184
         tangentMode: 0
@@ -93828,7 +93828,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 85.20016
+        value: 75.4
         inSlope: 0.000022888184
         outSlope: 0.000022888184
         tangentMode: 0

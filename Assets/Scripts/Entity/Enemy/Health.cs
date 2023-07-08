@@ -22,7 +22,7 @@ namespace Enemy
             damageCollider.enabled = false;
             var explosionDeathObject = Instantiate(explosionDeathParticle, transform.position, Quaternion.identity);
             explosionDeathObject.Play();
-            Destroy(gameObject, timeToDestroyObject);
+            Destroy(gameObject);
         }
 
         protected override void WhenTakeDamage(int damage)

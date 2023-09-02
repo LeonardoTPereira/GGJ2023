@@ -1,4 +1,5 @@
 using Assets.Scripts.Effects;
+using Spriter2UnityDX;
 using System.Collections;
 using UnityEngine;
 
@@ -43,6 +44,9 @@ namespace Boss.MadMantis
         private const string mantisRageSFXName = "MantisRage";
         private const string MantisOST = "MantisOST";
 
+
+        [SerializeField] private EffectsManager effectsManager;
+
         private void Awake()
         {
             IsEnraged = false;
@@ -79,9 +83,11 @@ namespace Boss.MadMantis
 
         public void StartDeath()
         {
+            Debug.Log("Start Death");
             StopAttackRoutine();
             AudioManager.Instance.PlaySFX(deathSFXName);
             _animator.SetTrigger("Death");
+            effectsManager.BeginDeath();
             _isDead = true;
         }
 

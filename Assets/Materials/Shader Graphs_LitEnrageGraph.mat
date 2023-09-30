@@ -56,5 +56,6 @@ Material:
     m_Floats:
     - _FillRate: 1.0000001
     - _IsEnraging: 0
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 1, g: 0.4196078, b: 0.4196078, a: 0}
   m_BuildTextureStacks: []

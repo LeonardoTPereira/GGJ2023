@@ -8,26 +8,27 @@ namespace Boss.MadMantis
     {
         //[SerializeField] private GameObject innerCircle;
         [SerializeField] private GameObject outerCircle;
-        private Color outerCircleSprite;
-        float alfa = 255;
+        private SpriteRenderer outerCircleSprite;
 
         float time = 0;
-        [SerializeField] private float duration = 3f;
-        Vector3 startScale, targetScale = Vector3.one * 5;
+        [SerializeField] private float duration = 0.1f;
+        Vector3 startScale = Vector3.one * 3;
+        Vector3 targetScale = Vector3.one * 10;
+
+        [SerializeField] float lerpTime;
+        [SerializeField] Color changeColor;
+
 
         private void Start()
         {
             startScale = outerCircle.transform.localScale;
             time = 0;
-            outerCircleSprite = outerCircle.GetComponent<SpriteRenderer>().color;
+            outerCircleSprite = outerCircle.GetComponent<SpriteRenderer>();
         }
+
         public void BeginDeath()
-        {
-            
-            //innerCircle.SetActive(true);
+        {    
             outerCircle.SetActive(true);
-            //fazer o circulo aumentar de tamanho até um valor específico, crescimento depende da velocidade
-            // fazer o circulo desaparecer conforme o tempo
         }
 
         private void Update()
@@ -38,8 +39,9 @@ namespace Boss.MadMantis
 
                 Vector3 newScale = Vector3.Lerp(startScale, targetScale, time);
                 outerCircle.transform.localScale = newScale;
-                outerCircleSprite.a -= 1f;
-                if (time > 1)
+                outerCircleSprite.color = Color.Lerp(outerCircleSprite.color, changeColor, lerpTime * Time.deltaTime * 3);
+                 
+                if (time > duration)
                 {
                     enabled = false;
                     outerCircle.SetActive(false);

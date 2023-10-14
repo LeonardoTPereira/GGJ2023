@@ -1,3 +1,4 @@
+using Spriter2UnityDX;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace Boss.MadMantis
 
         [SerializeField] float lerpTime;
         [SerializeField] Color changeColor;
+        private Material mantisMaterial;
 
 
         private void Start()
@@ -24,10 +26,16 @@ namespace Boss.MadMantis
             startScale = outerCircle.transform.localScale;
             time = 0;
             outerCircleSprite = outerCircle.GetComponent<SpriteRenderer>();
+
+            mantisMaterial = gameObject.GetComponent<EntityRenderer>().Material;
+            Color baseEnragedColor = new Color32(255, 107, 107, 100);
+            mantisMaterial.SetColor("_Color", baseEnragedColor);
         }
 
         public void BeginDeath()
-        {    
+        {
+            Color color2 = new Color32(107, 0, 0, 100);
+            mantisMaterial.SetColor("_Color", color2);
             outerCircle.SetActive(true);
         }
 

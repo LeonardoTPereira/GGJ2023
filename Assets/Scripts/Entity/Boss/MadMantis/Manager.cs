@@ -86,6 +86,7 @@ namespace Boss.MadMantis
             Debug.Log("Start Death");
             StopAttackRoutine();
             AudioManager.Instance.PlaySFX(deathSFXName);
+            //_animator.SetTrigger("PreDeath");
             _animator.SetTrigger("Death");
             effectsManager.BeginDeath();
             _isDead = true;

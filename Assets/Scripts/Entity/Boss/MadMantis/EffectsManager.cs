@@ -7,7 +7,6 @@ namespace Boss.MadMantis
 {
     public class EffectsManager : MonoBehaviour
     {
-        //[SerializeField] private GameObject innerCircle;
         [SerializeField] private GameObject outerCircle;
         private SpriteRenderer outerCircleSprite;
 

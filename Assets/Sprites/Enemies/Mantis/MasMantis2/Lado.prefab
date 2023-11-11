@@ -3684,6 +3684,7 @@ MonoBehaviour:
   fadeCooldown: 3
   damageParticle: {fileID: 3458166314295444617}
   deathParticle: {fileID: 3227506402978621312}
+  effectsManager: {fileID: 0}
 --- !u!114 &1677509983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114085,6 +114086,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.5833333
+    functionName: PlaySporesParticle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.6
     functionName: StartFall
     data: 

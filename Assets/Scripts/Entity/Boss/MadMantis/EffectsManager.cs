@@ -8,15 +8,15 @@ namespace Boss.MadMantis
     public class EffectsManager : MonoBehaviour
     {
         [SerializeField] private GameObject outerCircle;
-        private SpriteRenderer outerCircleSprite;
-
-        float time = 0;
         [SerializeField] private float duration = 0.1f;
-        Vector3 startScale = Vector3.one * 3;
-        Vector3 targetScale = Vector3.one * 10;
-
         [SerializeField] float lerpTime;
         [SerializeField] Color changeColor;
+        [SerializeField] private ParticleSystem sporesParticle;
+        
+        Vector3 startScale = Vector3.one * 3;
+        Vector3 targetScale = Vector3.one * 10;
+        float time = 0;
+        private SpriteRenderer outerCircleSprite;
         private Material mantisMaterial;
 
 
@@ -56,12 +56,15 @@ namespace Boss.MadMantis
             }
             
         }
-
+        public void PlaySporesParticle()
+        {
+            sporesParticle.Play();
+        }
 
 
         //private void ScaleObject(GameObject objectToScale, float speed)
         //{
-            
+
         //}
     }
 }

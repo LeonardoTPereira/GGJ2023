@@ -3682,8 +3682,8 @@ MonoBehaviour:
   <IsEnraged>k__BackingField: 0
   <IsFlying>k__BackingField: 0
   fadeCooldown: 3
-  damageParticle: {fileID: 3458166314295444617}
   deathParticle: {fileID: 3227506402978621312}
+  damageParticle: {fileID: 3458166314295444617}
   effectsManager: {fileID: 0}
 --- !u!114 &1677509983
 MonoBehaviour:
@@ -114086,7 +114086,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5833333
+  - time: 0.4
     functionName: PlaySporesParticle
     data: 
     objectReferenceParameter: {fileID: 0}

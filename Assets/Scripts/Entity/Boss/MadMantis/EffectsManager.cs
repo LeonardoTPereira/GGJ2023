@@ -31,10 +31,15 @@ namespace Boss.MadMantis
             mantisMaterial.SetColor("_Color", baseEnragedColor);
         }
 
-        public void BeginDeath()
+        public void ChangeMantisColorToRed()
         {
             Color color2 = new Color32(107, 0, 0, 100);
             mantisMaterial.SetColor("_Color", color2);
+        }
+
+        public void BeginDeath()
+        {
+            //ChangeMantisColorToRed();
             outerCircle.SetActive(true);
         }
 
@@ -56,6 +61,7 @@ namespace Boss.MadMantis
             }
             
         }
+
         public void PlaySporesParticle()
         {
             sporesParticle.Play();

@@ -30,7 +30,7 @@ namespace Boss.MadMantis
         protected override void WhenKill()
         {
             GetComponent<BoxCollider2D>().enabled = false;
-            _mantisManager.PlayDeathParticle();
+            //_mantisManager.PlayDeathParticle();
             _mantisManager.StartDeath();
         }
 

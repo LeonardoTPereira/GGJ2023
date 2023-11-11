@@ -26,7 +26,6 @@ namespace Boss.MadMantis
         [field: SerializeField] public bool IsFlying { get; private set; }
 
         [SerializeField] private float fadeCooldown = 1f;
-        [SerializeField] private ParticleSystem damageParticle, deathParticle;
         
         private Animator _animator;
         private bool _isJumping;
@@ -45,6 +44,8 @@ namespace Boss.MadMantis
         private const string MantisOST = "MantisOST";
 
 
+        [SerializeField] private ParticleSystem deathParticle;
+        [SerializeField] private ParticleSystem damageParticle;
         [SerializeField] private EffectsManager effectsManager;
 
         private void Awake()
@@ -84,12 +85,13 @@ namespace Boss.MadMantis
         public void StartDeath()
         {
             Debug.Log("Start Death");
-            StopAttackRoutine();
-            AudioManager.Instance.PlaySFX(deathSFXName);
-            //_animator.SetTrigger("PreDeath");
             _animator.SetTrigger("Death");
-            //effectsManager.BeginDeath();
             _isDead = true;
+            effectsManager.ChangeMantisColorToRed();
+            StopAttackRoutine();
+            //PlayDeathParticle();
+            AudioManager.Instance.PlaySFX(deathSFXName);
+            //effectsManager.BeginDeath();
         }
 
         public void StartFall()

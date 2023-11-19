@@ -90,13 +90,15 @@ namespace Boss.MadMantis
             effectsManager.ChangeMantisColorToRed();
             StopAttackRoutine();
             //PlayDeathParticle();
-            AudioManager.Instance.PlaySFX(deathSFXName);
+
             //effectsManager.BeginDeath();
+            AudioManager.Instance.PlaySFX(deathSFXName);
         }
 
         public void StartFall()
         {
             _rigidbody2D.gravityScale = 9.8f;
+           
         }
 
         public void ChangeToNextScene()

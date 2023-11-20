@@ -26,7 +26,7 @@ namespace Boss.MadMantis
         [field: SerializeField] public bool IsFlying { get; private set; }
 
         [SerializeField] private float fadeCooldown = 1f;
-        
+
         private Animator _animator;
         private bool _isJumping;
         private bool _isDead;
@@ -42,7 +42,6 @@ namespace Boss.MadMantis
         private const string verticalBulletSFXName = "MantisVerticalBullet";
         private const string mantisRageSFXName = "MantisRage";
         private const string MantisOST = "MantisOST";
-
 
         [SerializeField] private ParticleSystem deathParticle;
         [SerializeField] private ParticleSystem damageParticle;
@@ -85,12 +84,11 @@ namespace Boss.MadMantis
         public void StartDeath()
         {
             Debug.Log("Start Death");
+            StopAttackRoutine();
             _animator.SetTrigger("Death");
             _isDead = true;
             effectsManager.ChangeMantisColorToRed();
-            StopAttackRoutine();
             //PlayDeathParticle();
-
             //effectsManager.BeginDeath();
             AudioManager.Instance.PlaySFX(deathSFXName);
         }
@@ -98,7 +96,6 @@ namespace Boss.MadMantis
         public void StartFall()
         {
             _rigidbody2D.gravityScale = 9.8f;
-           
         }
 
         public void ChangeToNextScene()
@@ -296,7 +293,7 @@ namespace Boss.MadMantis
         public void PlayDamageParticle(Transform transform, Vector3 normal)
         {
             Quaternion rotation = Quaternion.Euler(0, 0, normal.z + 90);
-            if (normal.x < 0 )
+            if (normal.x < 0)
             {
                 rotation = Quaternion.Euler(0, 0, normal.z - 90);
             }
@@ -308,8 +305,6 @@ namespace Boss.MadMantis
         {
             deathParticle.Play();
         }
-
-
 
         private void StopAttackRoutine()
         {
@@ -325,6 +320,7 @@ namespace Boss.MadMantis
             if (_jumpRoutine != null)
             {
                 StopCoroutine(_jumpRoutine);
+                _animator.ResetTrigger("Jump");
                 _jumpRoutine = null;
             }
         }

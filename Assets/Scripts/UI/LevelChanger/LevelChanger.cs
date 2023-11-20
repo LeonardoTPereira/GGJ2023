@@ -7,10 +7,11 @@ namespace UI.LevelChanger
     {
         public static LevelChanger Instance;
 
-        const int DEFAULT_LEVEL_INDEX = -1;
+        private const int DEFAULT_LEVEL_INDEX = -1;
 
         [SerializeField] private Animator _animator;
         private int _nextLevelIndex = DEFAULT_LEVEL_INDEX;
+        [SerializeField] private GameObject ObjectToDestroy;
 
         private void Awake()
         {
@@ -30,6 +31,7 @@ namespace UI.LevelChanger
         public void FadeToNextLevel()
         {
             FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
+            Destroy(ObjectToDestroy);
         }
 
         public void OnFadeComplete()

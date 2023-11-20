@@ -20,8 +20,21 @@ namespace Entity
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = GetColorBasedOnEnemyType();
             Gizmos.DrawCube(transform.position, new Vector3(3, 3, 1));
+        }
+
+        private Color GetColorBasedOnEnemyType()
+        {
+            return entity.name switch
+            {
+                "Enemy1" => Color.blue,
+                "Enemy2Shield" => new Color32(98, 52, 0, 255),
+                "Enemy2" => Color.green,
+                "Enemy3" => Color.magenta,
+                "Enemy4" => Color.yellow,
+                _ => Color.gray,
+            };
         }
     }
 }

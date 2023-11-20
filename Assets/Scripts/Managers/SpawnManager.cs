@@ -5,31 +5,35 @@ using UnityEngine.UIElements;
 
 public class SpawnManager : MonoBehaviour
 {
-    public static SpawnManager Instance;
+    public static SpawnManager Instance { get; private set; }
     private int CurrentSpawnIndex { get; set; }
-    private List<Transform> _spawnList = new List<Transform>();
+    public Collider2D CameraBound { get => _cameraBound; private set => _cameraBound = value; }
 
-    void Awake()
+    private readonly List<Transform> _spawnList = new();
+    private Collider2D _cameraBound;
+
+    private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(this);
             return;
         }
         Instance = this;
-
         foreach (Transform transf in transform.GetComponentsInChildren<Transform>())
         {
             _spawnList.Add(transf);
         }
 
         CurrentSpawnIndex = 1;
+        _cameraBound = null;
     }
 
-    public void UpdateSpawnPoint()
+    public void UpdateSpawnPoint(Collider2D newCameraBound)
     {
         if (CurrentSpawnIndex < _spawnList.Count - 1)
         {
+            CameraBound = newCameraBound;
             CurrentSpawnIndex++;
         }
     }
@@ -43,5 +47,4 @@ public class SpawnManager : MonoBehaviour
     {
         CurrentSpawnIndex = 1;
     }
-
 }

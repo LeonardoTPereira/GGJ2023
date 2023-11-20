@@ -14,32 +14,27 @@ namespace Gameplay.Bullets
         {
             RigidBody = GetComponent<Rigidbody2D>();
 
-            var bulletXOrientation = transform.right.x/Mathf.Abs(transform.right.x);
-            
-            StartCoroutine(Bullet.BulletMovement.Move(new Vector2((bulletXOrientation)*Bullet.XSpeed, Bullet.YSpeed), this));
-            
+            var bulletXOrientation = transform.right.x / Mathf.Abs(transform.right.x);
+
+            StartCoroutine(Bullet.BulletMovement.Move(new Vector2((bulletXOrientation) * Bullet.XSpeed, Bullet.YSpeed), this));
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (!CompareTag("PlayerBullet")) return;
+            if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Shield"))
+            {
+                DestroyBullet();
+            }
             if (!col.gameObject.CompareTag("Enemy")) return;
             col.gameObject.GetComponent<Entity.Health>().TakeDamage(bullet.Damage);
-            
+
             if (col.gameObject.name == "MadMantis")
-            {   
+            {
                 col.gameObject.GetComponent<Boss.MadMantis.Manager>().PlayDamageParticle(transform, RigidBody.velocity);
             }
 
             DestroyBullet();
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.gameObject.CompareTag("Block"))
-            {
-                DestroyBullet();
-            }
         }
 
         private void DestroyBullet()

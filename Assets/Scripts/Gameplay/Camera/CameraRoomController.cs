@@ -17,13 +17,13 @@ public class CameraRoomController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             _confiner.m_BoundingShape2D = _roomCompositeColl;
 
             if (_isSpawnPoint)
             {
-                SpawnManager.Instance.UpdateSpawnPoint();
+                SpawnManager.Instance.UpdateSpawnPoint(_roomCompositeColl);
                 _isSpawnPoint = false;
             }
         }

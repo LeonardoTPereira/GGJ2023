@@ -25,6 +25,7 @@ namespace Player
         [SerializeField] private UnityEngine.Animator _anim;
 
         private bool _canShoot;
+        private bool _inputEnabled;
         private bool _isHoldingShoot;
         private BulletData _primaryBulletData;
         private BulletData _secondaryBulletData;
@@ -34,6 +35,7 @@ namespace Player
         {
             _canShoot = true;
             _isHoldingShoot = true;
+            _inputEnabled = true;
         }
 
         private void Start()
@@ -44,8 +46,19 @@ namespace Player
             _secondaryBulletData.BulletSo = SecondaryBullet.GetComponent<BulletController>().Bullet;
         }
 
+        private void OnEnable()
+        {
+            global::Player.Health.OnPlayerDied += DisableInput;
+        }
+
+        private void OnDisable()
+        {
+            global::Player.Health.OnPlayerDied -= DisableInput;
+        }
+
         public void ShootPrimaryWeapon(InputAction.CallbackContext context)
         {
+            if (!_inputEnabled) return;
             if (context.performed)
             {
                 _isHoldingShoot = true;
@@ -59,6 +72,7 @@ namespace Player
 
         public void ShootSecondaryWeapon(InputAction.CallbackContext context)
         {
+            if (!_inputEnabled) return;
             if (context.performed)
             {
                 _isHoldingShoot = true;
@@ -80,7 +94,7 @@ namespace Player
                 AudioManager.Instance.PlaySFX("Player_Tiro");
                 foreach (var spawnPoint in spawnPoints)
                 {
-                    Quaternion spawnRotation = new Quaternion(Quaternion.AngleAxis(0, Vector3.right).x, spawnPoint.rotation.y, 0, spawnPoint.rotation.w);  
+                    Quaternion spawnRotation = new Quaternion(Quaternion.AngleAxis(0, Vector3.right).x, spawnPoint.rotation.y, 0, spawnPoint.rotation.w);
                     Instantiate(bullet.BulletObject, spawnPoint.position, spawnRotation);
                     usedBulletsParticle.Play();
                     //muzzleEffectParticle.Play();
@@ -109,9 +123,9 @@ namespace Player
             set => cooldownBonus = value;
         }
 
-        private void EnableInput(object sender, EventArgs eventArgs)
+        private void DisableInput()
         {
-            _canShoot = true;
+            _inputEnabled = false;
         }
     }
 }

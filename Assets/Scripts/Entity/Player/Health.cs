@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Entity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 namespace Player
 {
@@ -14,8 +15,11 @@ namespace Player
         [SerializeField] private DamageEffect damageEffect;
 
         public static event Action<int> OnInitializePlayerHealth;
+
         public static event Action OnPlayerDied;
+
         public static event Action<int> OnPlayerTakeDamage;
+
         public static event Action<int> OnPlayerApplyHeal;
 
         [SerializeField] private ParticleSystem damageParticle;
@@ -24,7 +28,11 @@ namespace Player
         protected override void WhenInitializeHealth()
         {
             OnInitializePlayerHealth?.Invoke(maxHealth);
-            this.transform.position = SpawnManager.Instance.GetSpawnPoint().position; //CHANGE THAT
+            transform.parent.transform.position = SpawnManager.Instance.GetSpawnPoint().position; //CHANGE THAT
+            if (SpawnManager.Instance.CameraBound == null) return;
+            var _virtualCamera = GameObject.FindGameObjectWithTag("VirtualCamera");
+            var _confiner = _virtualCamera.GetComponent<CinemachineConfiner2D>();
+            _confiner.m_BoundingShape2D = SpawnManager.Instance.CameraBound;
         }
 
         protected override void WhenKill()

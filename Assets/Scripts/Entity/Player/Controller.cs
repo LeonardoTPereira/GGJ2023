@@ -351,7 +351,8 @@ namespace Player
         private void MoveCharacter()
         {
             var pos = transform.position;
-            RawMovement = new Vector3(_currentHorizontalSpeed, _currentVerticalSpeed); // Used externally
+            var boostedSpeed = _currentVerticalSpeed > 0 ? _currentVerticalSpeed * 1.5f : _currentVerticalSpeed;
+            RawMovement = new Vector3(_currentHorizontalSpeed, boostedSpeed); // Used externally
 
             if (_isDashing)
             {
@@ -382,7 +383,7 @@ namespace Player
                     transform.position = positionToMoveTo;
 
                     // EDGE DETECTION PART
-                    
+
                     // We've landed on a corner or hit our head on a ledge. Nudge the player gently
                     if (i == 1 && !_isDashing)
                     {
@@ -390,7 +391,7 @@ namespace Player
                         var dir = transform.position - hit.transform.position;
                         transform.position += dir.normalized * move.magnitude;
                     }
-                    
+
                     return;
                 }
 
@@ -398,14 +399,13 @@ namespace Player
             }
         }
 
-
-
         #endregion Move
 
         #region Dash
 
         [Header("DASH")]
         [SerializeField] private bool _hasDashInvincibility;
+
         [SerializeField] private float _dashVelocity = 10f;
         [SerializeField] private float _dashTime = 0.5f;
         [SerializeField] private float _dashCooldown = 1f;
@@ -425,7 +425,7 @@ namespace Player
 
                 if (isLeftDirection)
                     _dashDir = Vector3.right;
-                else 
+                else
                     _dashDir = Vector3.left;
 
                 if (_hasDashInvincibility)
@@ -433,9 +433,9 @@ namespace Player
                 StartCoroutine(StartDashCooldown());
                 StartCoroutine(StopDashing());
             }
-            
+
             // _animator.SetBool("IsDashing", _isDashing);  // DASH ANIMATION HERE
-            
+
             if (_isDashing)
             {
                 return;
@@ -464,6 +464,6 @@ namespace Player
             _isInDashCooldown = false;
         }
 
-        #endregion
+        #endregion Dash
     }
 }

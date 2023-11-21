@@ -39,6 +39,8 @@ namespace Player
         //private TrailRenderer _trailRenderer;
         private Rigidbody2D _rb;
 
+        [SerializeField] private ParticleSystem dashParticle;
+
         private void Awake()
         {
             Invoke(nameof(Activate), 0.5f);
@@ -422,6 +424,9 @@ namespace Player
                 _isDashing = true;
                 _canDash = false;
                 //_trailRenderer.emitting = true;
+                // add dash sound
+                dashParticle.Play();
+
 
                 if (isLeftDirection)
                     _dashDir = Vector3.right;

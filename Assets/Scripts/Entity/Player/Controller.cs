@@ -425,13 +425,19 @@ namespace Player
                 _canDash = false;
                 //_trailRenderer.emitting = true;
                 // add dash sound
-                dashParticle.Play();
-
-
+                
                 if (isLeftDirection)
+                {
                     _dashDir = Vector3.right;
+                    dashParticle.transform.rotation = Quaternion.Euler(0, -90, 0);
+                    dashParticle.Play();
+                }
                 else
+                {
                     _dashDir = Vector3.left;
+                    dashParticle.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    dashParticle.Play();
+                }
 
                 if (_hasDashInvincibility)
                     StartCoroutine(GetComponent<Health>().CountMovementInvincibilityCooldown(_dashTime));

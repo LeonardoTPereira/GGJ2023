@@ -43,8 +43,10 @@ namespace Boss.MadMantis
         private const string mantisRageSFXName = "MantisRage";
         private const string MantisOST = "MantisOST";
 
+        [Header("Visual Effects")]
         [SerializeField] private ParticleSystem deathParticle;
         [SerializeField] private ParticleSystem damageParticle;
+        [SerializeField] private ParticleSystem finalDamageParticle;
         [SerializeField] private EffectsManager effectsManager;
 
         private void Awake()
@@ -304,6 +306,11 @@ namespace Boss.MadMantis
         internal void PlayDeathParticle()
         {
             deathParticle.Play();
+        }
+
+        internal void PlayFinalDamageParticle()
+        {
+            finalDamageParticle.Play();
         }
 
         private void StopAttackRoutine()

@@ -3684,6 +3684,7 @@ MonoBehaviour:
   fadeCooldown: 3
   deathParticle: {fileID: 3227506402978621312}
   damageParticle: {fileID: 3458166314295444617}
+  finalDamageParticle: {fileID: 0}
   effectsManager: {fileID: 0}
 --- !u!114 &1677509983
 MonoBehaviour:

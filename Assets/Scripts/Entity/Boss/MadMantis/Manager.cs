@@ -88,16 +88,17 @@ namespace Boss.MadMantis
             Debug.Log("Start Death");
             StopAttackRoutine();
             _animator.SetTrigger("Death");
+            AudioManager.Instance.PlaySFX(deathSFXName);
             _isDead = true;
             effectsManager.ChangeMantisColorToRed();
             //PlayDeathParticle();
             //effectsManager.BeginDeath();
-            AudioManager.Instance.PlaySFX(deathSFXName);
         }
 
         public void StartFall()
         {
             _rigidbody2D.gravityScale = 9.8f;
+            finalDamageParticle.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
         public void ChangeToNextScene()

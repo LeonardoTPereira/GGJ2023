@@ -34,6 +34,8 @@ namespace Boss.MadMantis
         private Coroutine _jumpRoutine;
         private Rigidbody2D _rigidbody2D;
         private Vector2 _jumpTarget;
+        private float _verticalProbabilityBoost;
+        private float _topProbabilityBoost;
 
         private const string verticalAttackSFXName = "MantisVerticalAttack";
         private const string horizontalAttackSFXName = "MantisHorizontalAttack";
@@ -42,9 +44,14 @@ namespace Boss.MadMantis
         private const string verticalBulletSFXName = "MantisVerticalBullet";
         private const string mantisRageSFXName = "MantisRage";
         private const string MantisOST = "MantisOST";
+        private const float probabilityBoost = 0.25f;
+        private const float baseProbability = 0.5f;
+        private const float flyingMaxCooldownBoost = 0.5f;
+        private const float flyingMinCooldownBoost = 0.1f;
 
         [Header("Visual Effects")]
         [SerializeField] private ParticleSystem deathParticle;
+
         [SerializeField] private ParticleSystem damageParticle;
         [SerializeField] private ParticleSystem finalDamageParticle;
         [SerializeField] private EffectsManager effectsManager;
@@ -56,6 +63,8 @@ namespace Boss.MadMantis
             _isJumping = false;
             _animator = GetComponent<Animator>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _verticalProbabilityBoost = 0f;
+            _topProbabilityBoost = 0f;
         }
 
         private void Start()
@@ -63,9 +72,9 @@ namespace Boss.MadMantis
             AudioManager.Instance.PlayMusic(MantisOST);
         }
 
-        public void StartAttack()
+        public void StartAttack(float minCooldownBoost, float maxCooldownBoost)
         {
-            _attackRoutine ??= StartCoroutine(AttackLoop());
+            _attackRoutine ??= StartCoroutine(AttackLoop(minCooldownBoost, maxCooldownBoost));
         }
 
         public void StartJump()
@@ -80,7 +89,7 @@ namespace Boss.MadMantis
 
         public void Fly()
         {
-            StartAttack();
+            StartAttack(flyingMinCooldownBoost, flyingMaxCooldownBoost);
         }
 
         public void StartDeath()
@@ -133,11 +142,13 @@ namespace Boss.MadMantis
             _animator.SetBool("Flying", true);
         }
 
-        private IEnumerator AttackLoop()
+        private IEnumerator AttackLoop(float minCooldownBoost, float maxCooldownBoost)
         {
             while (true)
             {
-                var coolDown = Random.Range(MinAttackCooldown, MaxAttackCooldown);
+                var minCooldown = Mathf.Max(MinAttackCooldown - minCooldownBoost, 0.1f);
+                var maxCooldown = Mathf.Max(MaxAttackCooldown - maxCooldownBoost, MinAttackCooldown);
+                var coolDown = Random.Range(minCooldown, maxCooldown);
                 yield return new WaitForSeconds(coolDown);
                 Attack();
             }
@@ -198,24 +209,28 @@ namespace Boss.MadMantis
 
         private void Attack()
         {
-            if (Random.value < 0.5f)
+            if (Random.value < (baseProbability + _verticalProbabilityBoost))
             {
+                _verticalProbabilityBoost -= probabilityBoost;
                 StartVerticalAttackAnimation();
             }
             else
             {
+                _verticalProbabilityBoost += probabilityBoost;
                 StartHorizontalAttackAnimation();
             }
         }
 
         private void StartVerticalAttackAnimation()
         {
-            if (Random.value < 0.5f)
+            if (Random.value < (baseProbability + _topProbabilityBoost))
             {
+                _topProbabilityBoost -= probabilityBoost;
                 _animator.SetTrigger("VerticalAttackTop");
             }
             else
             {
+                _topProbabilityBoost += probabilityBoost;
                 _animator.SetTrigger("VerticalAttackBottom");
             }
         }
@@ -248,12 +263,14 @@ namespace Boss.MadMantis
 
         private void StartHorizontalAttackAnimation()
         {
-            if (Random.value < 0.5f)
+            if (Random.value < (baseProbability + _topProbabilityBoost))
             {
+                _topProbabilityBoost -= probabilityBoost;
                 _animator.SetTrigger("HorizontalAttackTop");
             }
             else
             {
+                _topProbabilityBoost += probabilityBoost;
                 _animator.SetTrigger("HorizontalAttackBottom");
             }
         }

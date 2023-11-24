@@ -22,7 +22,7 @@ namespace Gameplay.Bullets
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (!CompareTag("PlayerBullet")) return;
-            if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Shield"))
+            if (col.gameObject.CompareTag("Block") || col.gameObject.CompareTag("Shield") || col.gameObject.CompareTag("Platform"))
             {
                 DestroyBullet();
             }

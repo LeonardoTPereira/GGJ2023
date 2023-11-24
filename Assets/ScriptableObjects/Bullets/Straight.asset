@@ -15,6 +15,6 @@ MonoBehaviour:
   bulletName: StraightShot
   xSpeed: 70
   ySpeed: 0
-  cooldown: 0.2
-  damage: 6
+  cooldown: 0.3
+  damage: 1
   bulletMovement: {fileID: 11400000, guid: 2d54a37b411a9d246909ae549601f65f, type: 2}

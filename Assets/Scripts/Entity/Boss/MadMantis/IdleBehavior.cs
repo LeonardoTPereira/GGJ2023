@@ -6,7 +6,7 @@ namespace Boss.MadMantis
     {
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.GetComponent<Manager>().StartAttack();
+            animator.GetComponent<Manager>().StartAttack(0f, 0f);
         }
     }
 }

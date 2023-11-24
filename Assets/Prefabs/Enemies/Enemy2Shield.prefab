@@ -107,6 +107,7 @@ MonoBehaviour:
     m_Bits: 33554432
   maxHorizontalDistance: 1
   maxVerticalDistance: 3
+  flipCooldown: 0.5
 --- !u!70 &2292017377344018856
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -185,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8245903112e4e96419e8b72735ba74e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 6
   invincibilityCooldown: 0.1
   timeToDestroyObject: 0.2
   _health: 0
